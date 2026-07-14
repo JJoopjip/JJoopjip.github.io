@@ -45,3 +45,15 @@ redeploys in about a minute.
 python3 -m http.server 4000
 # then open http://localhost:4000
 ```
+
+## QR codes
+
+`assets/` holds QR codes pointing at https://jjoopjip.github.io/
+
+| File | Use | Notes |
+|---|---|---|
+| `qr.svg` / `qr.png` | print — résumé, business card | Black on white, 29×29, error level Q (25%). Verified to scan down to ~10mm printed. |
+| `qr-brand.svg` / `qr-brand.png` | slides, web | Portfolio palette + peach dot, 33×33, error level H (30%) to absorb the dot. Needs ~15mm; use the plain one when small. |
+
+SVG is preferred wherever it's supported — it stays crisp at any size.
+Regenerate with `segno`; every file above was decode-verified back to the URL.
