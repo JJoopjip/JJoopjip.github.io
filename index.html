@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chantamas Chatraporn — Project Manager, Toronto</title>
+<meta name="description" content="Chantamas (Joopjip) Chatraporn — PMP-certified project manager and commercial professional in pharma and healthcare, Toronto. Portfolio and self-built job-search tools.">
+<meta property="og:title" content="Chantamas Chatraporn — Project Manager, Toronto">
+<meta property="og:description" content="PMP-certified project manager in pharma, medtech and consumer health — plus two job-search tools I built and you can try in the browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jjoopjip.github.io/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23E4A182'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF6EF; --paper:#FFFDFA; --cream-2:#F4E9DD;
+  --peach:#E4A182; --peach-soft:#F6DCCB; --peach-wash:#FBECE1;
+  --sage:#89A184; --sage-soft:#DFE7DA; --sage-ink:#4E6349;
+  --ink:#332F29; --ink-soft:#6E655B; --ink-faint:#9A9086;
+  --line:#EADFD1;
+  --shadow:0 1px 2px rgba(75,55,40,.04),0 8px 26px rgba(120,85,55,.07);
+  --shadow-lg:0 2px 4px rgba(75,55,40,.05),0 20px 50px rgba(120,85,55,.12);
+  --display:'Fraunces',Georgia,serif;
+  --body:'Hanken Grotesk',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--peach)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;letter-spacing:-.01em;margin:0;color:var(--ink)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,246,239,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:18px}
+.brand{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--peach)}
+.navlinks{display:flex;gap:24px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.navlinks a{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;text-decoration:none;color:var(--ink-soft);padding:4px 0;position:relative}
+.navlinks a:hover{color:var(--ink)}
+.navlinks a.active{color:var(--ink)}
+.navlinks a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--peach);border-radius:2px}
+
+/* pages */
+.page{display:none;animation:fade .5s ease both}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* open-to-work badge */
+.badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--sage-ink);background:var(--sage-soft);border:1px solid #CBD9C4;padding:7px 15px;border-radius:999px;margin-bottom:22px}
+.badge .live{width:8px;height:8px;border-radius:50%;background:#5f8f57;position:relative}
+.badge .live::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid #5f8f57;opacity:.5;animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.6);opacity:.6}100%{transform:scale(1.6);opacity:0}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:64px 0 40px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 88% -10%, var(--peach-wash) 0%, transparent 55%),radial-gradient(90% 80% at 8% 8%, #FBF2E9 0%, transparent 50%);z-index:-1}
+.hero h1{font-size:clamp(38px,6.4vw,68px);font-weight:600;max-width:15ch}
+.hero h1 em{font-style:italic;color:var(--peach)}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--ink-soft);max-width:56ch;margin:22px 0 0}
+.contact-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;text-decoration:none;background:var(--paper);border:1px solid var(--line);color:var(--ink);padding:9px 16px;border-radius:999px;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s,border-color .18s}
+.chip:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:var(--peach)}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--peach)}
+
+/* section shells */
+section.block{padding:56px 0;border-top:1px solid var(--line)}
+.block .eyebrow{margin-bottom:14px}
+.block h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:6px}
+.sub{color:var(--ink-soft);max-width:60ch;margin:10px 0 0}
+
+/* positioning + impact strip */
+.pos{max-width:62ch;color:#4b463f;margin-top:8px}
+.pos strong{color:var(--ink);font-weight:600}
+.impact{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 16px;text-align:center;box-shadow:var(--shadow)}
+.stat .n{font-family:var(--display);font-weight:600;font-size:clamp(26px,3vw,34px);line-height:1;color:var(--ink)}
+.stat .l{font-size:12.5px;color:var(--ink-soft);margin-top:8px;line-height:1.35}
+.more-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--peach);text-decoration:none;margin-top:26px;transition:gap .18s}
+.more-link:hover{gap:12px}
+
+/* projects showcase */
+.proj-intro{max-width:62ch}
+.projgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
+.projcard{display:block;text-decoration:none;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;position:relative;overflow:hidden;cursor:pointer}
+.projcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,var(--peach-wash));opacity:0;transition:opacity .25s;pointer-events:none}
+.projcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--peach)}
+.projcard:hover::after{opacity:.5}
+.projcard .pk{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-ink)}
+.projcard h3{font-size:23px;font-weight:600;margin:10px 0 8px}
+.projcard p{margin:0;color:#4b463f;font-size:15px;position:relative}
+.projcard .go{margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--peach);display:inline-flex;align-items:center;gap:6px;position:relative}
+.projcard:hover .go{gap:11px}
+.trylive{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-ink);background:var(--sage-soft);border:1px solid #CBD9C4;padding:4px 11px;border-radius:999px;margin-top:16px;position:relative}
+.trylive .live{width:6px;height:6px;border-radius:50%;background:#5f8f57}
+.connect{margin-top:22px;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
+.connect .pill{background:var(--sage-soft);color:var(--sage-ink);padding:5px 12px;border-radius:999px}
+.connect .link-ico{color:var(--peach);font-size:15px}
+
+/* background page */
+.tl{margin-top:30px;position:relative}
+.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--peach),var(--sage))}
+.job{position:relative;padding:0 0 34px 40px}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:2px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--peach)}
+.job.alt::before{border-color:var(--sage)}
+.job .when{font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:var(--ink-faint)}
+.job h3{font-size:20px;font-weight:600;margin:3px 0 1px}
+.job .org{font-size:14.5px;color:var(--sage-ink);font-weight:600;margin-bottom:8px}
+.job p{margin:0;color:#4b463f;font-size:15.5px}
+.job .venues{margin:8px 0 0;padding:0;list-style:none}
+.job .venues li{font-size:14.5px;color:#4b463f;padding:3px 0 3px 16px;position:relative}
+.job .venues li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--sage)}
+.tag-extra{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-ink);background:var(--sage-soft);padding:3px 10px;border-radius:999px;margin-bottom:8px}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px 26px;box-shadow:var(--shadow)}
+.card h3{font-size:19px;font-weight:600;margin-bottom:4px}
+.card .meta{font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.03em}
+.card p{margin:12px 0 0;color:#4b463f;font-size:15px}
+.paper{grid-column:1/-1;background:linear-gradient(180deg,#FFFDFA,#FCF3EC);border-color:var(--peach-soft)}
+.paper .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--peach);margin-bottom:8px}
+.paper .title{font-family:var(--display);font-style:italic;font-size:19px;line-height:1.3;color:var(--ink)}
+.paper .cite{font-size:14px;color:var(--ink-soft);margin-top:6px}
+.skillcols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+.skillcol h3{font-size:15px;font-family:var(--body);font-weight:700;letter-spacing:.02em;margin-bottom:12px;color:var(--ink)}
+.skillcol ul{list-style:none;margin:0;padding:0}
+.skillcol li{font-size:14.5px;color:#4b463f;padding:5px 0 5px 18px;position:relative}
+.skillcol li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:2px;background:var(--peach)}
+.skillcol.s2 li::before{background:var(--sage)}
+.langs{margin-top:22px;font-size:14.5px;color:var(--ink-soft)}
+.langs b{color:var(--ink);font-weight:600}
+
+/* project detail */
+.detail-hero{padding:44px 0 6px}
+.back{font-family:var(--mono);font-size:12.5px;color:var(--ink-soft);text-decoration:none;display:inline-flex;gap:7px;align-items:center;margin-bottom:22px;transition:gap .18s,color .18s;cursor:pointer}
+.back:hover{color:var(--peach);gap:11px}
+.detail-hero h1{font-size:clamp(30px,5vw,50px);font-weight:600;margin-top:4px}
+.detail-hero .lead{margin-top:16px}
+.detail-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.detail-meta .m{font-family:var(--mono);font-size:12px;background:var(--paper);border:1px solid var(--line);padding:7px 13px;border-radius:999px;color:var(--ink-soft)}
+.detail-meta .m b{color:var(--ink);font-weight:600}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+.feat .f{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+.feat .f h4{margin:0 0 6px;font-family:var(--body);font-size:16px;font-weight:700}
+.feat .f p{margin:0;font-size:14.5px;color:#4b463f}
+.feat .f .fi{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--peach);display:block;margin-bottom:9px}
+
+/* browser-chrome frame — now holds a live demo instead of a screenshot */
+.shot{margin:20px 0 0}
+.shot figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:10px;text-align:center}
+.window{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);background:var(--paper)}
+.window .bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--cream-2);border-bottom:1px solid var(--line)}
+.window .dots{display:flex;gap:6px}
+.window .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.window .dots i:nth-child(1){background:#E9A48C}
+.window .dots i:nth-child(2){background:#EBCE9A}
+.window .dots i:nth-child(3){background:#A9C0A2}
+.window .url{flex:1;font-family:var(--mono);font-size:12px;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:5px 12px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.window .expand{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);text-decoration:none;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:5px 10px;white-space:nowrap;transition:color .18s,border-color .18s}
+.window .expand:hover{color:var(--peach);border-color:var(--peach)}
+.window img{width:100%;display:block}
+/* Tall enough that the working part of each demo — the board, the run log —
+   clears the fold without the visitor having to scroll inside the frame. */
+.window iframe.live{width:100%;height:800px;border:0;display:block;background:#F3F0E8}
+@media (max-width:860px){.window iframe.live{height:620px}}
+
+/* live-demo banner above each embed */
+.livebar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--sage-soft);border:1px solid #CBD9C4;border-radius:14px;padding:12px 16px;margin-top:26px}
+.livebar .lb-pill{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#5f8f57;border-radius:999px;padding:4px 11px;white-space:nowrap}
+.livebar .lb-pill i{width:6px;height:6px;border-radius:50%;background:#fff;display:block}
+.livebar p{margin:0;font-size:14px;color:#3f4c3c;flex:1;min-width:220px}
+
+.callout{margin-top:26px;background:var(--sage-soft);border:1px solid #CBD9C4;border-radius:18px;padding:22px 26px}
+.callout .fi{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-ink);display:block;margin-bottom:8px}
+.callout p{margin:0;color:#3f4c3c;font-size:15px}
+.callout a{color:var(--sage-ink);font-weight:600;cursor:pointer}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding:56px 0 64px;text-align:center;background:linear-gradient(180deg,transparent,var(--peach-wash))}
+.foot h2{font-size:clamp(24px,3.4vw,34px);margin-bottom:10px;max-width:22ch;margin-left:auto;margin-right:auto}
+.foot .sub{margin:0 auto 24px}
+.foot .contact-row{justify-content:center}
+.foot .fine{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-top:34px;letter-spacing:.03em}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  body{font-size:16px}
+  .impact{grid-template-columns:repeat(3,1fr)}
+  .skillcols{grid-template-columns:1fr}
+  .projgrid{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  .feat{grid-template-columns:1fr}
+  .nav .wrap{height:auto;padding-top:12px;padding-bottom:12px;flex-direction:column;align-items:flex-start;gap:10px}
+  .navlinks{justify-content:flex-start}
+}
+@media (max-width:420px){
+  .wrap{padding:0 20px}
+  .navlinks{gap:15px}
+  .impact{grid-template-columns:repeat(2,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .badge .live::after{display:none}
+}
+:focus-visible{outline:2.5px solid var(--peach);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#/">Chantamas <span>Chatraporn</span></a>
+    <div class="navlinks">
+      <a href="#/" data-route="/">Home</a>
+      <a href="#/background" data-route="/background">Background</a>
+      <a href="#/tracker" data-route="/tracker">Application Tracker</a>
+      <a href="#/resume-gen" data-route="/resume-gen">Résumé Generator</a>
+      <a href="mailto:c.chantamas@gmail.com">Email</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<main id="home" class="page">
+  <header class="hero">
+    <div class="wrap">
+      <div class="badge"><span class="live"></span>Open to work · PM, BD &amp; strategy · Toronto</div>
+      <h1>I manage the launch — <em>and build the tools</em> that make it run.</h1>
+      <p class="lead">Project manager and commercial professional with seven years in pharma, medtech, and consumer health. PMP-certified and business-analysis trained — hands-on enough to design the systems a project needs, including the two I built to run my own job search. Take a look below.</p>
+      <div class="contact-row">
+        <a class="chip" href="mailto:c.chantamas@gmail.com"><span class="dot"></span>c.chantamas@gmail.com</a>
+        <a class="chip" href="https://linkedin.com/in/chantamaschatraporn" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
+        <a class="chip" href="https://github.com/JJoopjip" target="_blank" rel="noopener"><span class="dot"></span>GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">In short</div>
+      <h2>What I'm good at.</h2>
+      <p class="pos reveal">I sit where <strong>strategy, delivery, and the customer meet</strong> — reading a market, shaping the offer, and running the cross-functional launch that gets it live and keeps it growing. A pharmacist by training who moved into business development and project management, I like owning the whole arc, and I build my own tooling when the off-the-shelf version doesn't fit.</p>
+      <div class="impact reveal">
+        <div class="stat"><div class="n">7+</div><div class="l">years in pharma, medtech &amp; consumer health</div></div>
+        <div class="stat"><div class="n">30+</div><div class="l">SKUs launched in a new B2C channel</div></div>
+        <div class="stat"><div class="n">100%</div><div class="l">online engagement growth, two quarters</div></div>
+        <div class="stat"><div class="n">90%</div><div class="l">customer / repeat-order retention</div></div>
+        <div class="stat"><div class="n">3.9</div><div class="l">GPA · M.S. Project Mgmt · PMP</div></div>
+      </div>
+      <a class="more-link" href="#/background" data-route="/background">See full background, experience &amp; research →</a>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">Built by me</div>
+      <h2>Tools I built to run my own job search.</h2>
+      <p class="sub proj-intro">Two small apps that work as one system: one tailors a résumé to any posting, the other tracks every application. They share data, so nothing gets typed twice. Both run on my own machine — so I rebuilt their interfaces here, and you can click through either one.</p>
+      <div class="projgrid reveal">
+        <a class="projcard" href="#/tracker" data-route="/tracker">
+          <div class="pk">Project 01 · Flask · runs locally</div>
+          <h3>Job Application Tracker</h3>
+          <p>A kanban board and daily dashboard for every application — status, response rate, and what needs attention today — fed automatically from the résumé generator.</p>
+          <span class="trylive"><span class="live"></span>Try it live</span>
+          <span class="go" style="display:block">View project →</span>
+        </a>
+        <a class="projcard" href="#/resume-gen" data-route="/resume-gen">
+          <div class="pk">Project 02 · AI-powered · runs locally</div>
+          <h3>AI Résumé Generator</h3>
+          <p>Paste a job posting and get a one-page résumé (and optional cover letter) built from my career history — with a coverage score showing how well it matches.</p>
+          <span class="trylive"><span class="live"></span>Try it live</span>
+          <span class="go" style="display:block">View project →</span>
+        </a>
+      </div>
+      <div class="connect reveal">
+        <span class="pill">Résumé Generator</span>
+        <span class="link-ico">⇄</span>
+        <span class="pill">Application Tracker</span>
+        <span>one-click hand-off · shared data · no duplicates</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="eyebrow" style="text-align:center">Let's talk</div>
+      <h2>Open to project management, BD &amp; strategy roles in Toronto.</h2>
+      <p class="sub">Pharma, healthcare, medtech, and consumer health especially. The fastest way to reach me is email.</p>
+      <div class="contact-row">
+        <a class="chip" href="mailto:c.chantamas@gmail.com"><span class="dot"></span>c.chantamas@gmail.com</a>
+        <a class="chip" href="https://linkedin.com/in/chantamaschatraporn" target="_blank" rel="noopener"><span class="dot"></span>LinkedIn</a>
+        <a class="chip" href="https://github.com/JJoopjip" target="_blank" rel="noopener"><span class="dot"></span>GitHub</a>
+      </div>
+      <div class="fine">Chantamas “Joopjip” Chatraporn · Toronto, ON · Portfolio</div>
+    </div>
+  </footer>
+</main>
+
+<!-- ================= BACKGROUND ================= -->
+<main id="background" class="page">
+  <header class="detail-hero">
+    <div class="wrap">
+      <a class="back" href="#/" data-route="/">← Back to home</a>
+      <div class="eyebrow">Background</div>
+      <h1>Experience, education &amp; research.</h1>
+      <p class="lead">The full picture behind the front page — where I've delivered, what I studied, and the research I've published.</p>
+    </div>
+  </header>
+
+  <section class="block" style="border-top:none;padding-top:24px">
+    <div class="wrap">
+      <div class="eyebrow">Experience</div>
+      <h2>Where I've delivered.</h2>
+      <div class="tl reveal">
+        <div class="job">
+          <div class="when">Aug 2022 — Oct 2023</div>
+          <h3>Business Development &amp; Online Marketing Manager</h3>
+          <div class="org">Winnergy Medical PCL · Bangkok</div>
+          <p>Opened the company's first B2C channel from scratch — 30+ SKUs across modern-trade retail, e-commerce, and social commerce. Drove 100% online-engagement growth in two quarters, held 90% retention, briefed the CEO directly, and grew the B2B institutional pipeline in parallel.</p>
+        </div>
+        <div class="job alt">
+          <div class="when">Apr 2019 — Oct 2021</div>
+          <h3>Business Development Executive</h3>
+          <div class="org">LG Chem Life Science (Thailand) · Bangkok</div>
+          <p>Sourced and secured international manufacturing partners, negotiated contracts and pricing, and fed market and competitive intelligence into the annual brand-planning cycle across pharmaceuticals, vaccines, and aesthetics.</p>
+        </div>
+        <div class="job">
+          <div class="when">Jul 2017 — Mar 2019</div>
+          <h3>Senior Project Specialist, New Product Development</h3>
+          <div class="org">Thai Otsuka Pharmaceutical · Bangkok</div>
+          <p>Led disease-specific medical-food products from prototype to launch — scope, schedule, and budget across R&amp;D, regulatory, manufacturing, and marketing — delivered on time and in full Thai FDA compliance, using Agile rituals across the program team.</p>
+        </div>
+        <div class="job alt">
+          <div class="when">Apr 2025 — Jun 2026</div>
+          <span class="tag-extra">Part-time · while completing my master's</span>
+          <h3>Server &amp; Front of House · Toronto</h3>
+          <div class="org">Three concurrent hospitality roles</div>
+          <p>Held up to three part-time front-of-house roles at once while carrying a full-time graduate program — high-volume service, made-to-order prep, and clean cash and card handling. Smart Serve certified. A sustained, real-world exercise in prioritization and composure under pressure.</p>
+          <ul class="venues">
+            <li>Khao San Road — Server (Jan 2025 – Jun 2026)</li>
+            <li>Kao Kang by Koh Lipe, The Well — Front of House (Jul – Nov 2025)</li>
+            <li>Chapayom — Front of House &amp; beverage/food prep (Apr – Jun 2025)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">Education &amp; Research</div>
+      <h2>Foundations.</h2>
+      <div class="edu-grid reveal">
+        <div class="card">
+          <h3>M.S. Project Management</h3>
+          <div class="meta">Northeastern University, Toronto · 2024–2026</div>
+          <p>Concentration in Project Business Analysis · GPA 3.9 / 4.0 · PMP Certified · Capstone in innovation projects.</p>
+        </div>
+        <div class="card">
+          <h3>Bachelor of Pharmacy</h3>
+          <div class="meta">Chulalongkorn University, Bangkok · 2011–2017</div>
+          <p>Faculty of Pharmaceutical Sciences — the clinical and regulatory grounding behind my work in health products.</p>
+        </div>
+        <div class="card paper">
+          <div class="kicker">Peer-reviewed publication</div>
+          <div class="title">"Increasing retention of vitamin D3 in vitamin D3-fortified ice cream with milk protein emulsifier."</div>
+          <div class="cite">Co-author · <em>International Dairy Journal</em> — research completed during my Bachelor of Pharmacy.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">Skills</div>
+      <h2>What I bring to a team.</h2>
+      <div class="skillcols reveal">
+        <div class="skillcol">
+          <h3>Project &amp; program delivery</h3>
+          <ul>
+            <li>Scope, schedule &amp; budget management</li>
+            <li>Agile and Waterfall delivery</li>
+            <li>Risk &amp; issue management</li>
+            <li>Vendor &amp; contract management</li>
+            <li>Regulatory compliance coordination</li>
+          </ul>
+        </div>
+        <div class="skillcol s2">
+          <h3>Business development &amp; strategy</h3>
+          <ul>
+            <li>Channel &amp; market development</li>
+            <li>Partner sourcing &amp; negotiation</li>
+            <li>Market &amp; competitive intelligence</li>
+            <li>Go-to-market planning</li>
+            <li>Account retention</li>
+          </ul>
+        </div>
+        <div class="skillcol">
+          <h3>Tools &amp; analysis</h3>
+          <ul>
+            <li>Power BI · Tableau</li>
+            <li>MS Project · Lucidchart</li>
+            <li>Excel &amp; Google Sheets (advanced)</li>
+            <li>Business analysis (BABOK-aligned)</li>
+            <li>AI-assisted workflows &amp; light coding</li>
+          </ul>
+        </div>
+      </div>
+      <p class="langs reveal"><b>Languages:</b> Thai (native) · English (fluent) · German (basic) · French (basic)</p>
+      <a class="more-link" href="#/" data-route="/" style="margin-top:32px">← Back to home &amp; projects</a>
+    </div>
+  </section>
+</main>
+
+<!-- ================= TRACKER ================= -->
+<main id="tracker" class="page">
+  <header class="detail-hero">
+    <div class="wrap">
+      <a class="back" href="#/" data-route="/">← Back to home</a>
+      <div class="eyebrow">Project 01</div>
+      <h1>Job Application Tracker</h1>
+      <p class="lead">A personal command centre for a serious job hunt. Every application lives on one board — with a daily dashboard that tells me what actually needs attention, so nothing slips.</p>
+      <div class="detail-meta">
+        <span class="m"><b>Built with</b> Python · Flask</span>
+        <span class="m"><b>Runs</b> locally on my machine</span>
+        <span class="m"><b>Feeds from</b> the Résumé Generator</span>
+      </div>
+    </div>
+  </header>
+  <section class="block" style="border-top:none;padding-top:16px">
+    <div class="wrap">
+      <div class="livebar">
+        <span class="lb-pill"><i></i>Live demo</span>
+        <p>The real tracker runs on my own machine, so I rebuilt its interface here — it works right in this page. <strong>Drag a card between columns</strong> — or tap one on a phone — to see a status change save. Every application shown is invented sample data; my real ones stay private.</p>
+      </div>
+      <figure class="shot">
+        <div class="window">
+          <div class="bar">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <div class="url">127.0.0.1:5000 · Board &amp; dashboard</div>
+            <a class="expand" href="./demo/tracker.html" target="_blank" rel="noopener">Open ↗</a>
+          </div>
+          <iframe class="live" src="./demo/tracker.html?embed=1" title="Interactive demo of the Job Application Tracker" loading="lazy"></iframe>
+        </div>
+        <figcaption>Interactive — the daily view, the needs-attention feed, and the board. Try moving a card.</figcaption>
+      </figure>
+      <div class="feat" style="margin-top:34px">
+        <div class="f"><span class="fi">Kanban board</span><h4>Every stage, one glance</h4><p>Cards move through Wishlist → Applied → Screening → Interview → Final. Drag to change status on desktop, tap to update on a phone — it saves on drop.</p></div>
+        <div class="f"><span class="fi">Daily dashboard</span><h4>Only what needs me</h4><p>A “needs attention” feed surfaces anything overdue or gone quiet, so a busy week never means a dropped follow-up.</p></div>
+        <div class="f"><span class="fi">Inbox &amp; backup</span><h4>Everything in one place</h4><p>Application details, links, and notes stay together, with a backup option so the record is never lost.</p></div>
+        <div class="f"><span class="fi">One-click intake</span><h4>No re-typing</h4><p>New applications arrive straight from the Résumé Generator — company, role, and documents already attached.</p></div>
+      </div>
+      <div class="callout">
+        <span class="fi">How it connects</span>
+        <p>The tracker doesn't store its own copy of a résumé or posting — it reads from the Résumé Generator, so a single source of truth drives both apps and nothing is duplicated. <a href="#/resume-gen" data-route="/resume-gen">See the Résumé Generator →</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= RESUME GEN ================= -->
+<main id="resume-gen" class="page">
+  <header class="detail-hero">
+    <div class="wrap">
+      <a class="back" href="#/" data-route="/">← Back to home</a>
+      <div class="eyebrow">Project 02</div>
+      <h1>AI Résumé Generator</h1>
+      <p class="lead">Paste a job posting and get a one-page résumé built from my real career history — plus, if I want, a matching cover letter and a coverage score that shows exactly how well I fit the role.</p>
+      <div class="detail-meta">
+        <span class="m"><b>Built with</b> Python · headless AI agent</span>
+        <span class="m"><b>Runs</b> locally on my machine</span>
+        <span class="m"><b>Outputs</b> PDF + Word</span>
+      </div>
+    </div>
+  </header>
+  <section class="block" style="border-top:none;padding-top:16px">
+    <div class="wrap">
+      <div class="livebar">
+        <span class="lb-pill"><i></i>Live demo</span>
+        <p>The real generator runs locally and calls an AI model to write from my private career history, so I rebuilt its interface here. <strong>Press Generate</strong> to watch a real run replay — the log lines are the ones the actual pipeline prints. Nothing you type is sent anywhere.</p>
+      </div>
+      <figure class="shot">
+        <div class="window">
+          <div class="bar">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <div class="url">127.0.0.1:8000 · Tailor a résumé</div>
+            <a class="expand" href="./demo/resume-generator.html" target="_blank" rel="noopener">Open ↗</a>
+          </div>
+          <iframe class="live" src="./demo/resume-generator.html?embed=1" title="Interactive demo of the AI Résumé Generator" loading="lazy"></iframe>
+        </div>
+        <figcaption>Interactive — paste a posting, press Generate, and watch each step of the run.</figcaption>
+      </figure>
+      <div class="feat" style="margin-top:34px">
+        <div class="f"><span class="fi">Flexible output</span><h4>Résumé, cover letter, or both</h4><p>Choose résumé only, résumé and cover letter in one run, or add the cover letter afterward once the résumé looks right.</p></div>
+        <div class="f"><span class="fi">Coverage score</span><h4>Know your fit before you apply</h4><p>Each run analyses how well the résumé matches the posting, so I can see where the gaps are and decide whether — and how — to close them. Gaps get closed by adding real experience, never by inventing it.</p></div>
+        <div class="f"><span class="fi">Live step log</span><h4>Nothing hidden</h4><p>A running log shows each step as it reads the spec, my history, and the posting, then writes and renders the documents.</p></div>
+        <div class="f"><span class="fi">One-click hand-off</span><h4>Straight to the tracker</h4><p>Send the finished résumé, cover letter, and posting to the Application Tracker in a single click — no copy-paste.</p></div>
+      </div>
+      <div class="callout">
+        <span class="fi">How it connects</span>
+        <p>This is the source of truth for both tools. When I add an application to the tracker, it pulls from here — so the résumé, cover letter, and posting live in one place and never get duplicated. <a href="#/tracker" data-route="/tracker">See the Application Tracker →</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var routes = {'/':'home','/background':'background','/tracker':'tracker','/resume-gen':'resume-gen'};
+  var pages = document.querySelectorAll('.page');
+  var links = document.querySelectorAll('.navlinks a[data-route]');
+
+  function pathFromHash(){
+    var p = (location.hash || '#/').replace('#','') || '/';
+    return routes[p] ? p : '/';
+  }
+
+  function render(path){
+    if(!routes[path]) path = '/';
+    pages.forEach(function(p){ p.classList.remove('on'); });
+    var el = document.getElementById(routes[path]);
+    if(el) el.classList.add('on');
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-route') === path); });
+    try{ window.scrollTo(0,0); }catch(e){}
+    setupReveal();
+  }
+
+  function setupReveal(){
+    var items = document.querySelectorAll('.page.on .reveal:not(.in)');
+    if(!('IntersectionObserver' in window)){ items.forEach(function(i){i.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    items.forEach(function(i){ io.observe(i); });
+  }
+
+  // Switch pages directly on click (works even where hashchange is blocked)
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="#/"]');
+    if(!a) return;
+    e.preventDefault();
+    var path = (a.getAttribute('href') || '#/').replace('#','') || '/';
+    if(!routes[path]) path = '/';
+    render(path);
+    try{ location.hash = path; }catch(err){}
+  });
+
+  window.addEventListener('hashchange', function(){ render(pathFromHash()); });
+  render(pathFromHash());
+})();
+</script>
+</body>
+</html>

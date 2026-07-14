@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Résumé Generator — interactive demo</title>
+<meta name="description" content="An interactive, in-browser demo of the AI Résumé Generator built by Chantamas Chatraporn. Sample data only.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%2377A088'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<!-- ?embed=1 => rendered inside the portfolio's browser frame, which carries its
+     own "Live demo" disclosure. Drop the in-page duplicate so the working part of
+     the UI sits above the iframe's fold. Set before first paint to avoid a flash. -->
+<script>if (location.search.indexOf("embed") !== -1) document.documentElement.classList.add("embed");</script>
+<style>
+  /* Palette lifted from the real app (web/templates/index.html) so the demo
+     reads as the same product, not a lookalike. */
+  :root {
+    --paper:        #F3F0E8;
+    --surface:      #FCFBF7;
+    --sage:         #77A088;
+    --sage-strong:  #4E7961;
+    --apricot:      #E0A46E;
+    --slate:        #2E3A37;
+    --muted:        #6C7772;
+    --sage-tint:    #E7EFE8;
+    --apricot-tint: #F6E7D4;
+    --line:         #E4DFD3;
+    --radius:       16px;
+    --radius-sm:    11px;
+    --shadow:       0 1px 2px rgba(46,58,55,.05), 0 6px 20px rgba(46,58,55,.06);
+    --shadow-lift:  0 2px 4px rgba(46,58,55,.06), 0 14px 34px rgba(46,58,55,.10);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--slate);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .band-text { font-family: "Nunito", system-ui, sans-serif; color: var(--slate); letter-spacing: -.01em; }
+  a { color: var(--sage-strong); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .9em; }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 18px 18px 60px; }
+
+  /* Demo banner — this page must never be mistaken for the live app. */
+  .demo-note {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--apricot-tint); border: 1px solid #E8CFA9;
+    border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 16px;
+    font-size: 13px; color: #6B4E2A;
+  }
+  .demo-note b { color: #573D1E; }
+  .demo-pill {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    background: var(--apricot); color: #fff; border-radius: 999px;
+    padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+  }
+  .embed .demo-note { display: none; }
+  .embed .wrap { padding-top: 14px; }
+
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  .brand { font-family: "Nunito", system-ui, sans-serif; font-weight: 800; font-size: 19px; display: flex; align-items: center; gap: 9px; color: var(--slate); }
+  .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px var(--sage-tint); }
+  .topbar-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+  .btn {
+    font-family: "Inter", system-ui, sans-serif; font-size: 14px; font-weight: 600;
+    border: none; border-radius: 999px; padding: 10px 18px; min-height: 42px;
+    cursor: pointer; background: var(--surface); color: var(--slate); box-shadow: var(--shadow);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift); text-decoration: none; }
+  .btn:disabled { opacity: .5; cursor: default; transform: none; box-shadow: var(--shadow); }
+  .btn-primary { background: var(--sage); color: #fff; }
+  .btn-primary:hover:not(:disabled) { background: var(--sage-strong); }
+  .btn-ghost { background: transparent; box-shadow: none; color: var(--muted); }
+  .btn-ghost:hover { background: var(--surface); box-shadow: var(--shadow); }
+  .btn-sm { font-size: 13px; padding: 8px 14px; min-height: 38px; }
+  .btn-current { background: var(--sage-tint); color: var(--sage-strong); box-shadow: none; }
+  :focus-visible { outline: 3px solid var(--sage); outline-offset: 2px; border-radius: 8px; }
+
+  .band { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-strong) 100%); color: #fff; border-radius: 22px; padding: 24px 26px; margin-bottom: 22px; box-shadow: var(--shadow-lift); }
+  .band-label { font-size: 12.5px; text-transform: uppercase; letter-spacing: .12em; opacity: .8; margin-bottom: 6px; font-weight: 600; }
+  .band-text { font-weight: 700; font-size: clamp(19px, 3.2vw, 26px); line-height: 1.3; color: #fff; margin: 0; }
+  .band-sub { margin: 10px 0 0; font-size: 14px; opacity: .92; max-width: 60ch; }
+
+  .panel { background: var(--surface); border-radius: var(--radius); padding: 20px 20px 22px; box-shadow: var(--shadow); }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 13px; font-weight: 600; color: var(--muted); }
+  textarea {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13.5px;
+    padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--line);
+    background: var(--paper); color: var(--slate); width: 100%; min-height: 190px;
+    resize: vertical; line-height: 1.55;
+  }
+  textarea:focus { outline: none; border-color: var(--sage); background: var(--surface); box-shadow: 0 0 0 3px var(--sage-tint); }
+  .row { display: flex; gap: 14px; align-items: center; margin-top: 16px; flex-wrap: wrap; }
+  .check { display: flex; align-items: center; gap: .4rem; font-size: 13.5px; color: var(--muted); cursor: pointer; user-select: none; }
+  .check input { accent-color: var(--sage); width: 16px; height: 16px; }
+  .status { font-size: 13.5px; color: var(--muted); }
+
+  pre#log {
+    margin-top: 20px; padding: 16px 18px; border-radius: var(--radius);
+    max-height: 300px; overflow: auto; white-space: pre-wrap; word-break: break-word;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12.5px;
+    line-height: 1.7; background: var(--surface); border: 1px solid var(--line);
+    box-shadow: var(--shadow); color: var(--slate); display: none;
+  }
+
+  #result { margin-top: 20px; display: none; background: var(--surface); border-radius: var(--radius); padding: 20px 20px 22px; box-shadow: var(--shadow); }
+  #result h2 { font-size: 18px; font-weight: 700; margin: 0 0 14px; }
+  .dl {
+    display: inline-flex; align-items: center; margin: 0 .5rem .5rem 0;
+    padding: 10px 16px; border-radius: 999px; background: var(--sage-tint);
+    color: var(--sage-strong); font-weight: 600; font-size: 14px; box-shadow: var(--shadow);
+    border: none; cursor: pointer; font-family: "Inter", system-ui, sans-serif;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .dl:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift); }
+  .folder { font-size: 12.5px; color: var(--muted); margin-top: 12px; word-break: break-all; background: var(--paper); padding: 10px 14px; border-radius: var(--radius-sm); }
+  /* #tracker-out is a .folder that starts empty — don't paint a blank bar. */
+  .folder:empty { display: none; }
+
+  /* Coverage meter — the headline signal of the real tool. */
+  .cov { margin: 4px 0 16px; padding: 14px 16px; background: var(--paper); border-radius: var(--radius-sm); }
+  .cov-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+  .cov-label { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+  .cov-num { font-family: "Nunito", system-ui, sans-serif; font-weight: 800; font-size: 22px; color: var(--sage-strong); }
+  .cov-bar { height: 9px; border-radius: 999px; background: var(--line); overflow: hidden; }
+  .cov-fill { height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--sage), var(--sage-strong)); transition: width 1.1s cubic-bezier(.2,.7,.3,1); }
+  .cov-hint { font-size: 12.5px; color: var(--muted); margin: 9px 0 0; }
+
+  .spin { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--line); border-top-color: var(--sage); animation: spin .8s linear infinite; vertical-align: -2px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(8px); background: var(--slate); color: #fff; font-size: 13px; padding: 10px 16px; border-radius: 999px; box-shadow: var(--shadow-lift); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 50; }
+  .toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+  @media (max-width: 720px) { .band { padding: 20px 18px; } .wrap { padding: 14px 14px 50px; } }
+  @media (prefers-reduced-motion: reduce) { *, .btn, .dl { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="demo-note">
+      <span class="demo-pill">Demo</span>
+      <div><b>Interactive demo.</b> This is a faithful rebuild of the real app's interface, running entirely in your browser with sample data. The real tool runs locally and calls an AI model to write from a private career history file; here the run is replayed so you can see the flow. Nothing you type is sent anywhere.</div>
+    </div>
+
+    <header class="topbar">
+      <span class="brand"><span class="dot"></span> 🍀 GoodLuck Joopjip ✨🎉</span>
+      <div class="topbar-actions">
+        <a class="btn btn-ghost btn-sm" href="./tracker.html">Board</a>
+        <a class="btn btn-ghost btn-sm" href="./tracker.html">Inbox</a>
+        <a class="btn btn-primary btn-sm" href="./tracker.html">📋 Application Tracker ↗</a>
+        <span class="btn btn-current btn-sm">✨ Résumé generator</span>
+      </div>
+    </header>
+
+    <div class="band">
+      <div class="band-label">Tailor a résumé</div>
+      <p class="band-text">Paste a job posting — get a one-page résumé built from your history.</p>
+      <p class="band-sub">Takes a few minutes; the live log shows each step. Files are saved to
+        <code>output/</code> automatically — the download buttons just copy them out.</p>
+    </div>
+
+    <div class="panel">
+      <div class="field">
+        <label for="jd">Job description</label>
+        <textarea id="jd" spellcheck="false" placeholder="Paste the full job posting here…"></textarea>
+      </div>
+      <div class="row">
+        <button id="go" class="btn btn-primary">Generate</button>
+        <label class="check"><input type="checkbox" id="cover" checked> Also write a cover letter now (same run)</label>
+        <span class="status" id="status"></span>
+      </div>
+    </div>
+
+    <pre id="log"></pre>
+    <div id="result"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const go = $("go"), jd = $("jd"), status = $("status"), log = $("log"), result = $("result"), cover = $("cover");
+
+// A representative posting so a visitor can hit Generate immediately.
+const SAMPLE_JD = `Project Manager, Commercial Operations — Toronto, ON (Hybrid)
+
+About the role
+We are seeking a PMP-certified Project Manager to lead cross-functional
+product launches across our pharmaceutical and consumer health portfolio.
+You will own scope, schedule and budget, and act as the bridge between
+R&D, regulatory, manufacturing and commercial teams.
+
+Responsibilities
+• Lead new product development projects from prototype through launch
+• Manage scope, schedule and budget across cross-functional teams
+• Coordinate regulatory compliance and submission timelines
+• Build go-to-market plans with marketing and sales
+• Manage vendor relationships and negotiate contracts
+• Report project health and risk to senior leadership
+
+Requirements
+• 5+ years project management in pharma, medtech or consumer health
+• PMP certification required
+• Demonstrated experience launching products in regulated markets
+• Strong stakeholder management and executive communication
+• Agile and Waterfall delivery experience
+• Business analysis background an asset`;
+
+jd.value = SAMPLE_JD;
+
+// The real pipeline's own step lines (web/app.py), replayed with plausible
+// pacing. `d` is the pause *before* the line prints.
+function steps(withCover) {
+  const s = [
+    ["  web │ starting resume — this takes a few minutes; watch the log below.", 260],
+    ["  📁  creating the output folder", 520],
+    ["  🗂️  saving a copy of the job description", 430],
+    ["  ⚙️  starting the tailoring engine …", 640],
+    ["  📖  reading the tailoring instructions", 560],
+    ["  📖  reading your career history", 700],
+    ["  📖  reading the job description", 520],
+    ["  ✍️  choosing and writing your tailored content", 1500],
+    ["  📝  writing the omissions report (what was left out)", 780],
+    ["  🔎  validating the draft …", 640],
+    ["  🖨️  rendering the PDF …", 900],
+    ["  ✂️  2 pages — trimming to fit one page …", 820],
+    ["  🖨️  re-rendering after trimming (attempt 2) …", 900],
+    ["  ✅  it fits on one page", 520],
+  ];
+  if (withCover) s.push(
+    ["  ✍️  writing your cover letter", 1400],
+    ["  🖨️  rendering the cover letter …", 820],
+  );
+  return s;
+}
+
+let running = false;
+go.addEventListener("click", async () => {
+  if (running) return;
+  if (!jd.value.trim()) { status.textContent = "Paste a job description first."; return; }
+  running = true;
+  go.disabled = true;
+  result.style.display = "none";
+  result.innerHTML = "";
+  log.style.display = "block";
+  log.textContent = "";
+  scrollToEl(log);   // follow the click — the log is below the fold when embedded
+
+  const withCover = cover.checked;
+  let buf = "";
+  for (const [line, delay] of steps(withCover)) {
+    await sleep(delay);
+    buf += line + "\n";
+    log.textContent = buf;
+    log.scrollTop = log.scrollHeight;
+    status.innerHTML = '<span class="spin"></span> ' + escapeHtml(line.trim());
+  }
+  await sleep(320);
+  finish(withCover);
+  running = false;
+  go.disabled = false;
+});
+
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+function escapeHtml(s) { return s.replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])); }
+
+// Scroll this document only — never the parent page. Using scrollingElement
+// (rather than scrollIntoView) keeps an embedding iframe from tugging the
+// portfolio around it, so the run stays visible where the visitor clicked.
+function scrollToEl(el) {
+  const se = document.scrollingElement || document.documentElement;
+  const top = el.getBoundingClientRect().top + se.scrollTop - 14;
+  se.scrollTo({ top, behavior: "smooth" });
+}
+
+function finish(hasCover) {
+  status.innerHTML = "✓ Done.";
+  const slug = "commercial-ops-pm-2026-07-14";
+  let html = "<h2>Your résumé" + (hasCover ? " &amp; cover letter are" : " is") + " ready</h2>";
+
+  html += `<div class="cov">
+    <div class="cov-top">
+      <span class="cov-label">Job-description coverage</span>
+      <span class="cov-num" id="cov-num">0%</span>
+    </div>
+    <div class="cov-bar"><div class="cov-fill" id="cov-fill"></div></div>
+    <p class="cov-hint">Deterministic ATS-style keyword screen against the posting.
+      Gaps are closed by adding real experience to <code>master.yaml</code> — never by inventing them to score.</p>
+  </div>`;
+
+  html += `<button class="dl" data-demo="resume.pdf">Résumé — PDF</button>`;
+  html += `<button class="dl" data-demo="resume.docx">Résumé — Word (.docx)</button>`;
+  if (hasCover) {
+    html += `<button class="dl" data-demo="cover_letter.pdf">Cover letter — PDF</button>`;
+    html += `<button class="dl" data-demo="cover_letter.docx">Cover letter — Word (.docx)</button>`;
+  }
+  html += `<div class="row"><button id="to-tracker" class="btn">Add to tracker</button>`
+       +  `<span class="check">Send this résumé, cover letter &amp; job description to your application tracker.</span></div>`
+       +  `<div id="tracker-out" class="folder"></div>`;
+  html += `<div class="folder">Saved on disk at: output/${slug}</div>`;
+
+  result.innerHTML = html;
+  result.style.display = "block";
+  scrollToEl(result);
+
+  // Animate the meter after paint so the transition actually runs.
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      $("cov-fill").style.width = "87%";
+      let n = 0;
+      const tick = setInterval(() => {
+        n += 3; if (n >= 87) { n = 87; clearInterval(tick); }
+        $("cov-num").textContent = n + "%";
+      }, 28);
+    }, 120);
+  });
+}
+
+result.addEventListener("click", (ev) => {
+  const dl = ev.target.closest(".dl");
+  if (dl) { toast("Demo — the real app downloads " + dl.dataset.demo + " here."); return; }
+  const track = ev.target.closest("#to-tracker");
+  if (track) {
+    const out = $("tracker-out");
+    track.disabled = true;
+    out.innerHTML = '<span class="spin"></span> Adding to tracker…';
+    setTimeout(() => {
+      out.innerHTML = '✓ Added to tracker — <a href="./tracker.html">open the application ↗</a>';
+      track.textContent = "Added ✓";
+    }, 900);
+  }
+});
+
+let toastT;
+function toast(msg) {
+  const t = $("toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  clearTimeout(toastT);
+  toastT = setTimeout(() => t.classList.remove("on"), 2600);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Application Tracker — interactive demo</title>
+<meta name="description" content="An interactive, in-browser demo of the Job Application Tracker built by Chantamas Chatraporn. Sample data only.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%2377A088'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<!-- ?embed=1 => rendered inside the portfolio's browser frame, which carries its
+     own "Live demo" disclosure. Drop the duplicate banner and tighten the header
+     so the board — the part worth touching — sits above the iframe's fold. -->
+<script>if (location.search.indexOf("embed") !== -1) document.documentElement.classList.add("embed");</script>
+<style>
+  :root {
+    --paper:        #F3F0E8;
+    --surface:      #FCFBF7;
+    --sage:         #77A088;
+    --sage-strong:  #4E7961;
+    --apricot:      #E0A46E;
+    --rose:         #CB929A;
+    --slate:        #2E3A37;
+    --muted:        #6C7772;
+    --sage-tint:    #E7EFE8;
+    --apricot-tint: #F6E7D4;
+    --rose-tint:    #F1E1E3;
+    --line:         #E4DFD3;
+    --radius:       16px;
+    --radius-sm:    11px;
+    --shadow:       0 1px 2px rgba(46,58,55,.05), 0 6px 20px rgba(46,58,55,.06);
+    --shadow-lift:  0 2px 4px rgba(46,58,55,.06), 0 14px 34px rgba(46,58,55,.10);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--slate);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .band-text, .stat-num { font-family: "Nunito", system-ui, sans-serif; color: var(--slate); letter-spacing: -.01em; }
+  a { color: var(--sage-strong); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 18px 18px 60px; }
+
+  .demo-note {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: var(--apricot-tint); border: 1px solid #E8CFA9;
+    border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 16px;
+    font-size: 13px; color: #6B4E2A;
+  }
+  .demo-note b { color: #573D1E; }
+  .demo-pill {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    background: var(--apricot); color: #fff; border-radius: 999px;
+    padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 1px;
+  }
+  /* Embedded: reclaim ~200px of header so the board clears the iframe fold. */
+  .embed .demo-note { display: none; }
+  .embed .wrap { padding-top: 14px; }
+  .embed .band { padding: 16px 20px; margin-bottom: 12px; }
+  .embed .band-text { font-size: clamp(17px, 2.6vw, 21px); }
+  .embed .stats { gap: 10px; margin-bottom: 12px; }
+  .embed .stat { padding: 11px 10px; }
+  .embed .attention { padding: 14px 16px; margin-bottom: 12px; }
+  .embed .att-list li { padding: 7px 10px; }
+
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  .brand { font-family: "Nunito", system-ui, sans-serif; font-weight: 800; font-size: 19px; display: flex; align-items: center; gap: 9px; color: var(--slate); }
+  .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px var(--sage-tint); }
+  .topbar-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+  .btn {
+    font-family: "Inter", system-ui, sans-serif; font-size: 14px; font-weight: 600;
+    border: none; border-radius: 999px; padding: 10px 18px; min-height: 42px;
+    cursor: pointer; background: var(--surface); color: var(--slate); box-shadow: var(--shadow);
+    transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+    display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift); text-decoration: none; }
+  .btn-primary { background: var(--sage); color: #fff; }
+  .btn-ghost { background: transparent; box-shadow: none; color: var(--muted); }
+  .btn-ghost:hover { background: var(--surface); box-shadow: var(--shadow); }
+  .btn-sm { font-size: 13px; padding: 8px 14px; min-height: 38px; }
+  .btn-current { background: var(--sage-tint); color: var(--sage-strong); box-shadow: none; }
+  :focus-visible { outline: 3px solid var(--sage); outline-offset: 2px; border-radius: 8px; }
+
+  .band { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-strong) 100%); color: #fff; border-radius: 22px; padding: 24px 26px; margin-bottom: 18px; box-shadow: var(--shadow-lift); }
+  .band-label { font-size: 12.5px; text-transform: uppercase; letter-spacing: .12em; opacity: .8; margin-bottom: 6px; font-weight: 600; }
+  .band-text { font-weight: 700; font-size: clamp(19px, 3.2vw, 26px); line-height: 1.3; color: #fff; margin: 0; }
+
+  /* Stat strip */
+  .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 18px; }
+  .stat { background: var(--surface); border-radius: var(--radius); padding: 16px 14px; text-align: center; box-shadow: var(--shadow); }
+  .stat-num { font-weight: 800; font-size: clamp(20px, 2.6vw, 27px); line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .stat.is-good .stat-num { color: var(--sage-strong); }
+  .stat.is-signal .stat-num { color: #B37430; }
+
+  /* Needs-attention feed */
+  .attention { background: var(--surface); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); margin-bottom: 18px; }
+  .attention h2 { font-size: 15px; margin: 0 0 12px; }
+  .att-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .att-list li { display: flex; align-items: center; gap: 10px; font-size: 13.5px; padding: 9px 12px; border-radius: var(--radius-sm); background: var(--paper); }
+  .tag { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+  .tag-warn { background: var(--apricot-tint); color: #8A5A22; }
+  .tag-quiet { background: var(--rose-tint); color: #8A5560; }
+  .tag-due { background: var(--sage-tint); color: var(--sage-strong); }
+
+  /* Board */
+  .board-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+  .board-head h2 { font-size: 16px; margin: 0; }
+  .hint { font-size: 12.5px; color: var(--muted); }
+  .board { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; align-items: start; }
+  .col { background: rgba(255,255,255,.5); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px; min-height: 220px; transition: background .15s, border-color .15s; }
+  .col.over { background: var(--sage-tint); border-color: var(--sage); }
+  .col-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 2px 4px 10px; }
+  .col-name { font-size: 12.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .col-count { font-size: 11.5px; font-weight: 700; color: var(--muted); background: var(--paper); border-radius: 999px; padding: 1px 8px; }
+  .cards { display: flex; flex-direction: column; gap: 9px; min-height: 40px; }
+
+  .card {
+    background: var(--surface); border-radius: var(--radius-sm); padding: 11px 12px;
+    box-shadow: var(--shadow); cursor: grab; border-left: 3px solid var(--sage);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .15s;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+  .card:active { cursor: grabbing; }
+  .card.dragging { opacity: .45; }
+  .card.pulse { animation: pulse .5s ease; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(119,160,136,.5);} 100% { box-shadow: 0 0 0 12px rgba(119,160,136,0);} }
+  .card-role { font-weight: 700; font-size: 13.5px; line-height: 1.35; }
+  .card-co { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .card-meta { display: flex; align-items: center; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .chip { font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 999px; background: var(--paper); color: var(--muted); }
+  .chip-cov { background: var(--sage-tint); color: var(--sage-strong); }
+  .card.c-apricot { border-left-color: var(--apricot); }
+  .card.c-rose { border-left-color: var(--rose); }
+
+  .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(8px); background: var(--slate); color: #fff; font-size: 13px; padding: 10px 16px; border-radius: 999px; box-shadow: var(--shadow-lift); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 50; }
+  .toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(3, 1fr); }
+    .board { grid-template-columns: 1fr; }
+    .col { min-height: 0; }
+  }
+  @media (max-width: 520px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  @media (prefers-reduced-motion: reduce) { *, .card, .btn { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="demo-note">
+      <span class="demo-pill">Demo</span>
+      <div><b>Interactive demo.</b> This is a faithful rebuild of the real tracker's interface, running entirely in your browser. Every application shown is invented sample data — real applications stay private on a local machine. Drag a card between columns — or tap one — to try it.</div>
+    </div>
+
+    <header class="topbar">
+      <span class="brand"><span class="dot"></span> 🍀 GoodLuck Joopjip ✨🎉</span>
+      <div class="topbar-actions">
+        <span class="btn btn-current btn-sm">📋 Board</span>
+        <a class="btn btn-ghost btn-sm" href="#" onclick="return false">Inbox</a>
+        <a class="btn btn-ghost btn-sm" href="#" onclick="return false">Settings</a>
+        <a class="btn btn-primary btn-sm" href="./resume-generator.html">✨ Résumé generator ↗</a>
+      </div>
+    </header>
+
+    <div class="band">
+      <div class="band-label">Tuesday, 14 July</div>
+      <p class="band-text" id="band-text">3 applications need you today — two follow-ups are overdue, and one interview is tomorrow.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-num" id="s-active">12</div><div class="stat-label">Active</div></div>
+      <div class="stat"><div class="stat-num" id="s-applied">28</div><div class="stat-label">Applied</div></div>
+      <div class="stat is-good"><div class="stat-num">32%</div><div class="stat-label">Response rate</div></div>
+      <div class="stat is-signal"><div class="stat-num" id="s-int">4</div><div class="stat-label">Interviews</div></div>
+      <div class="stat is-good"><div class="stat-num" id="s-off">1</div><div class="stat-label">Offers</div></div>
+    </div>
+
+    <div class="attention">
+      <h2>Needs attention today</h2>
+      <ul class="att-list">
+        <li><span class="tag tag-warn">Overdue</span> Follow up with Northline Health — applied 12 days ago, no reply</li>
+        <li><span class="tag tag-quiet">Gone quiet</span> Beacon Medical — screening call was 9 days ago</li>
+        <li><span class="tag tag-due">Tomorrow</span> Cedarway Bio — final interview, 10:00am</li>
+      </ul>
+    </div>
+
+    <div class="board-head">
+      <h2>Board</h2>
+      <span class="hint">Drag a card between columns — or tap one to advance it. Saves on drop.</span>
+    </div>
+    <div class="board" id="board"></div>
+  </div>
+  <div class="toast" id="toast"></div>
+
+<script>
+// Invented sample applications. Real ones never leave the local machine.
+const COLUMNS = [
+  { id: "wishlist",  name: "Wishlist" },
+  { id: "applied",   name: "Applied" },
+  { id: "screening", name: "Screening" },
+  { id: "interview", name: "Interview" },
+  { id: "final",     name: "Final" },
+];
+
+const CARDS = [
+  { id: 1, col: "wishlist",  role: "Senior Project Manager", co: "Harbourview Pharma", cov: 84, tone: "" },
+  { id: 2, col: "wishlist",  role: "Commercial Lead, Devices", co: "Aster Medtech", cov: 71, tone: "c-apricot" },
+  { id: 3, col: "applied",   role: "Project Manager, Commercial Ops", co: "Northline Health", cov: 87, tone: "", note: "12d" },
+  { id: 4, col: "applied",   role: "Business Development Manager", co: "Rivet Consumer Health", cov: 79, tone: "" },
+  { id: 5, col: "applied",   role: "Launch Manager", co: "Quinn Labs", cov: 68, tone: "c-apricot" },
+  { id: 6, col: "screening", role: "Program Manager, NPD", co: "Beacon Medical", cov: 91, tone: "", note: "9d" },
+  { id: 7, col: "screening", role: "Strategy Associate", co: "Meridian Care", cov: 74, tone: "" },
+  { id: 8, col: "interview", role: "Project Manager, Regulatory", co: "Alder & Finch", cov: 88, tone: "" },
+  { id: 9, col: "final",     role: "Senior PM, Product Launch", co: "Cedarway Bio", cov: 93, tone: "", note: "10:00" },
+];
+
+const board = document.getElementById("board");
+
+function render() {
+  board.innerHTML = "";
+  for (const col of COLUMNS) {
+    const items = CARDS.filter(c => c.col === col.id);
+    const el = document.createElement("div");
+    el.className = "col";
+    el.dataset.col = col.id;
+    el.innerHTML = `
+      <div class="col-head">
+        <span class="col-name">${col.name}</span>
+        <span class="col-count">${items.length}</span>
+      </div>
+      <div class="cards"></div>`;
+    const list = el.querySelector(".cards");
+    for (const c of items) list.appendChild(cardEl(c));
+    board.appendChild(el);
+  }
+  wireDrop();
+}
+
+function cardEl(c) {
+  const el = document.createElement("article");
+  el.className = "card " + (c.tone || "");
+  el.draggable = true;
+  el.dataset.id = c.id;
+  el.innerHTML = `
+    <div class="card-role">${c.role}</div>
+    <div class="card-co">${c.co}</div>
+    <div class="card-meta">
+      <span class="chip chip-cov">${c.cov}% match</span>
+      ${c.note ? `<span class="chip">${c.note}</span>` : ""}
+    </div>`;
+  el.addEventListener("dragstart", (e) => {
+    el.classList.add("dragging");
+    e.dataTransfer.setData("text/plain", String(c.id));
+    e.dataTransfer.effectAllowed = "move";
+  });
+  el.addEventListener("dragend", () => el.classList.remove("dragging"));
+  // HTML5 drag doesn't fire on touch, so a tap advances the card one stage —
+  // mirroring the real app's phone behaviour. A completed drag suppresses the
+  // click, so the two never both fire.
+  el.addEventListener("click", () => advance(c.id));
+  return el;
+}
+
+function advance(id) {
+  const card = CARDS.find(c => c.id === id);
+  if (!card) return;
+  const i = COLUMNS.findIndex(c => c.id === card.col);
+  if (i === -1 || i === COLUMNS.length - 1) {
+    toast(`${card.co} is already at the final stage.`);
+    return;
+  }
+  const next = COLUMNS[i + 1];
+  card.col = next.id;
+  render();
+  const moved = board.querySelector(`.card[data-id="${id}"]`);
+  if (moved) moved.classList.add("pulse");
+  toast(`Saved — ${card.co} moved to ${next.name}.`);
+  recount();
+}
+
+function wireDrop() {
+  board.querySelectorAll(".col").forEach(col => {
+    col.addEventListener("dragover", (e) => { e.preventDefault(); col.classList.add("over"); });
+    col.addEventListener("dragleave", () => col.classList.remove("over"));
+    col.addEventListener("drop", (e) => {
+      e.preventDefault();
+      col.classList.remove("over");
+      const id = Number(e.dataTransfer.getData("text/plain"));
+      const card = CARDS.find(c => c.id === id);
+      if (!card) return;
+      const to = col.dataset.col;
+      if (card.col === to) return;
+      card.col = to;
+      render();
+      const moved = board.querySelector(`.card[data-id="${id}"]`);
+      if (moved) moved.classList.add("pulse");
+      const name = COLUMNS.find(c => c.id === to).name;
+      toast(`Saved — ${card.co} moved to ${name}.`);
+      recount();
+    });
+  });
+}
+
+// Keep the header numbers honest as cards move.
+function recount() {
+  const n = (id) => CARDS.filter(c => c.col === id).length;
+  document.getElementById("s-int").textContent = n("interview");
+  document.getElementById("s-off").textContent = n("final");
+  document.getElementById("s-active").textContent =
+    CARDS.filter(c => c.col !== "wishlist").length;
+}
+
+let toastT;
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  clearTimeout(toastT);
+  toastT = setTimeout(() => t.classList.remove("on"), 2400);
+}
+
+render();
+recount();
+</script>
+</body>
+</html>
