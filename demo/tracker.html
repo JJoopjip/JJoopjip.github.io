@@ -153,7 +153,7 @@
   <div class="wrap">
     <div class="demo-note">
       <span class="demo-pill">Demo</span>
-      <div><b>Interactive demo.</b> This is a faithful rebuild of the real tracker's interface, running entirely in your browser. Every application shown is invented sample data — real applications stay private on a local machine. Drag a card between columns — or tap one — to try it.</div>
+      <div><b>Interactive demo.</b> This is a faithful rebuild of the real tracker's interface, running entirely in your browser. Every application shown is an anonymous placeholder — no company is named, and real applications stay private on a local machine. Drag a card between columns — or tap one — to try it.</div>
     </div>
 
     <header class="topbar">
@@ -182,9 +182,9 @@
     <div class="attention">
       <h2>Needs attention today</h2>
       <ul class="att-list">
-        <li><span class="tag tag-warn">Overdue</span> Follow up with Northline Health — applied 12 days ago, no reply</li>
-        <li><span class="tag tag-quiet">Gone quiet</span> Beacon Medical — screening call was 9 days ago</li>
-        <li><span class="tag tag-due">Tomorrow</span> Cedarway Bio — final interview, 10:00am</li>
+        <li><span class="tag tag-warn">Overdue</span> Follow up — Project Manager, Commercial Ops · applied 12 days ago, no reply</li>
+        <li><span class="tag tag-quiet">Gone quiet</span> Program Manager, NPD · screening call was 9 days ago</li>
+        <li><span class="tag tag-due">Tomorrow</span> Senior PM, Product Launch · final interview, 10:00am</li>
       </ul>
     </div>
 
@@ -197,7 +197,9 @@
   <div class="toast" id="toast"></div>
 
 <script>
-// Invented sample applications. Real ones never leave the local machine.
+// Placeholder applications: generic sector labels, never company names, so this
+// board can't be read as a real job pipeline. Real applications never leave the
+// local machine.
 const COLUMNS = [
   { id: "wishlist",  name: "Wishlist" },
   { id: "applied",   name: "Applied" },
@@ -207,15 +209,15 @@ const COLUMNS = [
 ];
 
 const CARDS = [
-  { id: 1, col: "wishlist",  role: "Senior Project Manager", co: "Harbourview Pharma", cov: 84, tone: "" },
-  { id: 2, col: "wishlist",  role: "Commercial Lead, Devices", co: "Aster Medtech", cov: 71, tone: "c-apricot" },
-  { id: 3, col: "applied",   role: "Project Manager, Commercial Ops", co: "Northline Health", cov: 87, tone: "", note: "12d" },
-  { id: 4, col: "applied",   role: "Business Development Manager", co: "Rivet Consumer Health", cov: 79, tone: "" },
-  { id: 5, col: "applied",   role: "Launch Manager", co: "Quinn Labs", cov: 68, tone: "c-apricot" },
-  { id: 6, col: "screening", role: "Program Manager, NPD", co: "Beacon Medical", cov: 91, tone: "", note: "9d" },
-  { id: 7, col: "screening", role: "Strategy Associate", co: "Meridian Care", cov: 74, tone: "" },
-  { id: 8, col: "interview", role: "Project Manager, Regulatory", co: "Alder & Finch", cov: 88, tone: "" },
-  { id: 9, col: "final",     role: "Senior PM, Product Launch", co: "Cedarway Bio", cov: 93, tone: "", note: "10:00" },
+  { id: 1, col: "wishlist",  role: "Senior Project Manager", co: "Global pharma · Toronto", cov: 84, tone: "" },
+  { id: 2, col: "wishlist",  role: "Commercial Lead, Devices", co: "Medtech scale-up · Toronto", cov: 71, tone: "c-apricot" },
+  { id: 3, col: "applied",   role: "Project Manager, Commercial Ops", co: "Health system · Toronto", cov: 87, tone: "", note: "12d" },
+  { id: 4, col: "applied",   role: "Business Development Manager", co: "Consumer health · Mississauga", cov: 79, tone: "" },
+  { id: 5, col: "applied",   role: "Launch Manager", co: "Biotech · Toronto", cov: 68, tone: "c-apricot" },
+  { id: 6, col: "screening", role: "Program Manager, NPD", co: "Medical devices · Mississauga", cov: 91, tone: "", note: "9d" },
+  { id: 7, col: "screening", role: "Strategy Associate", co: "Healthcare services · Oakville", cov: 74, tone: "" },
+  { id: 8, col: "interview", role: "Project Manager, Regulatory", co: "Specialty pharma · Toronto", cov: 88, tone: "" },
+  { id: 9, col: "final",     role: "Senior PM, Product Launch", co: "Vaccines & biologics · Toronto", cov: 93, tone: "", note: "10:00" },
 ];
 
 const board = document.getElementById("board");
@@ -270,7 +272,7 @@ function advance(id) {
   if (!card) return;
   const i = COLUMNS.findIndex(c => c.id === card.col);
   if (i === -1 || i === COLUMNS.length - 1) {
-    toast(`${card.co} is already at the final stage.`);
+    toast(`${card.role} is already at the final stage.`);
     return;
   }
   const next = COLUMNS[i + 1];
@@ -278,7 +280,7 @@ function advance(id) {
   render();
   const moved = board.querySelector(`.card[data-id="${id}"]`);
   if (moved) moved.classList.add("pulse");
-  toast(`Saved — ${card.co} moved to ${next.name}.`);
+  toast(`Saved — ${card.role} moved to ${next.name}.`);
   recount();
 }
 
@@ -299,7 +301,7 @@ function wireDrop() {
       const moved = board.querySelector(`.card[data-id="${id}"]`);
       if (moved) moved.classList.add("pulse");
       const name = COLUMNS.find(c => c.id === to).name;
-      toast(`Saved — ${card.co} moved to ${name}.`);
+      toast(`Saved — ${card.role} moved to ${name}.`);
       recount();
     });
   });
