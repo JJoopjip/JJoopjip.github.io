@@ -166,6 +166,9 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
 .window .url{flex:1;font-family:var(--mono);font-size:12px;color:var(--ink-soft);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:5px 12px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .window .expand{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);text-decoration:none;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:5px 10px;white-space:nowrap;transition:color .18s,border-color .18s}
 .window .expand:hover{color:var(--peach);border-color:var(--peach)}
+.window .aichip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--sage-ink);background:var(--sage-soft);border:1px solid #CBD9C4;border-radius:8px;padding:5px 10px;white-space:nowrap}
+.window .aichip .ic{width:12px;height:12px}
+@media (max-width:560px){.window .aichip{display:none}}
 .window img{width:100%;display:block}
 /* Tall enough that the working part of each demo — the board, the run log —
    clears the fold without the visitor having to scroll inside the frame. */
@@ -178,6 +181,17 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
 .livebar .lb-pill i{width:6px;height:6px;border-radius:50%;background:#fff;display:block}
 .livebar p{margin:0;font-size:14px;color:#3f4c3c;flex:1;min-width:220px}
 
+.uth{margin-top:34px;background:var(--peach-wash);border:1px solid var(--peach-soft);border-radius:18px;padding:24px 26px}
+.uth .fi{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--peach);display:block;margin-bottom:8px}
+.uth h4{font-family:var(--display);font-size:21px;font-weight:600;margin:0 0 16px;color:var(--ink)}
+.uth-cols{display:grid;grid-template-columns:1fr 1.4fr;gap:14px}
+.uth-col{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.uth-col b{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--ink-faint);margin-bottom:8px}
+.uth-col p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+.uth-col.is-this{border-color:#CBD9C4;background:var(--sage-soft)}
+.uth-col.is-this b{color:var(--sage-ink)}
+.uth-col.is-this p{color:#3f4c3c}
+@media (max-width:720px){.uth-cols{grid-template-columns:1fr}}
 .callout{margin-top:26px;background:var(--sage-soft);border:1px solid #CBD9C4;border-radius:18px;padding:22px 26px}
 .callout .fi{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage-ink);display:block;margin-bottom:8px}
 .callout p{margin:0;color:#3f4c3c;font-size:15px}
@@ -371,7 +385,7 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
           <span class="go" style="display:block">View project →</span>
         </a>
         <a class="projcard" href="#/resume-gen" data-route="/resume-gen">
-          <div class="pk">Project 02 · AI-powered · runs locally</div>
+          <div class="pk">Project 02 · Agentic AI · Claude-powered</div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-zap"/></svg></span><span>AI Résumé Generator</span></h3>
           <p>Paste a job posting and get a one-page résumé (and optional cover letter) built from my career history — with a coverage score showing how well it matches.</p>
           <span class="trylive"><span class="live"></span>Try it live</span>
@@ -594,7 +608,7 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
       <h1>AI Résumé Generator</h1>
       <p class="lead">Paste a job posting and get a one-page résumé built from my real career history — plus, if I want, a matching cover letter and a coverage score that shows exactly how well I fit the role.</p>
       <div class="detail-meta">
-        <span class="m"><b>Built with</b> Python · headless AI agent</span>
+        <span class="m"><b>Built with</b> Python · Claude (Anthropic) running headless</span>
         <span class="m"><b>Runs</b> locally on my machine</span>
         <span class="m"><b>Outputs</b> PDF + Word</span>
         <a class="m" href="https://github.com/JJoopjip/ai-resume-generator" target="_blank" rel="noopener"><b>Source</b> on GitHub ↗</a>
@@ -613,13 +627,14 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
     <div class="wrap">
       <div class="livebar">
         <span class="lb-pill"><i></i>Live demo</span>
-        <p>The real generator runs locally and calls an AI model to write from my private career history, so I rebuilt its interface here. <strong>Press Generate</strong> to watch a real run replay — the log lines are the ones the actual pipeline prints. Nothing you type is sent anywhere.</p>
+        <p>The real generator runs locally and drives a headless Claude agent that writes from my private career history, so I rebuilt its interface here. <strong>Press Generate</strong> to watch a real run replay — the log lines are the ones the actual pipeline prints. Nothing you type is sent anywhere.</p>
       </div>
       <figure class="shot">
         <div class="window">
           <div class="bar">
             <div class="dots"><i></i><i></i><i></i></div>
             <div class="url">127.0.0.1:8000 · Tailor a résumé</div>
+            <span class="aichip"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg>Claude · headless</span>
             <a class="expand" href="./demo/resume-generator.html" target="_blank" rel="noopener">Open ↗</a>
           </div>
           <iframe class="live" src="./demo/resume-generator.html?embed=1" title="Interactive demo of the AI Résumé Generator" loading="lazy"></iframe>
@@ -631,6 +646,20 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
         <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-pulse"/></svg></span><span class="fi">Coverage score</span></span><h4>Know your fit before you apply</h4><p>Each run analyses how well the résumé matches the posting, so I can see where the gaps are and decide whether — and how — to close them. Gaps get closed by adding real experience, never by inventing it.</p></div>
         <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-terminal"/></svg></span><span class="fi">Live step log</span></span><h4>Nothing hidden</h4><p>A running log shows each step as it reads the spec, my history, and the posting, then writes and renders the documents.</p></div>
         <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-swap"/></svg></span><span class="fi">One-click hand-off</span></span><h4>Straight to the tracker</h4><p>Send the finished résumé, cover letter, and posting to the Application Tracker in a single click — no copy-paste.</p></div>
+      </div>
+      <div class="uth reveal">
+        <span class="fi">Under the hood</span>
+        <h4>Not a chatbot wrapper.</h4>
+        <div class="uth-cols">
+          <div class="uth-col">
+            <b>Most AI résumé tools</b>
+            <p>Paste your résumé into a chat window, copy the answer back out, and hope it fits the page.</p>
+          </div>
+          <div class="uth-col is-this">
+            <b>This one</b>
+            <p>Claude (Anthropic) runs headless as an autonomous agent — no chat window. It reads my career file, writes the draft, renders the PDF, measures the page, and re-runs itself until everything fits on one page. Between &ldquo;paste posting&rdquo; and &ldquo;finished PDF&rdquo;, no human touches it.</p>
+          </div>
+        </div>
       </div>
       <div class="callout">
         <span class="fi">How it connects</span>

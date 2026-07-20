@@ -145,7 +145,7 @@
   <div class="wrap">
     <div class="demo-note">
       <span class="demo-pill">Demo</span>
-      <div><b>Interactive demo.</b> This is a faithful rebuild of the real app's interface, running entirely in your browser with sample data. The real tool runs locally and calls an AI model to write from a private career history file; here the run is replayed so you can see the flow. Nothing you type is sent anywhere.</div>
+      <div><b>Interactive demo.</b> This is a faithful rebuild of the real app's interface, running entirely in your browser with sample data. The real tool runs locally and drives a headless Claude (Anthropic) agent that writes from a private career history file; here the run is replayed so you can see the flow. Nothing you type is sent anywhere.</div>
     </div>
 
     <header class="topbar">
@@ -213,28 +213,32 @@ Requirements
 
 jd.value = SAMPLE_JD;
 
-// The real pipeline's own step lines (web/app.py), replayed with plausible
-// pacing. `d` is the pause *before* the line prints.
+// The real pipeline's own step lines (web/app.py make_narrator), replayed with
+// plausible pacing. The narrator translates the headless Claude session's
+// stream-json events — each "agent …" line is one tool call the agent made on
+// its own; 💬 lines are the agent's own commentary. `d` is the pause *before*
+// the line prints.
 function steps(withCover) {
   const s = [
     ["  web │ starting resume — this takes a few minutes; watch the log below.", 260],
-    ["  📁  creating the output folder", 520],
-    ["  🗂️  saving a copy of the job description", 430],
-    ["  ⚙️  starting the tailoring engine …", 640],
-    ["  📖  reading the tailoring instructions", 560],
-    ["  📖  reading your career history", 700],
-    ["  📖  reading the job description", 520],
-    ["  ✍️  choosing and writing your tailored content", 1500],
-    ["  📝  writing the omissions report (what was left out)", 780],
-    ["  🔎  validating the draft …", 640],
-    ["  🖨️  rendering the PDF …", 900],
-    ["  ✂️  2 pages — trimming to fit one page …", 820],
-    ["  🖨️  re-rendering after trimming (attempt 2) …", 900],
+    ["  ⚙️  Claude agent starting — headless, no chat window …", 640],
+    ["  📖  agent reads the tailoring instructions", 560],
+    ["  📖  agent reads your career history", 700],
+    ["  📖  agent reads the job description", 520],
+    ["  💬  Strong match on launch management and stakeholder work — leading with those.", 900],
+    ["  📁  agent creates the output folder", 430],
+    ["  🗂️  agent saves a copy of the job description", 430],
+    ["  ✍️  agent chooses and writes your tailored content", 1500],
+    ["  📝  agent writes the omissions report (what was left out)", 780],
+    ["  🔎  agent runs the fact-check validator …", 640],
+    ["  🖨️  agent renders the PDF …", 900],
+    ["  ✂️  2 pages — agent trims to fit one page …", 820],
+    ["  🖨️  agent re-renders after trimming (attempt 2) …", 900],
     ["  ✅  it fits on one page", 520],
   ];
   if (withCover) s.push(
-    ["  ✍️  writing your cover letter", 1400],
-    ["  🖨️  rendering the cover letter …", 820],
+    ["  ✍️  agent writes your cover letter", 1400],
+    ["  🖨️  agent renders the cover letter …", 820],
   );
   return s;
 }
