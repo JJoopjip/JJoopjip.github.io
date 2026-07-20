@@ -97,6 +97,13 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
 .projcard p{margin:0;color:#4b463f;font-size:15px;position:relative}
 .projcard .go{margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--peach);display:inline-flex;align-items:center;gap:6px;position:relative}
 .projcard:hover .go{gap:11px}
+/* Keyword chips — pull the differentiators out of the paragraph so they
+   catch the eye. The AI/agentic ones use the peach accent to stand out. */
+.projcard .ctags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;position:relative}
+.projcard .ctag{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10.5px;letter-spacing:.02em;color:var(--sage-ink);background:var(--sage-soft);border:1px solid #CBD9C4;border-radius:999px;padding:4px 10px;line-height:1.2}
+.projcard .ctag .ic{width:11px;height:11px}
+.projcard .ctag.hot{color:#B75B33;background:var(--peach-wash);border-color:var(--peach-soft);font-weight:600}
+.projcard:hover .ctag.hot{background:#F9E2D2;border-color:var(--peach)}
 .trylive{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--sage-ink);background:var(--sage-soft);border:1px solid #CBD9C4;padding:4px 11px;border-radius:999px;margin-top:16px;position:relative}
 .trylive .live{width:6px;height:6px;border-radius:50%;background:#5f8f57}
 .connect{margin-top:22px;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px;color:var(--ink-soft)}
@@ -180,6 +187,17 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
 .livebar .lb-pill{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#5f8f57;border-radius:999px;padding:4px 11px;white-space:nowrap}
 .livebar .lb-pill i{width:6px;height:6px;border-radius:50%;background:#fff;display:block}
 .livebar p{margin:0;font-size:14px;color:#3f4c3c;flex:1;min-width:220px}
+
+/* Hero highlight banner — the one-line hook on a detail page, up top before
+   any body copy, in the peach accent so the differentiator lands first. */
+.hilite{margin-top:26px;display:flex;gap:16px;align-items:flex-start;background:linear-gradient(135deg,var(--peach-wash),#FFF6EF);border:1px solid var(--peach-soft);border-left:4px solid var(--peach);border-radius:16px;padding:20px 22px}
+.hilite .hi-ic{flex:none;width:40px;height:40px;border-radius:11px;background:var(--peach);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(228,161,130,.35)}
+.hilite .hi-ic .ic{width:20px;height:20px;color:#fff}
+.hilite .hi-tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--peach);margin-bottom:6px}
+.hilite p{margin:0;font-size:15.5px;line-height:1.5;color:#4b463f}
+.hilite p b{color:var(--ink)}
+.hilite .kw{color:#B75B33;font-weight:600}
+@media (max-width:560px){.hilite{flex-direction:column;gap:12px}}
 
 .uth{margin-top:34px;background:var(--peach-wash);border:1px solid var(--peach-soft);border-radius:18px;padding:24px 26px}
 .uth .fi{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--peach);display:block;margin-bottom:8px}
@@ -381,6 +399,11 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
           <div class="pk">Project 01 · Agentic AI · Claude-powered</div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-zap"/></svg></span><span>AI Résumé Generator</span></h3>
           <p>Paste a job posting and get a one-page résumé (and optional cover letter) built from my career history — with a coverage score showing how well it matches.</p>
+          <div class="ctags">
+            <span class="ctag hot"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg>Autonomous Claude agent</span>
+            <span class="ctag hot">Headless — no chatbot</span>
+            <span class="ctag">Coverage score</span>
+          </div>
           <span class="trylive"><span class="live"></span>Try it live</span>
           <span class="go" style="display:block">View project →</span>
         </a>
@@ -388,6 +411,11 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
           <div class="pk">Project 02 · Flask · runs locally</div>
           <h3 class="jt"><span class="icb sage"><svg class="ic"><use href="#i-board"/></svg></span><span>Job Application Tracker</span></h3>
           <p>A kanban board and daily dashboard for every application — status, response rate, and what needs attention today — fed automatically from the résumé generator.</p>
+          <div class="ctags">
+            <span class="ctag">Kanban + dashboard</span>
+            <span class="ctag">Auto-fed, zero re-typing</span>
+            <span class="ctag">Response-rate tracking</span>
+          </div>
           <span class="trylive"><span class="live"></span>Try it live</span>
           <span class="go" style="display:block">View project →</span>
         </a>
@@ -607,6 +635,13 @@ section.block{padding:56px 0;border-top:1px solid var(--line)}
       <div class="eyebrow">Project 01</div>
       <h1>AI Résumé Generator</h1>
       <p class="lead">Paste a job posting and get a one-page résumé built from my real career history — plus, if I want, a matching cover letter and a coverage score that shows exactly how well I fit the role.</p>
+      <div class="hilite reveal">
+        <span class="hi-ic"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>
+        <div>
+          <span class="hi-tag">What makes it different</span>
+          <p><b>An <span class="kw">autonomous Claude agent</span> — not a chatbot wrapper.</b> It runs <span class="kw">headless</span> with no chat window: reads my career file, writes the draft, renders the PDF, and re-runs itself until it fits one page — <span class="kw">zero human touch</span> from posting to finished document.</p>
+        </div>
+      </div>
       <div class="detail-meta">
         <span class="m"><b>Built with</b> Python · Claude (Anthropic) running headless</span>
         <span class="m"><b>Runs</b> locally on my machine</span>
