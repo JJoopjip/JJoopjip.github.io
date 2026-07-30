@@ -136,12 +136,35 @@ the new fonts). To roll back: `git revert 1b6168a && git push`.
 1. **Open it in a browser and review it** — it is live and was never viewed in
    a browser before shipping (no working headless Chromium on the dev machine;
    see above). This is the one verification step that hasn't happened.
-2. Nothing else is outstanding. The stat row shipped as type-only with
-   provenance lines and no meters; the roles timeline shipped in `6ad8cbf`.
+2. **The site is missing a role.** The owner has held a **part-time pharmacist
+   position running across most or all of the other jobs**, and it appears
+   nowhere on the Background page. This is the most substantive gap in the
+   record — it's real, relevant experience, and for a pharma/medtech PM profile
+   it's an asset, not a footnote. Needs from the owner before it can be added:
+   job title, employer or setting, city, date range, and whether it was
+   continuous or intermittent. **Do not draft any of these from inference** —
+   this is résumé content (see `CLAUDE.md`).
+3. The stat row shipped as type-only with provenance lines and no meters.
 
-### The roles timeline (`.gt-*`, Background page)
+### The roles timeline (`.gt-*`) — built, then removed
 
-Shipped. Seven bars on a flat **2017–2027** domain, which is why one year is
+**Currently not on the site.** Shipped in `6ad8cbf`, removed in `3c04f3f` after
+the owner saw it live: it drew attention to the gaps between roles. A duration
+chart cannot avoid doing that — it's inherent to the form, not a fixable styling
+problem.
+
+But the gaps were partly an artefact of **missing data**: a long-running
+part-time **pharmacist role is absent from the site entirely**. That's the real
+outstanding item (see "What comes next"). If that role is continuous, it changes
+the chart's meaning completely — an unbroken nine-year bar of pharmacy practice
+with the commercial roles layered above it, which argues for continuity rather
+than exposing gaps. Worth re-proposing then, but only with the owner's say-so.
+
+To restore: `git show 6ad8cbf -- index.html` and lift the `.gt-*` CSS block plus
+the `.gt-wrap` markup. The design rules it encoded are below, and they should be
+kept if it ever comes back.
+
+Seven bars on a flat **2017–2027** domain, which is why one year is
 exactly 10% and the year gridlines are a `repeating-linear-gradient` rather than
 ten elements. If the domain ever changes, every inline `left`/`width` percentage
 has to be recomputed — `pct = (year − 2017) × 10`, with end dates expressed as
