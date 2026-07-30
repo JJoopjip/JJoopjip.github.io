@@ -6,7 +6,7 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
-2026-07-29 — Chantamas Chatraporn (Claude Code session)
+2026-07-30 — Chantamas Chatraporn (Claude Code session)
 
 ## Current state
 
@@ -69,10 +69,6 @@ verification was structural: class/CSS coverage, no undefined `var()`
 references, tag balance, live fetch of all three pages, font-URL resolution,
 and glyph-advance arithmetic for the tightest cells. **Someone should still
 open it and look.**
-
-Inert leftovers: `.job.alt` and `.skillcol.s2` remain in the markup but have no
-rules any more — the new palette has no colour alternation, since green is
-reserved for status. Harmless; kept in case a future variant wants them.
 
 To recover the previous design, `git diff` / `git checkout 8f62e60 -- index.html
 demo/` — the old version is in git history, not in any scratch file.
