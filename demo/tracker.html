@@ -8,37 +8,37 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%2377A088'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- ?embed=1 => rendered inside the portfolio's browser frame, which carries its
      own "Live demo" disclosure. Drop the duplicate banner and tighten the header
      so the board — the part worth touching — sits above the iframe's fold. -->
 <script>if (location.search.indexOf("embed") !== -1) document.documentElement.classList.add("embed");</script>
 <style>
   :root {
-    --paper:        #F3F0E8;
-    --surface:      #FCFBF7;
-    --sage:         #77A088;
-    --sage-strong:  #4E7961;
-    --apricot:      #E0A46E;
-    --rose:         #CB929A;
-    --slate:        #2E3A37;
-    --muted:        #6C7772;
-    --sage-tint:    #E7EFE8;
-    --apricot-tint: #F6E7D4;
-    --rose-tint:    #F1E1E3;
-    --line:         #E4DFD3;
-    --radius:       16px;
-    --radius-sm:    11px;
-    --shadow:       0 1px 2px rgba(46,58,55,.05), 0 6px 20px rgba(46,58,55,.06);
-    --shadow-lift:  0 2px 4px rgba(46,58,55,.06), 0 14px 34px rgba(46,58,55,.10);
+    --paper:        #F1F1EF;
+    --surface:      #FFFFFF;
+    --sage:         #147A4B;
+    --sage-strong:  #0F5F3A;
+    --apricot:      #9A6700;
+    --rose:         #D0202F;
+    --slate:        #101010;
+    --muted:        #55534F;
+    --sage-tint:    #EDF7F1;
+    --apricot-tint: #F7EFE0;
+    --rose-tint:    #FCEEEF;
+    --line:         #DCDBD6;
+    --radius:       2px;
+    --radius-sm:    2px;
+    --shadow:       none;
+    --shadow-lift:  none;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0; background: var(--paper); color: var(--slate);
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
     font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, .band-text, .stat-num { font-family: "Nunito", system-ui, sans-serif; color: var(--slate); letter-spacing: -.01em; }
+  h1, h2, h3, .band-text, .stat-num { font-family: 'Schibsted Grotesk', system-ui, sans-serif; color: var(--slate); letter-spacing: -.01em; }
   a { color: var(--sage-strong); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 18px 18px 60px; }
@@ -66,12 +66,12 @@
   .embed .att-list li { padding: 7px 10px; }
 
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
-  .brand { font-family: "Nunito", system-ui, sans-serif; font-weight: 800; font-size: 19px; display: flex; align-items: center; gap: 9px; color: var(--slate); }
+  .brand { font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 19px; display: flex; align-items: center; gap: 9px; color: var(--slate); }
   .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px var(--sage-tint); }
   .topbar-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
   .btn {
-    font-family: "Inter", system-ui, sans-serif; font-size: 14px; font-weight: 600;
+    font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 14px; font-weight: 600;
     border: none; border-radius: 999px; padding: 10px 18px; min-height: 42px;
     cursor: pointer; background: var(--surface); color: var(--slate); box-shadow: var(--shadow);
     transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
@@ -92,7 +92,7 @@
   /* Stat strip */
   .stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 18px; }
   .stat { background: var(--surface); border-radius: var(--radius); padding: 16px 14px; text-align: center; box-shadow: var(--shadow); }
-  .stat-num { font-weight: 800; font-size: clamp(20px, 2.6vw, 27px); line-height: 1; }
+  .stat-num { font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); line-height: 1; }
   .stat-label { font-size: 12px; color: var(--muted); margin-top: 6px; }
   .stat.is-good .stat-num { color: var(--sage-strong); }
   .stat.is-signal .stat-num { color: #B37430; }
