@@ -142,6 +142,56 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 .job .venues li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:1px;background:var(--faint)}
 .tag-extra{display:inline-block;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);border:1px solid var(--rule);padding:3px 8px;border-radius:var(--r);margin-bottom:9px}
 
+/* ---- roles timeline: a duration summary above the written entries ----
+   Domain is a flat 2017–2027, so one year is exactly 10% and the year
+   gridlines can be drawn as a repeating gradient rather than 10 elements.
+   If the domain ever changes, every inline left/width has to be recomputed:
+   pct = (year − 2017) × 10, with end dates as the first of the next month.
+   No dates are printed and there is no tooltip — the bars and the axis carry
+   the period, the written entries below carry it exactly, and each bar has an
+   aria-label so the range and the full/part-time status are still announced. */
+.gt-wrap{margin-top:26px;border:1px solid var(--rule);background:var(--surface);padding:19px 21px 15px}
+.gt-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.gt-head h3{font-size:14px;font-weight:700}
+.gt-key{display:flex;gap:15px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.gt-key span{display:inline-flex;align-items:center;gap:6px}
+.gt-key i{width:16px;height:7px;display:block;background:var(--mid)}
+.gt-key i.k-cur{background:var(--accent)}
+.gt-key i.k-pt{height:5px;border-left:1px solid var(--mid);border-right:1px solid var(--mid);background:repeating-linear-gradient(90deg,var(--mid) 0 6px,transparent 6px 10px)}
+.gt-key i.k-study{height:9px;background:var(--rule);border-right:2px solid var(--mid)}
+.gt-scroll{overflow-x:auto;margin-top:15px}
+.gt{min-width:652px}
+/* 190px holds the longest spelled-out title — "Business Development Executive",
+   measured at 177.5px in Schibsted Grotesk 11.5/600. Every label is a job title
+   rather than a department, and nothing is abbreviated. */
+.gt-row{display:grid;grid-template-columns:190px 1fr;gap:0 14px;align-items:center;height:26px}
+.gt-row-axis{height:20px}
+.gt-lab{text-align:right;min-width:0}
+.gt-lab b{display:block;font-size:11.5px;font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gt-lane{position:relative;height:100%;background:repeating-linear-gradient(90deg,var(--rule-soft) 0 1px,transparent 1px 10%)}
+.gt-axis{position:relative;height:15px;border-bottom:1px solid var(--rule)}
+.gt-axis span{position:absolute;bottom:3px;transform:translateX(-50%);font-family:var(--mono);font-size:8px;letter-spacing:.02em;color:var(--faint)}
+.gt-axis span.gt-now{color:var(--mid)}
+.gt-bar{position:absolute;top:50%;transform:translateY(-50%);height:9px;background:var(--mid);display:block}
+/* the two live roles are accent AND labelled, so the emphasis never rests on
+   colour alone — signal red and graphite are near-identical under protanopia
+   (OKLab ΔE 4.5 against a 6.0 floor) */
+.gt-bar.is-cur{background:var(--accent)}
+/* part-time: thinner and dashed — intermittent hours, drawn intermittently.
+   Solid 1px caps keep the start and end dates crisp where a dash would clip. */
+.gt-bar.is-pt{height:5px;border-left:1px solid var(--mid);border-right:1px solid var(--mid);background:repeating-linear-gradient(90deg,var(--mid) 0 6px,transparent 6px 10px)}
+.gt-bar.is-study{height:11px;background:var(--rule);border-right:2px solid var(--mid)}
+.gt-mark{position:absolute;top:0;bottom:0;width:1px;background:var(--faint)}
+/* "Current" sits to the LEFT of its bar: these bars end at the right edge of
+   the domain, so a trailing label would overflow the lane and force a scroll. */
+.gt-tag{position:absolute;top:50%;right:7.8%;transform:translateY(-50%);font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.gt-foot{font-family:var(--mono);font-size:8.5px;letter-spacing:.02em;color:var(--faint);line-height:1.7;margin-top:13px;padding-top:12px;border-top:1px solid var(--rule-soft)}
+@media (max-width:700px){
+  /* the longest title wraps to two lines at 132px, so rows grow to hold them */
+  .gt-row{grid-template-columns:132px 1fr;gap:0 10px;height:36px}
+  .gt-lab b{font-size:10px;line-height:1.15;white-space:normal}
+}
+
 /* education, publication */
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:26px;background:var(--rule);border:1px solid var(--rule)}
 .card{background:var(--surface);padding:22px 24px}
@@ -509,6 +559,37 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
       <div class="eyebrow">Experience</div>
       <h2>Where I've delivered.</h2>
 
+      <!-- Duration summary. Bar positions are computed on a flat 2017–2027
+           scale (one year = 10%). No dates are printed: the axis and the bars
+           carry the period, the written entries below carry it exactly, and
+           each bar's aria-label announces the range and whether it was full
+           or part-time (the dash pattern is a visual-only encoding). -->
+      <div class="gt-wrap reveal">
+        <div class="gt-head">
+          <h3>Nine years, two cities</h3>
+          <div class="gt-key">
+            <span><i class="k-cur"></i>Current</span>
+            <span><i></i>Full-time</span>
+            <span><i class="k-pt"></i>Part-time</span>
+            <span><i class="k-study"></i>Graduate study</span>
+          </div>
+        </div>
+        <div class="gt-scroll"><div class="gt">
+          <div class="gt-row gt-row-axis"><div></div><div class="gt-axis"><span style="left:0%">2017</span><span style="left:10%">2018</span><span style="left:20%">2019</span><span style="left:30%">2020</span><span style="left:40%">2021</span><span style="left:50%">2022</span><span style="left:60%">2023</span><span style="left:70%">2024</span><span style="left:80%">2025</span><span style="left:90%">2026</span><span class="gt-now" style="left:95.83%">Now</span></div></div>
+          <div class="gt-row"><div class="gt-lab"><b>Public Relations Intern</b></div><div class="gt-lane"><span class="gt-mark" style="left:95.83%"></span><i class="gt-bar is-cur" role="img" aria-label="Current, May 2026 to present" style="left:93.3333%;width:2.5%"></i><span class="gt-tag">Current</span></div></div>
+          <div class="gt-row"><div class="gt-lab"><b>Teaching Assistant, Fintech</b></div><div class="gt-lane"><span class="gt-mark" style="left:95.83%"></span><i class="gt-bar is-cur" role="img" aria-label="Current, May 2026 to Jul 2026" style="left:93.3333%;width:2.5%"></i><span class="gt-tag">This term</span></div></div>
+          <div class="gt-row"><div class="gt-lab"><b>Hospitality</b></div><div class="gt-lane"><span class="gt-mark" style="left:95.83%"></span><i class="gt-bar is-pt" role="img" aria-label="Part-time, Jan 2025 to Jun 2026" style="left:80.0%;width:15.0%"></i></div></div>
+          <div class="gt-row"><div class="gt-lab"><b>M.S. Project Management</b></div><div class="gt-lane"><span class="gt-mark" style="left:95.83%"></span><i class="gt-bar is-study" role="img" aria-label="Graduate study, Sep 2024 to Apr 2026" style="left:76.6667%;width:16.6667%"></i></div></div>
+          <div class="gt-row"><div class="gt-lab"><b>Business Development Manager</b></div><div class="gt-lane"><span class="gt-mark" style="left:95.83%"></span><i class="gt-bar" role="img" aria-label="Full-time, Aug 2022 to Oct 2023" style="left:55.8333%;width:12.5%"></i></div></div>
+          <div class="gt-row"><div class="gt-lab"><b>Pharmacist</b></div><div class="gt-lane"><span class="gt-mark" style="left:95.83%"></span><i class="gt-bar is-pt" role="img" aria-label="Part-time, Sep 2021 to Aug 2024" style="left:46.6667%;width:30.0%"></i></div></div>
+          <div class="gt-row"><div class="gt-lab"><b>Business Development Executive</b></div><div class="gt-lane"><span class="gt-mark" style="left:95.83%"></span><i class="gt-bar" role="img" aria-label="Full-time, Apr 2019 to Oct 2021" style="left:22.5%;width:25.8333%"></i></div></div>
+          <div class="gt-row"><div class="gt-lab"><b>Senior Project Specialist</b></div><div class="gt-lane"><span class="gt-mark" style="left:95.83%"></span><i class="gt-bar" role="img" aria-label="Full-time, Jul 2017 to Mar 2019" style="left:5.0%;width:17.5%"></i></div></div>
+        </div></div>
+        <p class="gt-foot">Bangkok through 2023, Toronto since. The thin bars ran alongside
+          something full-time — pharmacy under the commercial roles for three years, and
+          customer-facing service through the master's.</p>
+      </div>
+
       <div class="tl reveal">
         <div class="job">
           <div class="when">May 2026 — Present</div>
@@ -519,7 +600,6 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
         </div>
         <div class="job">
           <div class="when">May 2026 — Jul 2026</div>
-          <span class="tag-extra">Part-time · Teaching assistantship</span>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-book"/></svg></span><span>Teaching Assistant — Fintech (Undergraduate)</span></h3>
           <div class="org">York University · Toronto</div>
           <p>Graded assignments, quizzes, and exams for an undergraduate fintech course — applying consistent, rubric-based marking and returning timely feedback to students.</p>

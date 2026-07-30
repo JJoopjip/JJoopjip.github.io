@@ -6,7 +6,8 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
-2026-07-30 — Chantamas Chatraporn (Claude Code session)
+2026-07-30 — Chantamas Chatraporn (Claude Code session) — roles timeline
+restored to the Background page, redesigned. See "The roles timeline" below.
 
 ## Current state
 
@@ -17,19 +18,22 @@ iframes under `demo/`. No known bugs or broken links as of this writing.
 
 Recent work (most recent first, from `git log`):
 
-1. Added York University fintech teaching assistantship to the Background
+1. Rebuilt and restored the roles duration timeline on the Background page,
+   and removed the incorrect "Part-time" tag from the York teaching
+   assistantship. See "The roles timeline" below for the rules it encodes.
+2. Added York University fintech teaching assistantship to the Background
    experience timeline.
-2. Added the current Toronto PR internship to the experience timeline.
-3. Surfaced project differentiators as highlighted callouts on project
+3. Added the current Toronto PR internship to the experience timeline.
+4. Surfaced project differentiators as highlighted callouts on project
    cards.
-4. Reordered/labeled the AI Résumé Generator as "Project 01".
-5. Reframed the résumé generator project copy as a "headless Claude agent".
-6. Added QR codes (`assets/qr*.svg`/`.png`) pointing at the site, verified
+5. Reordered/labeled the AI Résumé Generator as "Project 01".
+6. Reframed the résumé generator project copy as a "headless Claude agent".
+7. Added QR codes (`assets/qr*.svg`/`.png`) pointing at the site, verified
    scannable at print size.
-7. Added contact icons/visuals to the Home page.
-8. Anonymized the sample data in the tracker demo (no real applications).
-9. Linked each project page to its public source repo.
-10. Initial site + both interactive demos added.
+8. Added contact icons/visuals to the Home page.
+9. Anonymized the sample data in the tracker demo (no real applications).
+10. Linked each project page to its public source repo.
+11. Initial site + both interactive demos added.
 
 This session's work (2026-07-29): the **redesign is implemented**. `index.html`
 and both demo pages now carry the Spec Sheet identity described below. The
@@ -114,8 +118,10 @@ two may ever carry a meter. Recommended addition is a **provenance line** under
 each figure; three of the five come from Winnergy Medical, 2022–23.
 
 **Charting constraint.** Signal red `#D0202F` against context graphite
-`#55534F` fails the protanopia check (OKLab ΔE 4.9, floor 6.0). Any chart
-emphasis must carry a **text label as well as** the colour.
+`#55534F` fails the protanopia check (OKLab ΔE 4.9 as first measured, 4.5 when
+recomputed 2026-07-30 with the Viénot matrix — different simulation, same
+verdict, both well under the 6.0 floor). Any chart emphasis must carry a **text
+label as well as** the colour.
 
 The design directions, palette options, type specimens and stat-row treatments
 were delivered as private published pages on the owner's account. **Those links
@@ -130,66 +136,106 @@ the new fonts). To roll back: `git revert 1b6168a && git push`.
 
 ## What comes next
 
-1. **Open it in a browser and review it** — it is live and was never viewed in
-   a browser before shipping (no working headless Chromium on the dev machine;
-   see above). This is the one verification step that hasn't happened.
-2. Nothing else outstanding. The stat row shipped as type-only with provenance
+1. **Open it in a browser and review it.** Still the one verification step that
+   hasn't happened for the redesign, and it now also covers the restored
+   timeline. This machine has no working headless Chromium (`libnspr4.so`
+   missing), so the timeline was verified structurally instead: tag balance, CSS
+   coverage for every `gt-*`/`k-*` class, no undefined `var()`, all three pages
+   served HTTP 200 locally, and every bar's geometry plus every label's pixel
+   width recomputed from the font file. **Nobody has looked at it.**
+2. Specifically worth eyeballing on the timeline: the **2024–25 boundary**,
+   where the thin bars stop and restart across the four study-only months, and
+   whether the **dashed part-time bars** read as "part-time" rather than
+   "estimated" — that ambiguity is inherent to dashes and was accepted with eyes
+   open. The fallback if they read wrong is thin-and-solid.
+3. Nothing else outstanding. The stat row shipped as type-only with provenance
    lines and no meters.
 
 **The written record is now continuous** — all 109 months from Jul 2017 to
 today, with no gap anywhere. The master's is dated Sep 2024 – Apr 2026
-(`04b995c`), which meets the Boots role ending Aug 2024 with no seam. Two roles
-ran concurrently for 34 of those months and three for two months, so if anything
-the record now understates how much was running at once. Keep this in mind before
-"fixing" an apparent overlap: the overlaps are real.
+(`04b995c`), which meets the Boots role ending Aug 2024 with no seam.
 
-### The roles timeline (`.gt-*`) — built, then removed
+Recomputed 2026-07-30 from the dates in `index.html`, because an earlier version
+of this file claimed "34 months" with two concurrent roles and that figure was
+wrong. The real numbers:
 
-**Currently not on the site.** Shipped in `6ad8cbf`, removed in `3c04f3f` after
-the owner saw it live: it drew attention to the gaps between roles. A duration
-chart cannot avoid doing that — it's inherent to the form, not a fixable styling
-problem.
+- **109 months** covered, Jul 2017 – Jul 2026, **zero** with nothing at all.
+- **20 months** carried two *paid* roles at once; **2 months** carried three.
+- **36 months** had two or more entries counting the master's as an entry —
+  this is where the bogus "34" came from.
+- **Sep–Dec 2024 (4 months) has no paid role**, only the master's. This is the
+  one thin stretch left, and it's the first term after the move to Toronto.
+  It's disclosed, not hidden — don't "fix" it.
 
-The gaps were largely an artefact of **missing data**. The part-time Boots
-pharmacist role (Sep 2021 – Aug 2024) was absent from the site entirely; it was
-added in `baa412f` and it closes a nine-month stretch in 2021–22 outright plus
-most of a fourteen-month one across 2023–24. **The record is now continuous from Jul 2017
-to today with no gap at all**, once the master's was dated Sep 2024 – Apr 2026.
+Keep this in mind before "fixing" an apparent overlap: the overlaps are real.
 
-So the chart is now defensible on the merits where it wasn't before — but the
-owner disliked it on sight, so **do not restore it unless they ask**. If they
-do, the case for it is continuity, not chronology: pharmacy practice running
-underneath the commercial roles is the story the bars can tell and the prose
+### The roles timeline (`.gt-*`) — removed, then rebuilt and restored
+
+**Live on the Background page.** History: shipped `6ad8cbf`, removed `3c04f3f`
+(the owner saw it live and it drew attention to the gaps between roles), then
+rebuilt and restored on 2026-07-30 after the underlying data changed.
+
+What made it defensible the second time was **missing data being filled in**,
+not styling. The part-time Boots pharmacist role (Sep 2021 – Aug 2024) had been
+absent from the site entirely; adding it in `baa412f` closed the 2021–22 gap
+outright and most of the 2023–24 one, and dating the master's closed the rest.
+The case for the chart is **continuity, not chronology**: pharmacy practice
+running underneath the commercial roles is the story the bars tell and the prose
 can't.
 
-To restore: `git show 6ad8cbf -- index.html` and lift the `.gt-*` CSS block plus
-the `.gt-wrap` markup. The design rules it encoded are below, and they should be
-kept if it ever comes back.
+Eight bars on a flat **2017–2027** domain, which is why one year is exactly 10%
+and the year gridlines are a `repeating-linear-gradient` rather than ten
+elements. If the domain ever changes, every inline `left`/`width` percentage has
+to be recomputed — `pct = (year − 2017) × 10`, with end dates expressed as the
+first of the following month.
 
-Seven bars on a flat **2017–2027** domain, which is why one year is
-exactly 10% and the year gridlines are a `repeating-linear-gradient` rather than
-ten elements. If the domain ever changes, every inline `left`/`width` percentage
-has to be recomputed — `pct = (year − 2017) × 10`, with end dates expressed as
-the first of the following month.
+Rules baked into it. **Each of these was an explicit decision by the owner —
+don't undo one without asking:**
 
-Rules baked into it, worth keeping if you touch it:
-
-- Every range is **printed as text beside its own bar**, so the chart is never
-  the only place a date lives. That's why there is deliberately no tooltip.
+- **No printed dates and no tooltip.** The bars and the year axis carry the
+  period; the written entries below carry it exactly. The owner's reasoning: a
+  reader who wants exact dates can drop to the prose, so printing them made the
+  same fact appear three times. (This reverses the original build's rule.)
+- **Because of that, every bar carries `role="img"` and an `aria-label`** like
+  `"Part-time, Sep 2021 to Aug 2024"`. That label is now the *only* text a
+  screen reader can get from a bar, and it also announces full/part-time, which
+  is otherwise encoded as a dash pattern and therefore visual-only. If you edit
+  a bar, edit its label.
+- **Part-time roles are thinner (5px) and dashed**, with solid 1px end caps so
+  the dashes don't clip mid-stroke at the date boundaries. Part-time is Boots
+  and Hospitality only.
+- **No employer names anywhere in the chart**, by request. The prose has them.
+- **Every label is a job title, not a department, and nothing is abbreviated.**
+  PR/BD/NPD were all spelled out. The label column is **190px**, sized against
+  the real font file: the longest is "Business Development Executive" at
+  177.5px. Re-measure before lengthening any label.
+  - Two titles are shortened to fit, deliberately: "Business Development
+    Manager" (from "…& Online Marketing Manager") and "Senior Project
+    Specialist" (from "…, New Product Development"). **Keep the title half, not
+    the department half** — the Otsuka row is the only evidence on the chart
+    that project management predates the master's, and it's meant to rhyme with
+    "M.S. Project Management" four rows up.
 - The two live roles carry the accent **and** a text label, because signal red
-  and context graphite are near-identical under protanopia (see above).
-- Graduate study has a hard right edge at graduation (Apr 2026) and a **faded
-  left edge** — the starting year is known, the month is not, and fading is
-  more honest than picking one. If the owner supplies the start month, replace
-  the gradient with a solid fill and set `left` accordingly.
+  and context graphite are near-identical under protanopia (OKLab ΔE 4.5
+  against a 6.0 floor). Never let emphasis rest on the red alone.
+- Graduate study is a **solid** light band with a hard right edge at graduation.
+  It used to fade at the left because only the year was known; now that it's
+  dated Sep 2024 the fade is gone. Don't reintroduce it.
 - The `Current` / `This term` tags sit to the **left** of their bars. Those bars
   end at the right edge of the domain, so a trailing label overflows the lane
   and forces a horizontal scroll. Don't move them back.
 
-Dates corrected in the same commit, both confirmed by the owner: front-of-house
-now runs from **Jan 2025** (not Apr 2025 — its own venue list already said Jan,
-so the parent entry had been inconsistent), and the master's is dated to
-graduation in **Apr 2026**.
+Rejected along the way, so don't propose them again: a month-by-month coverage
+strip (duplicated the bars), red shading over the Sep–Dec 2024 stretch (drew the
+eye to the one weak spot), employer names on a second label line, and a hover
+tooltip (doesn't work on touch).
+
+Also corrected in this line of work, both confirmed by the owner: front-of-house
+runs from **Jan 2025** (not Apr 2025), the master's is dated to graduation in
+**Apr 2026**, and the York teaching assistantship is **not part-time** — it's a
+full-time contract, so the `tag-extra` reading "Part-time · Teaching
+assistantship" was removed outright rather than reworded. The role title already
+says what it is.
 
 Answered earlier and already applied — don't re-ask: the stat row gets
 provenance lines and no sparklines; only `90%` and `3.9` would ever be allowed a
