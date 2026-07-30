@@ -143,13 +143,14 @@ the new fonts). To roll back: `git revert 1b6168a && git push`.
    coverage for every `gt-*`/`k-*` class, no undefined `var()`, all three pages
    served HTTP 200 locally, and every bar's geometry plus every label's pixel
    width recomputed from the font file. **Nobody has looked at it.**
-2. Specifically worth eyeballing on the timeline: the **2024–25 boundary**,
-   where the thin bars stop and restart across the four study-only months, and
-   whether the **dashed part-time bars** read as "part-time" rather than
-   "estimated" — that ambiguity is inherent to dashes and was accepted with eyes
-   open. The fallback if they read wrong is thin-and-solid.
-3. Nothing else outstanding. The stat row shipped as type-only with provenance
+2. Nothing else outstanding. The stat row shipped as type-only with provenance
    lines and no meters.
+
+**Don't re-open the dashed part-time bars.** The legend at the top of the chart
+names "Part-time" against the dashed swatch, so a reader is told what the
+pattern means before they reach a bar. An earlier version of this file raised
+"the dashes might read as *estimated*" as an open worry — the legend was already
+the answer, and the note was noise. It's gone.
 
 **The written record is now continuous** — all 109 months from Jul 2017 to
 today, with no gap anywhere. The master's is dated Sep 2024 – Apr 2026
@@ -163,9 +164,12 @@ wrong. The real numbers:
 - **20 months** carried two *paid* roles at once; **2 months** carried three.
 - **36 months** had two or more entries counting the master's as an entry —
   this is where the bogus "34" came from.
-- **Sep–Dec 2024 (4 months) has no paid role**, only the master's. This is the
-  one thin stretch left, and it's the first term after the move to Toronto.
-  It's disclosed, not hidden — don't "fix" it.
+- **Sep–Dec 2024 is the first term of the master's**, right after the move to
+  Toronto. Four months on the degree and no paid role, which is what starting a
+  full-time graduate program in a new country looks like. The study band covers
+  the row and the chart is complete there. **This is not a gap and does not need
+  flagging, shading, footnoting, or defending** — a previous version of this
+  file treated it as a weak spot, which was wrong and got removed.
 
 Keep this in mind before "fixing" an apparent overlap: the overlaps are real.
 
@@ -226,9 +230,9 @@ don't undo one without asking:**
   and forces a horizontal scroll. Don't move them back.
 
 Rejected along the way, so don't propose them again: a month-by-month coverage
-strip (duplicated the bars), red shading over the Sep–Dec 2024 stretch (drew the
-eye to the one weak spot), employer names on a second label line, and a hover
-tooltip (doesn't work on touch).
+strip (duplicated the bars), red shading over the Sep–Dec 2024 stretch (invented
+a problem where there wasn't one — see above), employer names on a second label
+line, and a hover tooltip (doesn't work on touch).
 
 Also corrected in this line of work, both confirmed by the owner: front-of-house
 runs from **Jan 2025** (not Apr 2025), the master's is dated to graduation in
