@@ -50,6 +50,8 @@ What changed, concretely:
   is the same fact stated the way readers actually parse it.
 - Fonts: Fraunces / Hanken Grotesk / JetBrains Mono → **Schibsted Grotesk +
   Martian Mono**. Favicon is now a red square; `theme-color` added.
+- The Background page gained a **roles duration timeline** above the written
+  entries (see its own section below).
 - `demo/*.html` — both already had a `:root` token block, so they were
   retargeted in place. Inter/Nunito → Schibsted Grotesk / Martian Mono. Their
   semantic colours were remapped, not flattened: sage → status green
@@ -134,17 +136,35 @@ the new fonts). To roll back: `git revert 1b6168a && git push`.
 1. **Open it in a browser and review it** — it is live and was never viewed in
    a browser before shipping (no working headless Chromium on the dev machine;
    see above). This is the one verification step that hasn't happened.
-2. **Roles timeline chart** for the Background page — designed and specced (a
-   Gantt-style summary of the six dated roles, sitting above the existing
-   written timeline), but not built, because the graduate-study band needs
-   dates. Note the Education card on that same page already states
-   *Northeastern University, Toronto · 2024–2026*, so a year-granularity band is
-   available without asking; only month precision needs confirming. **Do not
-   invent months** — render at year granularity or leave the band out.
-   Constraint when building it: emphasis must carry a text label, not just the
-   accent colour (see the protanopia note above).
-3. Nothing else is outstanding. The stat row shipped as type-only with
-   provenance lines, no meters.
+2. Nothing else is outstanding. The stat row shipped as type-only with
+   provenance lines and no meters; the roles timeline shipped in `6ad8cbf`.
+
+### The roles timeline (`.gt-*`, Background page)
+
+Shipped. Seven bars on a flat **2017–2027** domain, which is why one year is
+exactly 10% and the year gridlines are a `repeating-linear-gradient` rather than
+ten elements. If the domain ever changes, every inline `left`/`width` percentage
+has to be recomputed — `pct = (year − 2017) × 10`, with end dates expressed as
+the first of the following month.
+
+Rules baked into it, worth keeping if you touch it:
+
+- Every range is **printed as text beside its own bar**, so the chart is never
+  the only place a date lives. That's why there is deliberately no tooltip.
+- The two live roles carry the accent **and** a text label, because signal red
+  and context graphite are near-identical under protanopia (see above).
+- Graduate study has a hard right edge at graduation (Apr 2026) and a **faded
+  left edge** — the starting year is known, the month is not, and fading is
+  more honest than picking one. If the owner supplies the start month, replace
+  the gradient with a solid fill and set `left` accordingly.
+- The `Current` / `This term` tags sit to the **left** of their bars. Those bars
+  end at the right edge of the domain, so a trailing label overflows the lane
+  and forces a horizontal scroll. Don't move them back.
+
+Dates corrected in the same commit, both confirmed by the owner: front-of-house
+now runs from **Jan 2025** (not Apr 2025 — its own venue list already said Jan,
+so the parent entry had been inconsistent), and the master's is dated to
+graduation in **Apr 2026**.
 
 Answered earlier and already applied — don't re-ask: the stat row gets
 provenance lines and no sparklines; only `90%` and `3.9` would ever be allowed a
