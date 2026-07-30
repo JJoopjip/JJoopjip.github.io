@@ -133,13 +133,15 @@ the new fonts). To roll back: `git revert 1b6168a && git push`.
 1. **Open it in a browser and review it** — it is live and was never viewed in
    a browser before shipping (no working headless Chromium on the dev machine;
    see above). This is the one verification step that hasn't happened.
-2. **One four-month window is unaccounted for: Sep 2024 – Dec 2024.** Everything
-   else from Jul 2017 to today is now covered continuously. That window almost
-   certainly closes with the master's start month — the Education card says
-   "2024" but not which month, and a September intake would close it exactly.
-   **Ask the owner; do not infer the month.** (Adding it would also let the
-   duration chart be reconsidered — see below.)
-3. The stat row shipped as type-only with provenance lines and no meters.
+2. Nothing else outstanding. The stat row shipped as type-only with provenance
+   lines and no meters.
+
+**The written record is now continuous** — all 109 months from Jul 2017 to
+today, with no gap anywhere. The master's is dated Sep 2024 – Apr 2026
+(`04b995c`), which meets the Boots role ending Aug 2024 with no seam. Two roles
+ran concurrently for 34 of those months and three for two months, so if anything
+the record now understates how much was running at once. Keep this in mind before
+"fixing" an apparent overlap: the overlaps are real.
 
 ### The roles timeline (`.gt-*`) — built, then removed
 
@@ -151,9 +153,8 @@ problem.
 The gaps were largely an artefact of **missing data**. The part-time Boots
 pharmacist role (Sep 2021 – Aug 2024) was absent from the site entirely; it was
 added in `baa412f` and it closes a nine-month stretch in 2021–22 outright plus
-most of a fourteen-month one across 2023–24. **The record is now continuous from
-Jul 2017 to today apart from Sep–Dec 2024**, which the master's start month
-would likely close.
+most of a fourteen-month one across 2023–24. **The record is now continuous from Jul 2017
+to today with no gap at all**, once the master's was dated Sep 2024 – Apr 2026.
 
 So the chart is now defensible on the merits where it wasn't before — but the
 owner disliked it on sight, so **do not restore it unless they ask**. If they
