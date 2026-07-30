@@ -37,6 +37,9 @@ site's structure, routing, copy and demos are otherwise unchanged.
 
 What changed, concretely:
 
+- The Background timeline gained the **Boots pharmacist role** (`baa412f`), and
+  the inert `.job.alt` / `.skillcol.s2` attributes were dropped in the same
+  commit.
 - `index.html` — the entire `<style>` block was rewritten in the Spec Sheet
   idiom. **All existing class names were kept**, so the markup continues to
   work; what changed is the tokens, the radii (22px → 2px), the shadows
@@ -50,8 +53,6 @@ What changed, concretely:
   is the same fact stated the way readers actually parse it.
 - Fonts: Fraunces / Hanken Grotesk / JetBrains Mono → **Schibsted Grotesk +
   Martian Mono**. Favicon is now a red square; `theme-color` added.
-- The Background page gained a **roles duration timeline** above the written
-  entries (see its own section below).
 - `demo/*.html` — both already had a `:root` token block, so they were
   retargeted in place. Inter/Nunito → Schibsted Grotesk / Martian Mono. Their
   semantic colours were remapped, not flattened: sage → status green
@@ -136,14 +137,12 @@ the new fonts). To roll back: `git revert 1b6168a && git push`.
 1. **Open it in a browser and review it** — it is live and was never viewed in
    a browser before shipping (no working headless Chromium on the dev machine;
    see above). This is the one verification step that hasn't happened.
-2. **The site is missing a role.** The owner has held a **part-time pharmacist
-   position running across most or all of the other jobs**, and it appears
-   nowhere on the Background page. This is the most substantive gap in the
-   record — it's real, relevant experience, and for a pharma/medtech PM profile
-   it's an asset, not a footnote. Needs from the owner before it can be added:
-   job title, employer or setting, city, date range, and whether it was
-   continuous or intermittent. **Do not draft any of these from inference** —
-   this is résumé content (see `CLAUDE.md`).
+2. **One four-month window is unaccounted for: Sep 2024 – Dec 2024.** Everything
+   else from Jul 2017 to today is now covered continuously. That window almost
+   certainly closes with the master's start month — the Education card says
+   "2024" but not which month, and a September intake would close it exactly.
+   **Ask the owner; do not infer the month.** (Adding it would also let the
+   duration chart be reconsidered — see below.)
 3. The stat row shipped as type-only with provenance lines and no meters.
 
 ### The roles timeline (`.gt-*`) — built, then removed
@@ -153,12 +152,18 @@ the owner saw it live: it drew attention to the gaps between roles. A duration
 chart cannot avoid doing that — it's inherent to the form, not a fixable styling
 problem.
 
-But the gaps were partly an artefact of **missing data**: a long-running
-part-time **pharmacist role is absent from the site entirely**. That's the real
-outstanding item (see "What comes next"). If that role is continuous, it changes
-the chart's meaning completely — an unbroken nine-year bar of pharmacy practice
-with the commercial roles layered above it, which argues for continuity rather
-than exposing gaps. Worth re-proposing then, but only with the owner's say-so.
+The gaps were largely an artefact of **missing data**. The part-time Boots
+pharmacist role (Sep 2021 – Aug 2024) was absent from the site entirely; it was
+added in `baa412f` and it closes a nine-month stretch in 2021–22 outright plus
+most of a fourteen-month one across 2023–24. **The record is now continuous from
+Jul 2017 to today apart from Sep–Dec 2024**, which the master's start month
+would likely close.
+
+So the chart is now defensible on the merits where it wasn't before — but the
+owner disliked it on sight, so **do not restore it unless they ask**. If they
+do, the case for it is continuity, not chronology: pharmacy practice running
+underneath the commercial roles is the story the bars can tell and the prose
+can't.
 
 To restore: `git show 6ad8cbf -- index.html` and lift the `.gt-*` CSS block plus
 the `.gt-wrap` markup. The design rules it encoded are below, and they should be
