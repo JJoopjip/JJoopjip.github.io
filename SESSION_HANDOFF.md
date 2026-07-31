@@ -6,8 +6,9 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
-2026-07-30 — Chantamas Chatraporn (Claude Code session) — roles timeline
-restored to the Background page, redesigned. See "The roles timeline" below.
+2026-07-31 — Chantamas Chatraporn (Claude Code session) — the three Bangkok
+roles on the Background page were expanded from one paragraph each to a lead
+paragraph plus an achievement list. See "Role depth on the Background page".
 
 ## Current state
 
@@ -18,7 +19,10 @@ iframes under `demo/`. No known bugs or broken links as of this writing.
 
 Recent work (most recent first, from `git log`):
 
-1. Rebuilt and restored the roles duration timeline on the Background page,
+1. Expanded the Winnergy, LG Chem and Otsuka entries on the Background page
+   from a single paragraph each into a lead paragraph plus a `.did`
+   achievement list, sourced from the résumé master bank.
+2. Rebuilt and restored the roles duration timeline on the Background page,
    and removed the incorrect "Part-time" tag from the York teaching
    assistantship. See "The roles timeline" below for the rules it encodes.
 2. Added York University fintech teaching assistantship to the Background
@@ -143,7 +147,9 @@ the new fonts). To roll back: `git revert 1b6168a && git push`.
    coverage for every `gt-*`/`k-*` class, no undefined `var()`, all three pages
    served HTTP 200 locally, and every bar's geometry plus every label's pixel
    width recomputed from the font file. **Nobody has looked at it.**
-2. Nothing else outstanding. The stat row shipped as type-only with provenance
+2. **Add the SKU scope qualifier to `~/resume_generator/master.yaml`** so
+   generated résumés stop understating the portfolio (see above).
+3. Nothing else outstanding. The stat row shipped as type-only with provenance
    lines and no meters.
 
 **Don't re-open the dashed part-time bars.** The legend at the top of the chart
@@ -172,6 +178,115 @@ wrong. The real numbers:
   file treated it as a weak spot, which was wrong and got removed.
 
 Keep this in mind before "fixing" an apparent overlap: the overlaps are real.
+
+### Role depth on the Background page (`.did` lists)
+
+The written entries for **Winnergy, LG Chem and Otsuka** each carried one dense
+paragraph, which undersold the three full-time roles the owner considers the
+core of the résumé. They now render as a short lead paragraph plus a
+`<ul class="did">` achievement list — **exactly five bullets each**. `.did` is
+styled off the existing `.venues` rule (hairline dash markers, no bullets), one
+size up because these are prose sentences rather than venue names.
+
+**Five is a deliberate ceiling, chosen by the owner. Don't exceed it.** An
+intermediate version of this work ran to 8/8/7 bullets and the owner's reaction
+was that nobody reads that much and people will skip the section entirely. That
+judgment was right. Depth alone does not sell a role — depth that survives a
+ten-second skim does.
+
+**Every bullet opens with a bolded lead-in phrase** (`.did li b`), so reading
+only the bold text still conveys the whole role. This is the mechanism that
+makes five substantial bullets skimmable; if you add a bullet, it needs a bold
+lead-in too, or it becomes the one line everyone's eye slides past.
+
+The lead paragraph carries **scope** (what the role was, at what kind of
+company); the bullets carry **accomplishments**, one idea each.
+
+What got cut when going from 8/8/7 down to 5/5/5, and why it should stay cut:
+the lines with no object and no outcome — "coordinated cross-functional
+execution", "engaged people across the value chain", "informed marketing
+campaigns". Those read as filler and train a reader to skip everything after
+them. Winnergy's early-AI-tools line also went: the two AI projects on this same
+site demonstrate that far better than a claim does. Nothing was invented to
+reach any count.
+
+The content is not new writing. It comes from `~/resume_generator/master.yaml`,
+the résumé content bank and the owner's source of truth. Two things about that
+file matter here:
+
+- Its `authoring_rules.hard_rules` include **"One page"** — that is a *résumé*
+  constraint, not a site constraint. The portfolio has no page limit, which is
+  why the one-bullet-per-role compression was never required here. Don't
+  re-compress these entries to match a résumé.
+- `locked_fields` (metrics, dates, titles, company names) **may be selected and
+  reordered but never rewritten**. That rule was respected: every figure on the
+  page appears verbatim as it does in the bank.
+
+**Don't draft these entries from the `general` variant alone.** The bank stores
+each achievement once with a framing per profile (`bd` / `pm` / `dm` /
+`general`). `general` is the *fallback* framing, so it is consistently the most
+compressed one — and the compression drops concrete facts that the profile
+variants keep. The site is not profile-gated and has no page limit, so the right
+source here is the **union of facts across all four variants**, rendered in the
+site's voice.
+
+Facts recovered that way, each of which exists in exactly one non-`general`
+variant and was invisible on the site before:
+
+- Winnergy — **four modern-trade chains** and a **licensed 10+ SKU feminine-care
+  line** (`win_b2c.bd`); **Canva and MailChimp** (`win_engagement.dm`);
+  **hospital and clinic** accounts rather than the vaguer "institutional"
+  (`win_retention.bd`).
+- LG Chem — **competitive fact sheets and product comparisons** feeding
+  campaigns and positioning (`lg_intelligence.dm`).
+- Otsuka — **domestic manufacturing economics and locally relevant clinical
+  data** as the market-access lever (`ot_access.dm`); *"shifting what clinicians
+  recommended"*, a real outcome where `general` only says "earning adoption"
+  (`ot_clinical.dm`).
+
+Also newly surfaced: the **8-person team** at Winnergy and **early AI-tool
+adoption** there (ChatGPT, Canva AI), LG Chem's **positioning /
+value-proposition** work and **KPI review cycle**, and Otsuka's
+**pharmacovigilance and labeling** work. The 8-person team is the notable one —
+people leadership had no representation anywhere on the site before now.
+
+Thai Festival and the York TA entries were left alone. Thai Festival already
+uses all four of its bank bullets as prose; the bank explicitly says to keep the
+York TA to one bullet ("grading-only scope").
+
+**The bank was fully drained for these three roles, then cut back to the best
+five.** Every `bullet` id under `winnergy`, `lgchem` and `otsuka` was drafted
+onto the page first, then the weakest were removed. So the page is a *selection*
+from the bank, not a shortfall against it — if a role needs different emphasis
+for a particular audience, swap a bullet out rather than adding a sixth.
+
+### Two owner decisions from 2026-07-31 — don't re-raise either
+
+- **Confidential figures stay off the site.** The owner will discuss revenue,
+  volume, budget and headcount **in an interview, not on a public page**. Do not
+  propose adding commercial results to strengthen an entry, and do not treat the
+  absence of a revenue figure on the Winnergy B2C launch as a gap to fill. The
+  percentages and counts already published are the agreed ceiling.
+- **The timeline order is settled and the owner is happy with it.** Boots sits
+  above Winnergy because the list is reverse-chronological by end date. Yes,
+  `master.yaml`'s renderer rule places part-time roles after full-time ones —
+  that rule governs the *résumé*, not this page. Don't reorder the entries.
+
+**The 20+ vs 30+ SKU question is resolved — both numbers are correct.** Confirmed
+by the owner on 2026-07-31: **20+ SKUs counts medical devices only; 30+ counts
+the electronic-device pipeline as well.** Neither figure was ever wrong; they
+have different scopes and the scope was never written down.
+
+The site now states the relationship once, in the Winnergy budget bullet: "four
+pipelines — 20+ medical-device SKUs plus a new electronic-device line". The
+home-page stat row keeps **30+** (it describes the whole B2C launch, so the
+wider scope is the right one there). Don't "fix" either number to match the
+other — write the scope instead.
+
+**`~/resume_generator/master.yaml` still says a bare "20+ SKUs"** in
+`win_portfolio` and `hl_skus`, with no scope qualifier. That's a separate repo
+and was left untouched. It should get the same qualifier, or a résumé generated
+from it will keep understating the portfolio.
 
 ### The roles timeline (`.gt-*`) — removed, then rebuilt and restored
 
