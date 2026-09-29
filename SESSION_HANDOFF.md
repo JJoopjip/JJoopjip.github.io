@@ -26,6 +26,13 @@ for that role (none shown), and it's tagged "Part-time" like the other
 venues. **Stale:** the Now marker (95.83% = end of Jul 2026) and the York TA
 "Current / This term" bar (ended Jul 2026) haven't been moved forward.
 
+**Then:** all restaurant names dropped from the site (owner's call — keep every
+venue unnamed). The hospitality entry is retitled "Acting Restaurant Manager &
+Front of House" with two bullets from the owner: acting manager (resolves daily
+issues, manages front-of-house inventory) and sole server each day (host through
+table setup). Attributed to the current role; the wording is the owner's, not
+from `master.yaml`, which still lists one named server role.
+
 ## Current state
 
 The site is live and working at https://jjoopjip.github.io/. It's a static,
