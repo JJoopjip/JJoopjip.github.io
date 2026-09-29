@@ -33,6 +33,17 @@ issues, manages front-of-house inventory) and sole server each day (host through
 table setup). Attributed to the current role; the wording is the owner's, not
 from `master.yaml`, which still lists one named server role.
 
+**Then, hospitality restructured into two entries** (owner: master's is finished,
+the current job is full-time while job searching, started **Aug 2026**): a
+current "Server & Acting Restaurant Manager" entry (full-time; sole server each
+day, resolves daily issues, manages front-of-house inventory) above the original
+Jan 2025 – Jun 2026 part-time entry, with all venue names removed (owner's call).
+The timeline's Now marker moved to 97.5% (end of Sep 2026); PR intern bar
+extended; the York TA bar is no longer "current" (ended Jul 2026) — it is drawn
+as a plain bar, so confirm whether that role was part-time. The "Acting
+Restaurant Manager" title is the owner's wording from earlier this session, not
+from `master.yaml`.
+
 ## Current state
 
 The site is live and working at https://jjoopjip.github.io/. It's a static,
