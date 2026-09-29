@@ -19,6 +19,13 @@ the site keeps its curated five per role, so none were added. The site's Server
 entry lists two extra venues the master doesn't; left as is. Winnergy still says
 30+ SKUs vs the master's 20+ (see the SKU note below).
 
+**Later, same day:** hospitality is now ongoing — added an unnamed **"Hospitality role — Server (Current)"** to the venue list (owner
+chose not to name the restaurant; keep it unnamed), entry dated "Jan 2025 — Present", timeline bar
+extended to the Now marker. **Assumptions to confirm:** no start date was given
+for that role (none shown), and it's tagged "Part-time" like the other
+venues. **Stale:** the Now marker (95.83% = end of Jul 2026) and the York TA
+"Current / This term" bar (ended Jul 2026) haven't been moved forward.
+
 ## Current state
 
 The site is live and working at https://jjoopjip.github.io/. It's a static,
