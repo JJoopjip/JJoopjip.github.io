@@ -6,9 +6,18 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
-2026-07-31 — Chantamas Chatraporn (Claude Code session) — the three Bangkok
-roles on the Background page were expanded from one paragraph each to a lead
-paragraph plus an achievement list. See "Role depth on the Background page".
+2026-09-29 — Claude Code session — synced the Background page to the current
+`~/resume_generator/master.yaml` (edited Sep 28; git-ignored, so no diff was
+possible — compared by reading). Two fixes: the York TA entry now matches the
+master ("papers and quizzes", 41-student course; the site had said "exams" and
+"timely feedback", which the master doesn't support), and the Chulalongkorn
+degree now reads **Doctor of Pharmacy** as in the master (site said Bachelor).
+
+**Deliberately not synced** (owner to decide): the master gained new LG Chem /
+Otsuka bullets (NLEM listing, patient-access segmentation, IP/legal, training);
+the site keeps its curated five per role, so none were added. The site's Server
+entry lists two extra venues the master doesn't; left as is. Winnergy still says
+30+ SKUs vs the master's 20+ (see the SKU note below).
 
 ## Current state
 
