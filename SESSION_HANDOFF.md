@@ -6,6 +6,24 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
+2026-09-30 — Claude Code session — **AI-readability + "In progress" line.**
+Added `llms.txt`, `about.md` (plain-text mirror of the site: roles, dates,
+credentials, projects, contact), `robots.txt`, `sitemap.xml`, and a
+`<script type="application/ld+json">` Person block plus an `llms.txt`
+`<link rel="alternate">` in `index.html`'s `<head>`. Added a `.callout`
+"In progress · not built yet" under the project system map on Home: LiteLLM
+gateway for the résumé generator, honestly labelled as not built.
+**Rules for keeping these true:** `about.md`/`llms.txt`/JSON-LD duplicate
+facts from the Background page — when a role/date/degree changes on the site,
+change them too. They deliberately omit headcount/budget figures (see the
+no-confidential-figures memory) and venue names. Do not add LiteLLM to tags or
+skills until the project exists with real results. Not yet done: the GitHub
+profile README (repo `JJoopjip/JJoopjip`, outside this repo), the Home proof
+strip / larger highlight callouts, and the 30+ vs 20+ SKU reconciliation.
+Not deployed until pushed to `main`.
+
+## Earlier this week
+
 2026-09-29 — Claude Code session — synced the Background page to the current
 `~/resume_generator/master.yaml` (edited Sep 28; git-ignored, so no diff was
 possible — compared by reading). Two fixes: the York TA entry now matches the

@@ -1,0 +1,19 @@
+# Chantamas "Joopjip" Chatraporn — Project Manager, Toronto
+
+> PMP-certified project manager and commercial professional (business development, strategy) with seven years in pharma, medtech and consumer health. Based in Toronto, ON; open to project management, business development and strategy roles. Also builds her own job-search tools, including an autonomous Claude-agent résumé generator.
+
+## Start here
+- [Plain-text profile](https://jjoopjip.github.io/about.md): roles, dates, credentials, projects, contact — the full portfolio as one readable file
+- [Portfolio site](https://jjoopjip.github.io/): the source of record
+
+## Projects
+- [AI Résumé Generator — source](https://github.com/JJoopjip/ai-resume-generator): headless Claude agent that tailors a one-page résumé to a job posting and scores coverage
+- [Job Application Tracker — source](https://github.com/JJoopjip/application-tracker): Flask kanban board and dashboard fed by the résumé generator
+
+## Profiles
+- [LinkedIn](https://linkedin.com/in/chantamaschatraporn)
+- [GitHub](https://github.com/JJoopjip)
+
+## Optional
+- [Interactive demo: résumé generator](https://jjoopjip.github.io/demo/resume-generator.html): browser rebuild, replays a run, no AI model called
+- [Interactive demo: tracker](https://jjoopjip.github.io/demo/tracker.html): browser rebuild with invented sample data
