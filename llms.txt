@@ -9,6 +9,7 @@
 ## Projects
 - [AI Résumé Generator — source](https://github.com/JJoopjip/ai-resume-generator): headless Claude agent that tailors a one-page résumé to a job posting and scores coverage
 - [Job Application Tracker — source](https://github.com/JJoopjip/application-tracker): Flask kanban board and dashboard fed by the résumé generator
+- [Mianmian & Rourou sticker packs](https://jjoopjip.github.io/#/stickers): original characters shipped as animated stickers; live on WhatsApp and WeChat, LINE in review
 
 ## Profiles
 - [LinkedIn](https://linkedin.com/in/chantamaschatraporn)

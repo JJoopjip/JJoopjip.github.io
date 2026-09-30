@@ -275,6 +275,19 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 .hilite .kw{color:var(--accent);font-weight:600}
 @media (max-width:560px){.hilite{flex-direction:column;gap:12px}}
 
+/* sticker showcase */
+.stk{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:20px;background:var(--rule);border:1px solid var(--rule)}
+.stk figure{margin:0;background:var(--surface);padding:16px 16px 14px}
+.stk .pad{background:var(--surface-2);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.stk img{width:100%;height:100%;object-fit:contain;display:block}
+.stk figcaption{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--faint);margin-top:11px}
+.plat{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:8px;background:var(--rule);border:1px solid var(--rule)}
+.plat .p{background:var(--surface);padding:17px 20px}
+.plat .p b{display:block;font-family:var(--display);font-size:15px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:6px}
+.plat .p span{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.plat .p.is-live span{color:var(--ok)}
+@media (max-width:720px){.stk,.plat{grid-template-columns:1fr}}
+
 /* under-the-hood comparison */
 .uth{margin-top:32px;border:1px solid var(--rule);background:var(--surface);padding:22px 24px}
 .uth .fi{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:9px}
@@ -424,6 +437,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
       <a href="#/background" data-route="/background">Background</a>
       <a href="#/tracker" data-route="/tracker">Application Tracker</a>
       <a href="#/resume-gen" data-route="/resume-gen">Résumé Generator</a>
+      <a href="#/stickers" data-route="/stickers">Stickers</a>
       <a href="mailto:c.chantamas@gmail.com">Email</a>
     </div>
   </div>
@@ -535,6 +549,26 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
       <div class="callout reveal">
         <span class="fi">In progress · not built yet</span>
         <p><strong>Next:</strong> adding a LiteLLM gateway to the résumé generator, so it isn't tied to one AI provider — then comparing models on match quality and cost per résumé. Results will go here once I've run it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="eyebrow">Also shipped</div>
+      <h2>Original characters, shipped as animated stickers.</h2>
+      <div class="projgrid reveal" style="grid-template-columns:1fr">
+        <a class="projcard" href="#/stickers" data-route="/stickers">
+          <div class="pk">Project 03 · Generative AI · Product launch</div>
+          <h3 class="jt"><span>Mianmian &amp; Rourou — animated sticker packs</span></h3>
+          <p>Two original characters and a repeatable AI pipeline that turns them into animated stickers packed to each chat platform's format and size limits. Live on WhatsApp and WeChat; LINE is in review.</p>
+          <div class="ctags">
+            <span class="ctag hot">Live on WhatsApp &amp; WeChat</span>
+            <span class="ctag">LINE in review</span>
+            <span class="ctag">Original characters</span>
+          </div>
+          <span class="go" style="display:block">View project →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -880,9 +914,61 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
   </section>
 </main>
 
+<!-- ================= STICKERS ================= -->
+<main id="stickers" class="page">
+  <header class="detail-hero">
+    <div class="wrap">
+      <a class="back" href="#/" data-route="/">← Back to home</a>
+      <div class="eyebrow">Project 03</div>
+      <h1>Mianmian &amp; Rourou</h1>
+      <p class="lead">Two original characters — Mianmian, a pink chibi bearcat, and Rourou, her raccoon partner — designed and shipped as animated sticker packs for chat apps. I run the whole thing: character design, AI production, packing to each platform's limits, and store submission.</p>
+      <div class="hilite reveal">
+        <span class="hi-ic"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>
+        <div>
+          <span class="hi-tag">What makes it different</span>
+          <p><b>One character bible, <span class="kw">one generation</span>, every platform.</b> Characters are locked to a written spec and palette, each animation is generated <span class="kw">once</span> and packed for every store, and every clip is checked for frozen motion and extra limbs before it ships.</p>
+        </div>
+      </div>
+      <div class="detail-meta">
+        <span class="m"><b>Built with</b> Python · DeepInfra (FLUX, Pixverse)</span>
+        <span class="m"><b>Formats</b> animated WebP · APNG</span>
+        <span class="m"><b>Characters</b> original, mine</span>
+      </div>
+    </div>
+  </header>
+  <section class="block" style="border-top:none;padding-top:16px">
+    <div class="wrap">
+      <div class="livebar">
+        <span class="lb-pill"><i></i>Status</span>
+        <p><strong>Live on WhatsApp and WeChat; LINE is waiting for store approval.</strong> The three animations below are Mianmian samples from the production pipeline, resized for the web.</p>
+      </div>
+      <div class="stk reveal">
+        <figure><div class="pad"><img src="./assets/stickers/mianmian-happy.webp" alt="Mianmian the pink bearcat cheering in a looping animation" loading="lazy" width="320" height="320"></div><figcaption>Happy — 12 frames</figcaption></figure>
+        <figure><div class="pad"><img src="./assets/stickers/mianmian-shocked.webp" alt="Mianmian the pink bearcat looking shocked in a looping animation" loading="lazy" width="320" height="320"></div><figcaption>Shocked — 9 frames</figcaption></figure>
+        <figure><div class="pad"><img src="./assets/stickers/mianmian-sleeping.webp" alt="Mianmian the pink bearcat sleeping in a looping animation" loading="lazy" width="320" height="320"></div><figcaption>Sleeping — 20 frames</figcaption></figure>
+      </div>
+      <div class="plat" style="margin-top:34px">
+        <div class="p is-live"><b>WhatsApp</b><span>Live</span></div>
+        <div class="p is-live"><b>WeChat</b><span>Live</span></div>
+        <div class="p"><b>LINE</b><span>In review</span></div>
+      </div>
+      <div class="feat" style="margin-top:34px">
+        <div class="f"><span class="fi">Character lock</span><h4>The same character, every pose</h4><p>Each character has a written spec and a fixed colour palette. New poses are edited from approved reference art rather than generated from scratch, so Mianmian and Rourou stay recognisable across a whole pack.</p></div>
+        <div class="f"><span class="fi">Cost control</span><h4>Generate once, pack for every store</h4><p>Animation calls cost money, so each sticker is generated once and the same frames are packed for every platform. The frame count is chosen up front so it clears every platform's file-size cap.</p></div>
+        <div class="f"><span class="fi">Quality gate</span><h4>Checked before it ships</h4><p>The model can return a near-static clip or add an extra limb. Every animation is composited onto a solid background and inspected before packing — frame counts alone don't catch it.</p></div>
+        <div class="f"><span class="fi">Vendor diligence</span><h4>Found a silent failure</h4><p>One API route quietly dropped reference images while still billing for the call. I documented it, moved every call to the route that honours references, and wrote down how to verify it with and without references.</p></div>
+      </div>
+      <div class="callout">
+        <span class="fi">How it's made</span>
+        <p>The characters are mine. The first reference art was generated with Gemini; later poses and animations use image and video models on DeepInfra, directed and reviewed by me. Each platform has its own format and size limits, so packing is scripted per platform. A Mianmian + Rourou couple pack is planned but not started.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
 <script>
 (function(){
-  var routes = {'/':'home','/background':'background','/tracker':'tracker','/resume-gen':'resume-gen'};
+  var routes = {'/':'home','/background':'background','/tracker':'tracker','/resume-gen':'resume-gen','/stickers':'stickers'};
   var pages = document.querySelectorAll('.page');
   var links = document.querySelectorAll('.navlinks a[data-route]');
 

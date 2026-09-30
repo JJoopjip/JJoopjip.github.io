@@ -6,6 +6,24 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
+2026-09-30 (later) — Claude Code session — **Project 03: Mianmian & Rourou
+sticker page (uncommitted).** New route `#/stickers` (nav link "Stickers",
+`<main id="stickers">`), a Home "Also shipped" section with one card, and three
+web-sized animated WebPs in `assets/stickers/` (re-encoded from
+`~/mianmian/motion/sticker_*.webp`, 320px, ~640KB total). Also updated
+`about.md` and `llms.txt`. **Status claim comes from the owner's word:** live
+on WhatsApp and WeChat, LINE awaiting approval. No store links are on the page
+(none supplied), and the `~/mianmian` docs still say WeChat is "not yet scoped"
+and show no published packs — the docs are stale, or the owner should confirm.
+Update the status pills (`.plat` block, Home card tags, `about.md`,
+`llms.txt`) when LINE is approved, and add store links when supplied. The
+couple pack is deliberately excluded. JSON-LD not changed. **Not visually
+verified:** headless Chromium here lacks `libnspr4`, so no screenshot or mobile
+check was done — open `#/stickers` at desktop and phone width before relying
+on it.
+
+## Earlier today
+
 2026-09-30 — Claude Code session — **AI-readability + "In progress" line.**
 Added `llms.txt`, `about.md` (plain-text mirror of the site: roles, dates,
 credentials, projects, contact), `robots.txt`, `sitemap.xml`, and a
