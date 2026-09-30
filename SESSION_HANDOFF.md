@@ -40,7 +40,7 @@ day, resolves daily issues, manages front-of-house inventory) above the original
 Jan 2025 – Jun 2026 part-time entry, with all venue names removed (owner's call).
 The timeline's Now marker moved to 97.5% (end of Sep 2026); PR intern bar
 extended; the York TA bar is no longer "current" (ended Jul 2026) — it is drawn
-as a plain bar, so confirm whether that role was part-time. The "Acting
+as a dashed part-time bar (owner confirmed). The "Acting
 Restaurant Manager" title is the owner's wording from earlier this session, not
 from `master.yaml`.
 
