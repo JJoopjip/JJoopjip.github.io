@@ -6,6 +6,15 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
+2026-09-30 (latest) — **Sticker previews taken down.** Owner said the three
+WebPs (happy/shocked/sleeping) were defective. Removed the `.stk` preview block
+from `#/stickers`, deleted `assets/stickers/`, and changed the status line to
+"Animation previews are coming soon." The `.stk` CSS is left in place for reuse.
+Owner will supply a sticker marked "pass" — add it back as one `<figure>` inside
+a new `.stk` grid (use a web-sized copy, ≤~250KB). The original defective files
+are still in `~/mianmian/motion/`; do not reuse them. Text in the "Later" entry
+below that mentions the three WebPs is now historical.
+
 2026-09-30 (later) — Claude Code session — **Project 03: Mianmian & Rourou
 sticker page (uncommitted).** New route `#/stickers` (nav link "Stickers",
 `<main id="stickers">`), a Home "Also shipped" section with one card, and three
