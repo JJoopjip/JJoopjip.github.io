@@ -81,6 +81,14 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.1;letter-spaci
 /* the one accent on this screen: the phrase that carries the positioning */
 .hero h1 em{font-style:normal;color:var(--accent);box-shadow:inset 0 -.1em 0 var(--accent-line)}
 .lead{font-size:clamp(15.5px,1.7vw,17.5px);color:var(--mid);max-width:58ch;margin:18px 0 0}
+/* Home proof strip — the above-the-fold version of the stat row below it.
+   Same published figures, no new numbers. */
+.proof{display:grid;grid-template-columns:repeat(4,1fr);margin-top:24px;border:1px solid var(--rule);background:var(--surface);max-width:640px}
+.proof div{padding:11px 14px 12px;border-right:1px solid var(--rule)}
+.proof div:last-child{border-right:0}
+.proof b{display:block;font-family:var(--mono);font-weight:600;font-size:17px;letter-spacing:-.05em;color:var(--ink);line-height:1.1}
+.proof span{display:block;font-size:11.5px;line-height:1.35;color:var(--mid);margin-top:6px}
+@media (max-width:560px){.proof{grid-template-columns:repeat(2,1fr)}.proof div:nth-child(2){border-right:0}.proof div:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
 .contact-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
 .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-decoration:none;background:var(--surface);border:1px solid var(--rule);color:var(--ink);padding:8px 13px;border-radius:var(--r);transition:border-color .12s,color .12s}
 .chip:hover{border-color:var(--ink)}
@@ -269,8 +277,8 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 .hilite{margin-top:24px;display:flex;gap:15px;align-items:flex-start;background:var(--surface);border:1px solid var(--rule);border-left:2px solid var(--accent);border-radius:0;padding:19px 21px}
 .hilite .hi-ic{flex:none;width:30px;height:30px;border:1px solid var(--accent-line);background:var(--tint);display:flex;align-items:center;justify-content:center}
 .hilite .hi-ic .ic{width:15px;height:15px;color:var(--accent)}
-.hilite .hi-tag{display:inline-block;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-.hilite p{margin:0;font-size:14.5px;line-height:1.55;color:var(--mid)}
+.hilite .hi-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
+.hilite p{margin:0;font-size:15.5px;line-height:1.55;color:var(--mid)}
 .hilite p b{color:var(--ink);font-weight:600}
 .hilite .kw{color:var(--accent);font-weight:600}
 @media (max-width:560px){.hilite{flex-direction:column;gap:12px}}
@@ -460,6 +468,12 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
           <div class="badge"><span class="live"></span>Open to work · PM, BD &amp; strategy · Toronto</div>
           <h1>I manage the launch — <em>and build the tools</em> that make it run.</h1>
           <p class="lead">Project manager and commercial professional with seven years in pharma, medtech, and consumer health. PMP-certified and business-analysis trained — hands-on enough to design the systems a project needs, including the two I built to run my own job search. Take a look below.</p>
+          <div class="proof" aria-label="At a glance">
+            <div><b>PMP · PharmD</b><span>certified project manager, Doctor of Pharmacy</span></div>
+            <div><b>30+</b><span>SKUs launched in a new B2C channel</span></div>
+            <div><b>90%</b><span>repeat-order retention</span></div>
+            <div><b>7+ yrs</b><span>pharma, medtech &amp; consumer health</span></div>
+          </div>
           <div class="contact-row">
             <a class="chip" href="mailto:c.chantamas@gmail.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>c.chantamas@gmail.com</a>
             <a class="chip" href="https://linkedin.com/in/chantamaschatraporn" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
@@ -494,6 +508,13 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
       <div class="eyebrow">Built by me</div>
       <h2>Tools I built to run my own job search.</h2>
       <p class="sub proj-intro">Two small apps that work as one system: one tailors a résumé to any posting, the other tracks every application. They share data, so nothing gets typed twice. Both run on my own machine — so I rebuilt their interfaces here, and you can click through either one.</p>
+      <div class="hilite reveal">
+        <span class="hi-ic"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>
+        <div>
+          <span class="hi-tag">What sets me apart</span>
+          <p><b>A PMP and PharmD with seven years running launches — and <span class="kw">I build the tools myself.</span></b> An autonomous Claude agent that tailors a résumé to any job posting, and original animated sticker packs live on WhatsApp and WeChat.</p>
+        </div>
+      </div>
       <div class="projgrid reveal">
         <a class="projcard" href="#/resume-gen" data-route="/resume-gen">
           <div class="pk">Project 01 · Agentic AI · Claude-powered</div>
@@ -697,27 +718,14 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
           </ul>
         </div>
         <div class="job">
-          <div class="when">Aug 2026 — Present</div>
-          <span class="tag-extra">Current · Full-time</span>
+          <div class="when">Jan 2025 — Present</div>
+          <span class="tag-extra">Current · Part-time to Jun 2026, full-time since Aug 2026</span>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-cup"/></svg></span><span>Server &amp; Acting Restaurant Manager · Toronto</span></h3>
-          <div class="org">Front of house · alongside my job search</div>
-          <p>Full-time front-of-house role while I search for my next commercial position — and the only server on shift each day, so the whole restaurant is mine to run.</p>
+          <div class="org">Front of house · alongside my master's and job search</div>
+          <p>Part-time front-of-house work through my master's, now full-time while I search for my next commercial position. Smart Serve certified.</p>
           <ul class="did">
-            <li><b>Run the floor solo</b> as the only server each day, handling every step from hosting guests to setting the table.</li>
-            <li><b>Act as restaurant manager</b> — resolve day-to-day issues as they come up.</li>
-            <li><b>Manage front-of-house inventory</b> and stock.</li>
-          </ul>
-        </div>
-        <div class="job">
-          <div class="when">Jan 2025 — Jun 2026</div>
-          <span class="tag-extra">Part-time · while completing my master's</span>
-          <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-cup"/></svg></span><span>Server &amp; Front of House · Toronto</span></h3>
-          <div class="org">Three concurrent hospitality roles</div>
-          <p>Held up to three part-time front-of-house roles at once while carrying a full-time graduate program — high-volume service, made-to-order prep, and clean cash and card handling. Smart Serve certified. A sustained, real-world exercise in prioritization and composure under pressure.</p>
-          <ul class="venues">
-            <li>Server (Jan 2025 – Jun 2026)</li>
-            <li>Front of House (Jul – Nov 2025)</li>
-            <li>Front of House &amp; beverage/food prep (Apr – Jun 2025)</li>
+            <li><b>Act as restaurant manager</b> — resolve day-to-day issues and manage front-of-house inventory.</li>
+            <li><b>Run the floor solo</b> as the only server each day, from hosting guests to setting the table.</li>
           </ul>
         </div>
       </div>

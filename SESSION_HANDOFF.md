@@ -6,6 +6,27 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
+2026-10-01 (latest) — **Hospitality merged into one Background entry** (owner OK'd
+the "reduce its weight" advice): "Server & Acting Restaurant Manager · Toronto",
+Jan 2025 — Present, tagged part-time to Jun 2026 / full-time since Aug 2026, two
+bullets, no venue sub-list (the "three concurrent roles" detail was cut). Entry
+stays last on the page; the timeline keeps its two bars (dashed part-time, then
+current). `about.md` merged to match. Nothing else changed in dates or titles.
+Wording of the merged entry is mine — owner to confirm. Uncommitted.
+
+2026-10-01 (later) — **Home proof strip + highlight.** Added `.proof` (PMP · 30+
+SKUs · 90% retention · 7+ yrs) under the hero lead — the same published figures
+as the stat row, no new numbers, no accent colour. Added a `.hilite` at the top
+of "Built by me" ("Seven years running launches — and I build the tools
+myself", naming the Claude agent and the WhatsApp/WeChat sticker packs).
+Enlarged `.hilite` label (8.5→10px) and body (14.5→15.5px) site-wide, so the
+Résumé Generator and Stickers highlights grew too. The "30+ vs 20+ SKU
+reconciliation" listed as pending in the entry below is **already resolved**
+(different scopes; see the SKU note further down) — 30+ is correct on Home.
+If the sticker status changes (LINE approved), update the hilite text too.
+Not visually verified (headless Chromium lacks `libnspr4`); check desktop and
+phone width. Uncommitted. Owner then asked for "PharmD" in the strip and highlight: strip cell 1 is now "PMP · PharmD", the highlight opens "A PMP and PharmD with seven years…".
+
 2026-10-01 — Home hero Credentials line changed "B.Pharm" → "Doctor of Pharmacy" (full wording, matching the Background page) (it was the last place still saying Bachelor; the Background page, `about.md` and JSON-LD already say Doctor of Pharmacy). Committed and pushed.
 
 2026-09-30 (latest) — **Sticker previews taken down.** Owner said the three
