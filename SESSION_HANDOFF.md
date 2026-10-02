@@ -6,6 +6,8 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
+2026-10-01 — Home hero Credentials line changed "B.Pharm" → "Doctor of Pharmacy" (full wording, matching the Background page) (it was the last place still saying Bachelor; the Background page, `about.md` and JSON-LD already say Doctor of Pharmacy). Committed and pushed.
+
 2026-09-30 (latest) — **Sticker previews taken down.** Owner said the three
 WebPs (happy/shocked/sleeping) were defective. Removed the `.stk` preview block
 from `#/stickers`, deleted `assets/stickers/`, and changed the status line to
