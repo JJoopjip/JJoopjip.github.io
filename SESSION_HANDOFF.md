@@ -6,6 +6,8 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
+2026-10-01 (latest) — Hospitality entry now has **one** bullet (owner disliked two): "Act as restaurant manager and sole server — run the floor solo each day… resolve issues… manage front-of-house inventory." Credentials rail stays "Doctor of Pharmacy" (owner asked; recommended spelled-out for non-pharma recruiters/ATS). Uncommitted.
+
 2026-10-01 (latest) — **Hospitality merged into one Background entry** (owner OK'd
 the "reduce its weight" advice): "Server & Acting Restaurant Manager · Toronto",
 Jan 2025 — Present, tagged part-time to Jun 2026 / full-time since Aug 2026, two
