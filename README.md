@@ -9,7 +9,8 @@ commercial professional in pharma, medtech and consumer health, Toronto.
 
 | Path | Purpose |
 |---|---|
-| `index.html` | The portfolio — a hash-routed single page (Home / Background / Tracker / Résumé Generator). |
+| `index.html` | The portfolio — a hash-routed single page (Home / Background / Job Search System with Job Board, Résumé Generator and Tracker stages / Stickers). |
+| `demo/job-search.html` | Interactive demo of the Job Board (stage 1). Eight invented jobs. |
 | `demo/resume-generator.html` | Interactive demo of the AI Résumé Generator. |
 | `demo/tracker.html` | Interactive demo of the Job Application Tracker. |
 | `.nojekyll` | Tells GitHub Pages to serve the files as-is (no Jekyll build). |
@@ -19,7 +20,7 @@ frame, so a visitor can use the interfaces without installing anything.
 
 ## About the demos
 
-Both real apps run **locally only** — the résumé generator calls an AI model and
+All three real apps run **locally only** — the résumé generator calls an AI model and
 reads a private career-history file (`master.yaml`), and the tracker holds real
 applications. Neither can be hosted publicly without exposing that data.
 
@@ -29,7 +30,7 @@ browser:
 - They use the real apps' palette, layout and copy.
 - The résumé generator demo replays the **actual step lines** the real pipeline
   prints (`web/app.py`), with plausible pacing. It does not call an AI model.
-- Every application in the tracker demo is **invented sample data**.
+- Every application in the tracker demo and every job in the job-board demo is **invented sample data** (made-up companies; no real postings, no personal criteria).
 - Each demo carries a visible **Demo** banner. Nothing typed into them is sent
   anywhere.
 

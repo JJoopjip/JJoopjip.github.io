@@ -120,6 +120,19 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 /* projects */
 .proj-intro{max-width:64ch}
 .projgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:28px;background:var(--rule);border:1px solid var(--rule)}
+.projgrid.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:860px){.projgrid.three{grid-template-columns:1fr}}
+.flow.five{grid-template-columns:repeat(5,1fr)}
+@media (max-width:860px){.flow.five{grid-template-columns:repeat(2,1fr)}}
+.stagenav{display:flex;flex-wrap:wrap;gap:1px;margin:0 0 22px;background:var(--rule);border:1px solid var(--rule);width:fit-content;max-width:100%}
+.stagenav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--mid);background:var(--surface);padding:9px 14px}
+.stagenav a:hover{color:var(--ink)}
+.stagenav a.on{color:#fff;background:var(--ink)}
+.gradetbl{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:14px;background:var(--rule);border:1px solid var(--rule)}
+.gradetbl div{background:var(--surface);padding:14px 16px}
+.gradetbl b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;margin-bottom:6px}
+.gradetbl span{font-size:13px;color:var(--mid)}
+@media (max-width:720px){.gradetbl{grid-template-columns:1fr 1fr}}
 .projcard{display:block;text-decoration:none;color:inherit;background:var(--surface);padding:24px;position:relative;cursor:pointer;transition:background .12s}
 .projcard:hover{background:var(--surface-2)}
 .projcard .pk{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
@@ -443,8 +456,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
     <div class="navlinks">
       <a href="#/" data-route="/">Home</a>
       <a href="#/background" data-route="/background">Background</a>
-      <a href="#/tracker" data-route="/tracker">Application Tracker</a>
-      <a href="#/resume-gen" data-route="/resume-gen">Résumé Generator</a>
+      <a href="#/job-search" data-route="/job-search" data-group="/job-search /resume-gen /tracker">Job Search System</a>
       <a href="#/stickers" data-route="/stickers">Stickers</a>
       <a href="mailto:c.chantamas@gmail.com">Email</a>
     </div>
@@ -506,8 +518,8 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
   <section class="block">
     <div class="wrap">
       <div class="eyebrow">Built by me</div>
-      <h2>Tools I built to run my own job search.</h2>
-      <p class="sub proj-intro">Two small apps that work as one system: one tailors a résumé to any posting, the other tracks every application. They share data, so nothing gets typed twice. Both run on my own machine — so I rebuilt their interfaces here, and you can click through either one.</p>
+      <h2>One system I built to run my own job search.</h2>
+      <p class="sub proj-intro">Three small apps that work as one pipeline: one finds and grades postings, one tailors a résumé to each, one tracks every application. They share data, so nothing gets typed twice. All three run privately on my machine — so I rebuilt their interfaces here with invented data, and you can click through each one.</p>
       <div class="hilite reveal">
         <span class="hi-ic"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>
         <div>
@@ -515,9 +527,21 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
           <p><b>A PMP and PharmD with seven years running launches — and <span class="kw">I build the tools myself.</span></b> An autonomous Claude agent that tailors a résumé to any job posting, and original animated sticker packs live on WhatsApp and WeChat.</p>
         </div>
       </div>
-      <div class="projgrid reveal">
+      <div class="projgrid three reveal">
+        <a class="projcard" href="#/job-search" data-route="/job-search">
+          <div class="pk">Project 01 · Stage 1 of 3 · Find &amp; grade</div>
+          <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span><span>Job Board</span></h3>
+          <p>Collects postings from job-alert emails and public job boards, then grades each A–F by its chance of an interview — with a three-line “why”.</p>
+          <div class="ctags">
+            <span class="ctag hot">Graded A–F</span>
+            <span class="ctag">Phone-friendly</span>
+            <span class="ctag">Never applies for me</span>
+          </div>
+          <span class="trylive"><span class="live"></span>Try it live</span>
+          <span class="go" style="display:block">View stage →</span>
+        </a>
         <a class="projcard" href="#/resume-gen" data-route="/resume-gen">
-          <div class="pk">Project 01 · Agentic AI · Claude-powered</div>
+          <div class="pk">Project 01 · Stage 2 of 3 · Tailor</div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-zap"/></svg></span><span>AI Résumé Generator</span></h3>
           <p>Paste a job posting and get a one-page résumé (and optional cover letter) built from my career history — with a coverage score showing how well it matches.</p>
           <div class="ctags">
@@ -526,10 +550,10 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
             <span class="ctag">Coverage score</span>
           </div>
           <span class="trylive"><span class="live"></span>Try it live</span>
-          <span class="go" style="display:block">View project →</span>
+          <span class="go" style="display:block">View stage →</span>
         </a>
         <a class="projcard" href="#/tracker" data-route="/tracker">
-          <div class="pk">Project 02 · Flask · runs locally</div>
+          <div class="pk">Project 01 · Stage 3 of 3 · Track</div>
           <h3 class="jt"><span class="icb sage"><svg class="ic"><use href="#i-board"/></svg></span><span>Job Application Tracker</span></h3>
           <p>A kanban board and daily dashboard for every application — status, response rate, and what needs attention today — fed automatically from the résumé generator.</p>
           <div class="ctags">
@@ -538,34 +562,41 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
             <span class="ctag">Response-rate tracking</span>
           </div>
           <span class="trylive"><span class="live"></span>Try it live</span>
-          <span class="go" style="display:block">View project →</span>
+          <span class="go" style="display:block">View stage →</span>
         </a>
       </div>
       <div class="sysmap reveal">
         <div class="sm-row">
           <div class="sm-node">
             <span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span>
-            <span class="sm-name">A job posting</span>
-            <span class="sm-what">Paste any ad</span>
+            <span class="sm-name">Job alerts &amp; boards</span>
+            <span class="sm-what">Emails I subscribe to, plus public job-board feeds</span>
             <span class="sm-io">Input</span>
           </div>
-          <div class="sm-link"><span class="bar"></span><span>writes it</span></div>
+          <div class="sm-link" style="width:64px"><span class="bar"></span><span>grades</span></div>
+          <div class="sm-node is-app">
+            <span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span>
+            <span class="sm-name">Job Board</span>
+            <span class="sm-what">Grades each job A–F; I pick what's worth it</span>
+            <span class="sm-io">Stage 1</span>
+          </div>
+          <div class="sm-link" style="width:64px"><span class="bar"></span><span>one click</span></div>
           <div class="sm-node is-app">
             <span class="icb"><svg class="ic"><use href="#i-zap"/></svg></span>
             <span class="sm-name">Résumé Generator</span>
-            <span class="sm-what">Tailors a one-page résumé &amp; cover letter, and scores the match</span>
-            <span class="sm-io">Project 01</span>
+            <span class="sm-what">Tailors a résumé &amp; cover letter, scores the match</span>
+            <span class="sm-io">Stage 2</span>
           </div>
-          <div class="sm-link"><span class="bar"></span><span>one click</span></div>
+          <div class="sm-link" style="width:64px"><span class="bar"></span><span>one click</span></div>
           <div class="sm-node is-app sage">
             <span class="icb sage"><svg class="ic"><use href="#i-board"/></svg></span>
             <span class="sm-name">Application Tracker</span>
             <span class="sm-what">Tracks every application through to offer</span>
-            <span class="sm-io">Project 02</span>
+            <span class="sm-io">Stage 3</span>
           </div>
         </div>
         <p class="sm-foot"><svg class="ic"><use href="#i-database"/></svg>
-          <span>One <b>shared source of truth</b> — the tracker reads from the generator, so nothing is ever typed twice.</span></p>
+          <span>One <b>shared source of truth</b> — each stage reads from the one before, so nothing is ever typed twice. I review and submit every application myself.</span></p>
       </div>
       <div class="callout reveal">
         <span class="fi">In progress · not built yet</span>
@@ -580,7 +611,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
       <h2>Original characters, shipped as animated stickers.</h2>
       <div class="projgrid reveal" style="grid-template-columns:1fr">
         <a class="projcard" href="#/stickers" data-route="/stickers">
-          <div class="pk">Project 03 · Generative AI · Product launch</div>
+          <div class="pk">Project 02 · Generative AI · Product launch</div>
           <h3 class="jt"><span>Mianmian &amp; Rourou — animated sticker packs</span></h3>
           <p>Two original characters and a repeatable AI pipeline that turns them into animated stickers packed to each chat platform's format and size limits. Live on WhatsApp and WeChat; LINE is in review.</p>
           <div class="ctags">
@@ -797,12 +828,78 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
   </section>
 </main>
 
+<!-- ================= JOB SEARCH ================= -->
+<main id="job-search" class="page">
+  <header class="detail-hero">
+    <div class="wrap">
+      <a class="back" href="#/" data-route="/">← Back to home</a>
+      <div class="eyebrow">Project 01 · Job Search System · Stage 1 of 3</div>
+      <div class="stagenav" aria-label="Job Search System stages"><a href="#/job-search" data-route="/job-search" class="on">1 · Find &amp; grade</a><a href="#/resume-gen" data-route="/resume-gen">2 · Tailor résumé</a><a href="#/tracker" data-route="/tracker">3 · Track</a></div>
+      <h1>Job Board</h1>
+      <p class="lead">Job hunting starts with too many postings and too little time. This board gathers the ones that reach me, grades each against my own experience, and shows a short “why” — so I spend my effort on the roles worth applying to.</p>
+      <div class="detail-meta">
+        <span class="m"><b>Built with</b> Python · Claude grading</span>
+        <span class="m"><b>Runs</b> privately on my machine</span>
+        <span class="m"><b>Feeds</b> the Résumé Generator</span>
+      </div>
+      <div class="flow five reveal">
+        <div class="fstep"><span class="n">01</span><span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span><b>Collect</b><span>Alert emails + public job boards</span></div>
+        <div class="fstep"><span class="n">02</span><span class="icb"><svg class="ic"><use href="#i-database"/></svg></span><b>Pre-filter</b><span>Age, seniority, duplicates</span></div>
+        <div class="fstep"><span class="n">03</span><span class="icb"><svg class="ic"><use href="#i-pulse"/></svg></span><b>Grade A–F</b><span>Against a written rubric</span></div>
+        <div class="fstep"><span class="n">04</span><span class="icb"><svg class="ic"><use href="#i-board"/></svg></span><b>I review</b><span>On my phone, with filters</span></div>
+        <div class="fstep"><span class="n">05</span><span class="icb sage"><svg class="ic"><use href="#i-zap"/></svg></span><b>Hand off</b><span>To the résumé generator</span></div>
+      </div>
+    </div>
+  </header>
+  <section class="block" style="border-top:none;padding-top:16px">
+    <div class="wrap">
+      <div class="livebar">
+        <span class="lb-pill"><i></i>Live demo</span>
+        <p>The real board runs privately on my machine, so I rebuilt its interface here. <strong>Every company and posting is a made-up mock-up</strong> — none are real employers or real listings, and none come from my own search. Try the filters, open an analysis, and mark a job as interested.</p>
+      </div>
+      <figure class="shot">
+        <div class="window">
+          <div class="bar">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <div class="url">localhost · Job Board · mock-up data</div>
+            <a class="expand" href="./demo/job-search.html" target="_blank" rel="noopener">Open ↗</a>
+          </div>
+          <iframe class="live" src="./demo/job-search.html?embed=1" title="Interactive demo of the Job Board, using invented companies and postings" loading="lazy"></iframe>
+        </div>
+        <figcaption>Interactive — filter by grade, market and verdict. Eight invented jobs; nothing here is a real listing.</figcaption>
+      </figure>
+      <div class="uth reveal">
+        <span class="fi">How a job gets graded</span>
+        <h4>One question: how likely is this to lead to an interview?</h4>
+        <div class="gradetbl">
+          <div><b>A</b><span>Strong match — apply</span></div>
+          <div><b>B</b><span>Good match — apply (B- or better)</span></div>
+          <div><b>C</b><span>Partial or stretch</span></div>
+          <div><b>D / F</b><span>Weak or off-target — skip</span></div>
+        </div>
+        <p style="margin:14px 0 0;font-size:13.5px;color:var(--mid)">Claude grades each posting against a written rubric and my real experience — never an invented one. <b>Skills match</b> is the main driver. <b>Seniority</b> counts in both directions: a role far above or far below my level loses points. <b>Health, pharma and medtech</b> employers earn a bonus. Postings that only show a title are graded too, but tagged so the weaker evidence is visible. A hard blocker, such as a required security clearance, moves a job to an <b>Excluded</b> tab with the reason.</p>
+      </div>
+      <div class="feat" style="margin-top:34px">
+        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-pulse"/></svg></span><span class="fi">Traceable grades</span></span><h4>Every grade shows its why</h4><p>Level, skills and domain each get one short line, so a B+ is never a black box — and I can disagree with it.</p></div>
+        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-bell"/></svg></span><span class="fi">Fresh first</span></span><h4>Newest and best on top</h4><p>Sort by best match, newest or grade; filter by market, verdict and status. Old postings drop off on their own.</p></div>
+        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-archive"/></svg></span><span class="fi">Draft only</span></span><h4>It never applies for me</h4><p>The board sends nothing and submits nothing. I read each analysis, decide, and submit every application myself.</p></div>
+        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-swap"/></svg></span><span class="fi">One-click hand-off</span></span><h4>Straight to a tailored résumé</h4><p>A promising job goes to the Résumé Generator in one click, and the finished application lands in the tracker.</p></div>
+      </div>
+      <div class="callout">
+        <span class="fi">How it connects</span>
+        <p>This is where the system starts: the Job Board decides what's worth my time, the Résumé Generator tailors the application, and the Tracker follows it through. <a href="#/resume-gen" data-route="/resume-gen">Next: Stage 2, the Résumé Generator →</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
 <!-- ================= TRACKER ================= -->
 <main id="tracker" class="page">
   <header class="detail-hero">
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 02</div>
+      <div class="eyebrow">Project 01 · Job Search System · Stage 3 of 3</div>
+      <div class="stagenav" aria-label="Job Search System stages"><a href="#/job-search" data-route="/job-search">1 · Find &amp; grade</a><a href="#/resume-gen" data-route="/resume-gen">2 · Tailor résumé</a><a href="#/tracker" data-route="/tracker" class="on">3 · Track</a></div>
       <h1>Job Application Tracker</h1>
       <p class="lead">A personal command centre for a serious job hunt. Every application lives on one board — with a daily dashboard that tells me what actually needs attention, so nothing slips.</p>
       <div class="detail-meta">
@@ -849,7 +946,8 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
   <header class="detail-hero">
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 01</div>
+      <div class="eyebrow">Project 01 · Job Search System · Stage 2 of 3</div>
+      <div class="stagenav" aria-label="Job Search System stages"><a href="#/job-search" data-route="/job-search">1 · Find &amp; grade</a><a href="#/resume-gen" data-route="/resume-gen" class="on">2 · Tailor résumé</a><a href="#/tracker" data-route="/tracker">3 · Track</a></div>
       <h1>AI Résumé Generator</h1>
       <p class="lead">Paste a job posting and get a one-page résumé built from my real career history — plus, if I want, a matching cover letter and a coverage score that shows exactly how well I fit the role.</p>
       <div class="hilite reveal">
@@ -915,7 +1013,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
       </div>
       <div class="callout">
         <span class="fi">How it connects</span>
-        <p>This is the source of truth for both tools. When I add an application to the tracker, it pulls from here — so the résumé, cover letter, and posting live in one place and never get duplicated. <a href="#/tracker" data-route="/tracker">See the Application Tracker →</a></p>
+        <p>This is the source of truth for the tools that follow it. When I add an application to the tracker, it pulls from here — so the résumé, cover letter, and posting live in one place and never get duplicated. <a href="#/tracker" data-route="/tracker">See the Application Tracker →</a> · <a href="#/job-search" data-route="/job-search">← Stage 1: the Job Board</a></p>
       </div>
     </div>
   </section>
@@ -926,7 +1024,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
   <header class="detail-hero">
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 03</div>
+      <div class="eyebrow">Project 02</div>
       <h1>Mianmian &amp; Rourou</h1>
       <p class="lead">Two original characters — Mianmian, a pink chibi bearcat, and Rourou, her raccoon partner — designed and shipped as animated sticker packs for chat apps. I run the whole thing: character design, AI production, packing to each platform's limits, and store submission.</p>
       <div class="hilite reveal">
@@ -970,7 +1068,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 
 <script>
 (function(){
-  var routes = {'/':'home','/background':'background','/tracker':'tracker','/resume-gen':'resume-gen','/stickers':'stickers'};
+  var routes = {'/':'home','/background':'background','/job-search':'job-search','/tracker':'tracker','/resume-gen':'resume-gen','/stickers':'stickers'};
   var pages = document.querySelectorAll('.page');
   var links = document.querySelectorAll('.navlinks a[data-route]');
 
@@ -984,7 +1082,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
     pages.forEach(function(p){ p.classList.remove('on'); });
     var el = document.getElementById(routes[path]);
     if(el) el.classList.add('on');
-    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('data-route') === path); });
+    links.forEach(function(a){ var grp = (a.getAttribute('data-group') || a.getAttribute('data-route')).split(' '); a.classList.toggle('active', grp.indexOf(path) >= 0); });
     try{ window.scrollTo(0,0); }catch(e){}
     setupReveal();
   }

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Job Search Board — interactive demo</title>
+<meta name="description" content="An interactive, in-browser demo of the job-search board built by Chantamas Chatraporn. Every company and posting is invented.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23147A4B'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- ?embed=1 => rendered inside the portfolio's browser frame, which carries its own disclosure. -->
+<script>if (location.search.indexOf("embed") !== -1) document.documentElement.classList.add("embed");</script>
+<style>
+  :root{
+    --paper:#F1F1EF; --surface:#fff; --ink:#101010; --muted:#55534F; --line:#DCDBD6;
+    --green:#147A4B; --green-strong:#0F5F3A; --green-tint:#EDF7F1;
+    --amber:#9A6700; --amber-tint:#F7EFE0; --red:#D0202F; --red-tint:#FCEEEF; --grey-tint:#ECECEA;
+    --mono:'Martian Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  button{font:inherit;color:inherit}
+  .wrap{max-width:900px;margin:0 auto;padding:18px 18px 60px}
+  .demo-note{display:flex;gap:10px;align-items:flex-start;background:var(--amber-tint);border:1px solid #E8CFA9;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#6B4E2A}
+  .demo-pill{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--amber);color:#fff;border-radius:999px;padding:3px 9px;white-space:nowrap;flex:none;margin-top:1px}
+  .embed .demo-note{display:none}
+  .embed .wrap{padding-top:14px}
+  h1{font-size:22px;margin:0;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:13px;margin:2px 0 12px}
+  .fgroup{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0}
+  .flabel{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);width:68px;flex:none}
+  .pill{border:1px solid var(--line);background:var(--surface);padding:4px 11px;font-size:13px;cursor:pointer;min-height:32px}
+  .pill:hover{border-color:var(--ink)}
+  .pill[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .pill .n{opacity:.6;margin-left:5px;font-size:11px}
+  .listhead{display:flex;justify-content:space-between;align-items:center;margin:14px 0 4px;color:var(--muted);font-size:13px}
+  .listhead select{border:1px solid var(--line);background:var(--surface);padding:5px 8px;font:inherit;font-size:13px}
+  .card{background:var(--surface);border:1px solid var(--line);padding:15px 16px;margin:10px 0}
+  .top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+  .title{font-weight:700;font-size:16px;margin:0;letter-spacing:-.01em}
+  .co{color:var(--muted);font-size:13px;margin:2px 0 0}
+  .chip{font-family:var(--mono);font-size:10.5px;font-weight:600;padding:3px 9px;white-space:nowrap;letter-spacing:.03em}
+  .chip.apply{background:var(--green-tint);color:var(--green-strong)}
+  .chip.stretch{background:var(--amber-tint);color:var(--amber)}
+  .chip.skip{background:var(--grey-tint);color:var(--muted)}
+  .tag{font-size:10px;margin-left:6px;background:var(--amber-tint);color:var(--amber);padding:1px 6px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0;font-size:12px;color:var(--muted)}
+  .meta span{border:1px solid var(--line);padding:1px 8px}
+  .one{margin:6px 0;font-size:14px}
+  .why{margin:6px 0;padding-left:18px;font-size:13px;color:var(--muted)}
+  .why li{margin:3px 0}.why strong{color:var(--ink)}
+  details.more{margin-top:8px;border-top:1px solid var(--line);padding-top:8px;font-size:13.5px}
+  details.more>summary{cursor:pointer;font-weight:600;color:var(--green-strong);min-height:28px}
+  .elig{padding:8px 10px;margin-top:8px;font-size:13px;background:var(--grey-tint)}
+  .elig.blocked{background:var(--red-tint);color:var(--red)}
+  .mark{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .mark button{border:1px solid var(--line);background:var(--surface);padding:6px 12px;font-size:13px;cursor:pointer;min-height:36px}
+  .mark button.on{background:var(--green);border-color:var(--green);color:#fff}
+  .mark button.gen{border-color:var(--green);color:var(--green-strong);font-weight:600}
+  .status{font-size:13px;color:var(--muted);margin-top:8px}
+  .status a{color:var(--green-strong)}
+  .empty{text-align:center;color:var(--muted);padding:30px 0}
+  .legend{margin-top:22px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+  @media (max-width:560px){.flabel{width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="demo-note"><span class="demo-pill">Demo</span><span><b>Mock-up data.</b> Every company, posting and grade below is invented. The real board runs privately on my machine with my own alerts; nothing typed here leaves this page.</span></div>
+  <h1>Job Board</h1>
+  <p class="sub" id="sub"></p>
+  <div id="filters"></div>
+  <div class="listhead"><span id="count"></span><label>Sort <select id="sort"><option value="match">Best match</option><option value="new">Newest posted</option><option value="grade">Grade (A to F)</option></select></label></div>
+  <div id="list"></div>
+  <p class="legend">Grade = estimated chance of an interview. B or better is worth applying; C is a stretch; D and below is a skip. Hard blockers (such as a security-clearance requirement) move a job to <b>Excluded</b>. The board only drafts — it never applies for me.</p>
+</div>
+<script>
+(function(){
+  // All data is invented. `d` = days since posted.
+  var JOBS=[
+   {id:1,company:"Northwind Biologics",title:"Partnerships Associate",loc:"Toronto, ON",market:"toronto",grade:"A-",verdict:"apply",src:"alert",d:2,profile:"bd",
+    one:"Coordinator-level partnerships role at a biotech: strong skills and domain fit.",jd:"Alert snippet only: title, company and location.",
+    why:{Level:"Associate level: no penalty.",Skills:"Partner onboarding and relationship tracking match the profile.",Domain:"Biotech: health bonus."}},
+   {id:2,company:"Maple Clinical Research",title:"Clinical Project Coordinator",loc:"Remote, Canada",market:"remote",grade:"B+",verdict:"apply",src:"board",d:3,profile:"pm",
+    one:"Clinical research coordination, mid-level, remote within Canada.",jd:"Coordinate study start-up, track timelines and budgets, liaise with sites and vendors.",
+    why:{Level:"Coordinator level: no penalty.",Skills:"Timelines, vendor coordination and reporting fit.",Domain:"CRO: health bonus."}},
+   {id:3,company:"Lakeshore Health Tech",title:"Business Development Specialist",loc:"Toronto, ON",market:"toronto",grade:"B",verdict:"apply",src:"alert",d:5,profile:"bd",
+    one:"Health-tech BD specialist; good fit, title only.",jd:"Alert snippet only: title, company and location.",
+    why:{Level:"Specialist: no penalty.",Skills:"Pipeline building and partner outreach.",Domain:"Health-tech: bonus."}},
+   {id:4,company:"Granite Logistics",title:"Program Manager",loc:"Toronto, ON",market:"toronto",grade:"C+",verdict:"stretch",src:"alert",d:4,profile:"pm",
+    one:"Program manager in logistics: skills transfer, non-health, scope unclear.",jd:"Alert snippet only: title, company and location.",
+    why:{Level:"Possible 5+ years ask: lose one notch.",Skills:"Program governance and stakeholder reporting.",Domain:"Non-health: no bonus."}},
+   {id:5,company:"Orchid Pharmacy Group",title:"Regional Operations Manager",loc:"Mississauga, ON",market:"toronto",grade:"C",verdict:"stretch",src:"alert",d:6,profile:"pm",
+    one:"Manager title is a level stretch; domain is a good match.",jd:"Alert snippet only: title, company and location.",
+    why:{Level:"Manager+: lose two notches.",Skills:"Multi-site operations.",Domain:"Pharmacy: health bonus."}},
+   {id:6,company:"Sunrise Staffing",title:"Administrative Assistant",loc:"Toronto, ON",market:"toronto",grade:"D",verdict:"skip",src:"alert",d:1,profile:"pm",
+    one:"Clerical role well below the profile.",jd:"Alert snippet only: title, company and location.",
+    why:{Level:"Far below level: lose a notch.",Skills:"Scheduling and filing.",Domain:"Non-health."}},
+   {id:7,company:"Atlas Defence Systems",title:"Project Coordinator",loc:"Remote, US",market:"remote",grade:"B",verdict:"skip",src:"alert",d:2,profile:"pm",
+    one:"Good skills fit but the role requires a US security clearance.",jd:"Alert snippet only: title, company and location.",excluded:"Requires a US security clearance.",
+    why:{Level:"Coordinator: no penalty.",Skills:"Coordination skills fit.",Domain:"Defence: no bonus."}},
+   {id:8,company:"Blue Heron Medical",title:"Partnership Development Coordinator",loc:"Toronto, ON",market:"toronto",grade:"B-",verdict:"apply",src:"board",d:8,profile:"bd",
+    one:"Medtech partnership coordinator; distributor liaison and tender tracking.",jd:"Support distributor partnerships across Canadian distributors, track tenders and prepare quarterly reviews.",
+    why:{Level:"Coordinator: no penalty.",Skills:"Distributor liaison and tender tracking.",Domain:"Medtech: bonus."}}
+  ];
+  var DEF={view:"review",grade:[],market:[],verdict:[],sort:"match"};
+  var st={view:"review",grade:[],market:[],verdict:[],sort:"match"};
+  var dec={}; // id -> interested | applied | archived (in memory only)
+  var made={}; // id -> true once "résumé" demo clicked
+  var $=function(i){return document.getElementById(i)};
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+  function g(j){var c=j.grade.charAt(0);return c==="E"||c==="F"?"EF":c}
+  function ageText(d){return d===0?"Posted today":d===1?"Posted yesterday":"Posted "+d+" days ago"}
+  function inView(j,v){var s=dec[j.id];return v==="excluded"?!!j.excluded:j.excluded?false:v==="all"?true:v==="review"?!s:s===v}
+  function ok(j,skip){
+    if(skip!=="view"&&!inView(j,st.view))return false;
+    if(skip!=="grade"&&st.grade.length&&st.grade.indexOf(g(j))<0)return false;
+    if(skip!=="market"&&st.market.length&&st.market.indexOf(j.market)<0)return false;
+    if(skip!=="verdict"&&st.verdict.length&&st.verdict.indexOf(j.verdict)<0)return false;
+    return true}
+  function n(skip,f){return JOBS.filter(function(j){return ok(j,skip)&&f(j)}).length}
+  function group(label,key,opts,multi){
+    var row=el("div","fgroup");row.appendChild(el("span","flabel",label));
+    opts.forEach(function(o){
+      var b=el("button","pill",o[1]);b.type="button";
+      b.setAttribute("aria-pressed",multi?(o[0]==="all"?!st[key].length:st[key].indexOf(o[0])>=0):st[key]===o[0]);
+      b.appendChild(el("span","n",String(o[2])));
+      b.onclick=function(){
+        if(multi){var a=st[key],i=a.indexOf(o[0]);if(o[0]==="all")st[key]=[];else if(i>=0)a.splice(i,1);else a.push(o[0])}
+        else st[key]=o[0];
+        refresh()};
+      row.appendChild(b)});
+    $("filters").appendChild(row)}
+  function filters(){
+    $("filters").textContent="";
+    var V=function(v){return n("view",function(j){return inView(j,v)})};
+    group("Status","view",[["review","To review",V("review")],["interested","Interested",V("interested")],["applied","Applied",V("applied")],["archived","Archived",V("archived")],["excluded","Excluded",V("excluded")]],false);
+    var G=function(k){return n("grade",function(j){return k==="all"||g(j)===k})};
+    group("Grade","grade",[["all","Any",G("all")],["A","A",G("A")],["B","B",G("B")],["C","C",G("C")],["D","D",G("D")]],true);
+    var M=function(k){return n("market",function(j){return k==="all"||j.market===k})};
+    group("Market","market",[["all","All",M("all")],["toronto","Toronto",M("toronto")],["remote","Remote",M("remote")]],true);
+    var Vd=function(k){return n("verdict",function(j){return k==="all"||j.verdict===k})};
+    group("Verdict","verdict",[["all","Any",Vd("all")],["apply","Apply",Vd("apply")],["stretch","Stretch",Vd("stretch")],["skip","Skip",Vd("skip")]],true)}
+  function rank(j){var s=j.grade,L="ABCDEF".indexOf(s.charAt(0));return L*3+(s.charAt(1)==="+"?0:s.charAt(1)==="-"?2:1)}
+  var VR={apply:0,stretch:1,skip:2};
+  function render(){
+    var list=$("list");list.textContent="";
+    var jobs=JOBS.filter(function(j){return ok(j)});
+    jobs.sort(function(a,b){
+      if(st.sort==="new")return a.d-b.d||rank(a)-rank(b);
+      if(st.sort==="grade")return rank(a)-rank(b)||a.d-b.d;
+      return VR[a.verdict]-VR[b.verdict]||rank(a)-rank(b)||a.d-b.d});
+    $("count").textContent=jobs.length+" of "+JOBS.length+" jobs";
+    if(!jobs.length){list.appendChild(el("p","empty","No jobs match these filters."));return}
+    jobs.forEach(function(j){
+      var c=el("article","card"),top=el("div","top"),left=el("div");
+      left.appendChild(el("p","title",j.title));left.appendChild(el("p","co",j.company+" · "+j.loc));top.appendChild(left);
+      var chip=el("span","chip "+j.verdict,j.verdict.toUpperCase()+" · "+j.grade);
+      var cur=dec[j.id];
+      if(cur)chip.appendChild(el("span","tag",cur.toUpperCase()));
+      top.appendChild(chip);c.appendChild(top);
+      var meta=el("div","meta");
+      [ageText(j.d),j.src==="alert"?"Alert email":"Company job board",j.market,"profile: "+j.profile].forEach(function(t){meta.appendChild(el("span",null,t))});
+      c.appendChild(meta);c.appendChild(el("p","one",j.one));
+      var w=el("ul","why");Object.keys(j.why).forEach(function(k){var li=el("li");li.appendChild(el("strong",null,k+": "));li.appendChild(document.createTextNode(j.why[k]));w.appendChild(li)});
+      c.appendChild(w);
+      if(j.excluded)c.appendChild(el("div","elig blocked","Excluded: "+j.excluded));
+      var d=el("details","more");d.appendChild(el("summary",null,"Job summary"));d.appendChild(el("p",null,j.jd));c.appendChild(d);
+      var mk=el("div","mark");
+      [["interested","☆ Interested"],["applied","✓ I applied"],["archived","Archive"]].forEach(function(o){
+        var b=el("button",cur===o[0]?"on":"",cur===o[0]?o[1]+" (undo)":o[1]);b.type="button";
+        b.onclick=function(){if(cur===o[0])delete dec[j.id];else dec[j.id]=o[0];refresh()};mk.appendChild(b)});
+      if(!j.excluded){var r=el("button","gen",made[j.id]?"Résumé sent ✓":"Make résumé →");r.type="button";r.onclick=function(){made[j.id]=true;refresh()};mk.appendChild(r)}
+      c.appendChild(mk);
+      if(made[j.id]&&!j.excluded){var s=el("p","status");s.appendChild(document.createTextNode("In the real app this hands the posting to the Résumé Generator. Nothing is generated in this demo. "));
+        var a=el("a",null,"See the Résumé Generator →");a.href="../#/resume-gen";a.target="_top";s.appendChild(a);c.appendChild(s)}
+      list.appendChild(c)})}
+  function refresh(){filters();render();$("sub").textContent=JOBS.length+" invented jobs · graded A–F by chance of an interview"}
+  $("sort").onchange=function(){st.sort=this.value;render()};
+  refresh();
+})();
+</script>
+</body>
+</html>

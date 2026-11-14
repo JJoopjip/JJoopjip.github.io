@@ -6,6 +6,10 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
+2026-11-14 (latest) — **Job Search System: one project, three stages.** Added `#/job-search` (Stage 1, "Job Board") + `demo/job-search.html` (standalone rebuild of `~/job/site/index.html`, 8 invented jobs from `make_sample.py`, in-memory only). Résumé Generator and Tracker pages are now stages 2 and 3 of **Project 01** (URLs unchanged, stage nav added); Stickers renumbered **Project 02**. Nav collapsed to "Job Search System" (active on all three routes via `data-group`). Home: one intro + three stage cards + 4-node system map. Updated `about.md`, `llms.txt`, `sitemap.xml`, `README.md`.
+**Deliberately left out (privacy):** LinkedIn/Indeed names and Gmail/label/Trash mechanics (scraping-ToS optics); the **PR-fit / permanent-residence** rubric item and French/US-residency specifics; the **Bangkok** market (site says Toronto). Page says only "alert emails + public job boards", generic blockers ("required clearance"). No GitHub link to `JJoopjip/job-search` — that repo is **public** and its `RUBRIC.md`/README expose the PR-fit goal; owner should decide whether to scrub it before we link it.
+Verified: JS syntax (`node --check`) only. **Not visually verified** (Chromium here lacks `libnspr4`); check desktop + phone width, the 3-card home grid, the 5-step flow, and the iframe. Uncommitted. Next: owner reviews, decides on the public repo, then commit/push.
+
 2026-10-01 (latest) — Hospitality entry now has **one** bullet (owner disliked two): "Act as restaurant manager and sole server — run the floor solo each day… resolve issues… manage front-of-house inventory." Credentials rail stays "Doctor of Pharmacy" (owner asked; recommended spelled-out for non-pharma recruiters/ATS). Uncommitted.
 
 2026-10-01 (latest) — **Hospitality merged into one Background entry** (owner OK'd

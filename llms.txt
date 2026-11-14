@@ -7,6 +7,7 @@
 - [Portfolio site](https://jjoopjip.github.io/): the source of record
 
 ## Projects
+- [Job Search System](https://jjoopjip.github.io/#/job-search): three-stage pipeline — Job Board (grades postings A–F), Résumé Generator, Application Tracker; browser demos use invented data
 - [AI Résumé Generator — source](https://github.com/JJoopjip/ai-resume-generator): headless Claude agent that tailors a one-page résumé to a job posting and scores coverage
 - [Job Application Tracker — source](https://github.com/JJoopjip/application-tracker): Flask kanban board and dashboard fed by the résumé generator
 - [Mianmian & Rourou sticker packs](https://jjoopjip.github.io/#/stickers): original characters shipped as animated stickers; live on WhatsApp and WeChat, LINE in review
@@ -16,5 +17,6 @@
 - [GitHub](https://github.com/JJoopjip)
 
 ## Optional
+- [Interactive demo: job board](https://jjoopjip.github.io/demo/job-search.html): browser rebuild with invented companies and postings
 - [Interactive demo: résumé generator](https://jjoopjip.github.io/demo/resume-generator.html): browser rebuild, replays a run, no AI model called
 - [Interactive demo: tracker](https://jjoopjip.github.io/demo/tracker.html): browser rebuild with invented sample data
