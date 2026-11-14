@@ -124,10 +124,20 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 @media (max-width:860px){.projgrid.three{grid-template-columns:1fr}}
 .flow.five{grid-template-columns:repeat(5,1fr)}
 @media (max-width:860px){.flow.five{grid-template-columns:repeat(2,1fr)}}
-.stagenav{display:flex;flex-wrap:wrap;gap:1px;margin:0 0 22px;background:var(--rule);border:1px solid var(--rule);width:fit-content;max-width:100%}
-.stagenav a{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--mid);background:var(--surface);padding:9px 14px}
-.stagenav a:hover{color:var(--ink)}
-.stagenav a.on{color:#fff;background:var(--ink)}
+.stagenav{margin:4px 0 26px}
+.stagenav .sn-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
+.stagenav .sn-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.stagenav a{display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--ink);background:var(--surface);padding:15px 18px;position:relative;transition:background .12s}
+.stagenav a:not(.on):hover{background:var(--surface-2)}
+.stagenav a:not(.on)::after{content:"Open \2192";position:absolute;top:15px;right:16px;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--accent)}
+.stagenav a.on{background:var(--ink);color:#fff;cursor:default}
+.stagenav a.on::after{content:"You are here";position:absolute;top:15px;right:16px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:2px 7px}
+.stagenav .sn-n{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--faint)}
+.stagenav a.on .sn-n{color:#bdbab4}
+.stagenav b{font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:-.02em;line-height:1.2;padding-right:78px}
+.stagenav .sn-d{font-size:12.5px;color:var(--mid);line-height:1.4}
+.stagenav a.on .sn-d{color:#d9d6cf}
+@media (max-width:720px){.stagenav .sn-row{grid-template-columns:1fr}}
 .gradetbl{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:14px;background:var(--rule);border:1px solid var(--rule)}
 .gradetbl div{background:var(--surface);padding:14px 16px}
 .gradetbl b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;margin-bottom:6px}
@@ -527,7 +537,8 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
           <p><b>A PMP and PharmD with seven years running launches — and <span class="kw">I build the tools myself.</span></b> An autonomous Claude agent that tailors a résumé to any job posting, and original animated sticker packs live on WhatsApp and WeChat.</p>
         </div>
       </div>
-      <div class="projgrid three reveal">
+      <p class="sn-hint" style="margin:26px 0 0;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)">3 stages, 3 pages — click a card to explore each</p>
+      <div class="projgrid three reveal" style="margin-top:10px">
         <a class="projcard" href="#/job-search" data-route="/job-search">
           <div class="pk">Project 01 · Stage 1 of 3 · Find &amp; grade</div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span><span>Job Board</span></h3>
@@ -834,7 +845,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
       <div class="eyebrow">Project 01 · Job Search System · Stage 1 of 3</div>
-      <div class="stagenav" aria-label="Job Search System stages"><a href="#/job-search" data-route="/job-search" class="on">1 · Find &amp; grade</a><a href="#/resume-gen" data-route="/resume-gen">2 · Tailor résumé</a><a href="#/tracker" data-route="/tracker">3 · Track</a></div>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Project 01 · 3 stages — click to explore each</span><div class="sn-row"><a href="#/job-search" data-route="/job-search" class="on" aria-current="page"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>Job Board</h1>
       <p class="lead">Job hunting starts with too many postings and too little time. This board gathers the ones that reach me, grades each against my own experience, and shows a short “why” — so I spend my effort on the roles worth applying to.</p>
       <div class="detail-meta">
@@ -899,7 +910,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
       <div class="eyebrow">Project 01 · Job Search System · Stage 3 of 3</div>
-      <div class="stagenav" aria-label="Job Search System stages"><a href="#/job-search" data-route="/job-search">1 · Find &amp; grade</a><a href="#/resume-gen" data-route="/resume-gen">2 · Tailor résumé</a><a href="#/tracker" data-route="/tracker" class="on">3 · Track</a></div>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Project 01 · 3 stages — click to explore each</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker" class="on" aria-current="page"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>Job Application Tracker</h1>
       <p class="lead">A personal command centre for a serious job hunt. Every application lives on one board — with a daily dashboard that tells me what actually needs attention, so nothing slips.</p>
       <div class="detail-meta">
@@ -947,7 +958,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
       <div class="eyebrow">Project 01 · Job Search System · Stage 2 of 3</div>
-      <div class="stagenav" aria-label="Job Search System stages"><a href="#/job-search" data-route="/job-search">1 · Find &amp; grade</a><a href="#/resume-gen" data-route="/resume-gen" class="on">2 · Tailor résumé</a><a href="#/tracker" data-route="/tracker">3 · Track</a></div>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Project 01 · 3 stages — click to explore each</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen" class="on" aria-current="page"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>AI Résumé Generator</h1>
       <p class="lead">Paste a job posting and get a one-page résumé built from my real career history — plus, if I want, a matching cover letter and a coverage score that shows exactly how well I fit the role.</p>
       <div class="hilite reveal">
