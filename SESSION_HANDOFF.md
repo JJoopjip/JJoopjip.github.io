@@ -6,6 +6,8 @@ must update this file before ending their turn**, even for small changes.
 
 ## Last updated
 
+2026-11-14 (latest) — **Phone-width check of the live site** (390px, Chromium via locally extracted libnspr4/libnss3/libasound in the scratchpad, no sudo): no horizontal overflow on Home / Stage 1 / Stage 2 / demo. Fixed two cosmetic issues: duplicate eyebrow vs stepper label (eyebrow now "Project 01 · Job Search System", label "3 stages — click any to explore") and the empty grey cell in the 5-step flow on phones (last step spans both columns). The blank cell in the Home stat grid is pre-existing. Uncommitted.
+
 2026-11-14 (latest) — **Stage switcher made prominent.** The 1·2·3 `.stagenav` on the three stage pages is now a stepper of cards ("STAGE 0n / 03", title, one-liner, red "You are here" / "Open →" badges; stacks on phones), with a "click to explore each" label; Home has a matching hint above the three cards. CSS/markup only, in `index.html`. Not visually verified (no Chromium) — check desktop + phone width.
 
 2026-11-14 (latest) — **Job Search System: one project, three stages.** Added `#/job-search` (Stage 1, "Job Board") + `demo/job-search.html` (standalone rebuild of `~/job/site/index.html`, 8 invented jobs from `make_sample.py`, in-memory only). Résumé Generator and Tracker pages are now stages 2 and 3 of **Project 01** (URLs unchanged, stage nav added); Stickers renumbered **Project 02**. Nav collapsed to "Job Search System" (active on all three routes via `data-group`). Home: one intro + three stage cards + 4-node system map. Updated `about.md`, `llms.txt`, `sitemap.xml`, `README.md`.

@@ -123,7 +123,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 .projgrid.three{grid-template-columns:repeat(3,1fr)}
 @media (max-width:860px){.projgrid.three{grid-template-columns:1fr}}
 .flow.five{grid-template-columns:repeat(5,1fr)}
-@media (max-width:860px){.flow.five{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.flow.five{grid-template-columns:repeat(2,1fr)}.flow.five .fstep:last-child{grid-column:1/-1}}
 .stagenav{margin:4px 0 26px}
 .stagenav .sn-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
 .stagenav .sn-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
@@ -844,8 +844,8 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
   <header class="detail-hero">
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 01 · Job Search System · Stage 1 of 3</div>
-      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Project 01 · 3 stages — click to explore each</span><div class="sn-row"><a href="#/job-search" data-route="/job-search" class="on" aria-current="page"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
+      <div class="eyebrow">Project 01 · Job Search System</div>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">3 stages — click any to explore</span><div class="sn-row"><a href="#/job-search" data-route="/job-search" class="on" aria-current="page"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>Job Board</h1>
       <p class="lead">Job hunting starts with too many postings and too little time. This board gathers the ones that reach me, grades each against my own experience, and shows a short “why” — so I spend my effort on the roles worth applying to.</p>
       <div class="detail-meta">
@@ -909,8 +909,8 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
   <header class="detail-hero">
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 01 · Job Search System · Stage 3 of 3</div>
-      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Project 01 · 3 stages — click to explore each</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker" class="on" aria-current="page"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
+      <div class="eyebrow">Project 01 · Job Search System</div>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">3 stages — click any to explore</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker" class="on" aria-current="page"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>Job Application Tracker</h1>
       <p class="lead">A personal command centre for a serious job hunt. Every application lives on one board — with a daily dashboard that tells me what actually needs attention, so nothing slips.</p>
       <div class="detail-meta">
@@ -957,8 +957,8 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
   <header class="detail-hero">
     <div class="wrap">
       <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 01 · Job Search System · Stage 2 of 3</div>
-      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Project 01 · 3 stages — click to explore each</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen" class="on" aria-current="page"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
+      <div class="eyebrow">Project 01 · Job Search System</div>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">3 stages — click any to explore</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen" class="on" aria-current="page"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>AI Résumé Generator</h1>
       <p class="lead">Paste a job posting and get a one-page résumé built from my real career history — plus, if I want, a matching cover letter and a coverage score that shows exactly how well I fit the role.</p>
       <div class="hilite reveal">
