@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Résumé Generator — interactive demo</title>
+<title>Résumé Generator: interactive demo</title>
 <meta name="description" content="An interactive, in-browser demo of the AI Résumé Generator built by Chantamas Chatraporn. Sample data only.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%2377A088'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- ?embed=1 => rendered inside the portfolio's browser frame, which carries its
      own "Live demo" disclosure. Drop the in-page duplicate so the working part of
      the UI sits above the iframe's fold. Set before first paint to avoid a flash. -->
@@ -17,43 +17,43 @@
   /* Palette lifted from the real app (web/templates/index.html) so the demo
      reads as the same product, not a lookalike. */
   :root {
-    --paper:        #F1F1EF;
+    --paper:        #F3F5FA;
     --surface:      #FFFFFF;
-    --sage:         #147A4B;
-    --sage-strong:  #0F5F3A;
+    --sage:         #1637D6;
+    --sage-strong:  #0F2698;
     --apricot:      #9A6700;
-    --slate:        #101010;
-    --muted:        #55534F;
-    --sage-tint:    #EDF7F1;
-    --apricot-tint: #F7EFE0;
-    --line:         #DCDBD6;
-    --radius:       2px;
-    --radius-sm:    2px;
+    --slate:        #0C1230;
+    --muted:        #3B4468;
+    --sage-tint:    #E7ECFD;
+    --apricot-tint: #FFF1CC;
+    --line:         #D5DBEE;
+    --radius:       12px;
+    --radius-sm:    8px;
     --shadow:       none;
     --shadow-lift:  none;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0; background: var(--paper); color: var(--slate);
-    font-family: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
+    font-family: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
     font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, .band-text { font-family: 'Schibsted Grotesk', system-ui, sans-serif; color: var(--slate); letter-spacing: -.01em; }
+  h1, h2, h3, .band-text { font-family: 'Hanken Grotesk', system-ui, sans-serif; color: var(--slate); letter-spacing: -.01em; }
   a { color: var(--sage-strong); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  code { font-family: 'Martian Mono', ui-monospace, Menlo, monospace; font-size: .9em; }
+  code { font-family: 'Hanken Grotesk', ui-monospace, Menlo, monospace; font-size: .9em; }
   .wrap { max-width: 940px; margin: 0 auto; padding: 18px 18px 60px; }
 
   /* Demo banner — this page must never be mistaken for the live app. */
   .demo-note {
     display: flex; gap: 10px; align-items: flex-start;
-    background: var(--apricot-tint); border: 1px solid #E8CFA9;
+    background: var(--apricot-tint); border: 1px solid #F0D98A;
     border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 16px;
-    font-size: 13px; color: #6B4E2A;
+    font-size: 13px; color: #5A4300;
   }
-  .demo-note b { color: #573D1E; }
+  .demo-note b { color: #3F2E00; }
   .demo-pill {
-    font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
     background: var(--apricot); color: #fff; border-radius: 999px;
     padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 1px;
   }
@@ -61,12 +61,12 @@
   .embed .wrap { padding-top: 14px; }
 
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
-  .brand { font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 19px; display: flex; align-items: center; gap: 9px; color: var(--slate); }
+  .brand { font-family: 'Hanken Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 19px; display: flex; align-items: center; gap: 9px; color: var(--slate); }
   .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px var(--sage-tint); }
   .topbar-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
   .btn {
-    font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 14px; font-weight: 600;
+    font-family: 'Hanken Grotesk', system-ui, sans-serif; font-size: 14px; font-weight: 600;
     border: none; border-radius: 999px; padding: 10px 18px; min-height: 42px;
     cursor: pointer; background: var(--surface); color: var(--slate); box-shadow: var(--shadow);
     transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
@@ -79,7 +79,8 @@
   .btn-ghost { background: transparent; box-shadow: none; color: var(--muted); }
   .btn-ghost:hover { background: var(--surface); box-shadow: var(--shadow); }
   .btn-sm { font-size: 13px; padding: 8px 14px; min-height: 38px; }
-  .btn-current { background: var(--sage-tint); color: var(--sage-strong); box-shadow: none; }
+  .btn-current { background: var(--sage); color: #fff; box-shadow: none; }
+  .btn-link { background: #fff; color: var(--sage-strong); border: 1px solid var(--line); }
   :focus-visible { outline: 3px solid var(--sage); outline-offset: 2px; border-radius: 8px; }
 
   .band { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-strong) 100%); color: #fff; border-radius: 22px; padding: 24px 26px; margin-bottom: 22px; box-shadow: var(--shadow-lift); }
@@ -91,7 +92,7 @@
   .field { display: flex; flex-direction: column; gap: 6px; }
   .field label { font-size: 13px; font-weight: 600; color: var(--muted); }
   textarea {
-    font-family: 'Martian Mono', ui-monospace, Menlo, monospace; font-size: 13.5px;
+    font-family: 'Hanken Grotesk', ui-monospace, Menlo, monospace; font-size: 13.5px;
     padding: 12px 14px; border-radius: var(--radius-sm); border: 1px solid var(--line);
     background: var(--paper); color: var(--slate); width: 100%; min-height: 190px;
     resize: vertical; line-height: 1.55;
@@ -105,7 +106,7 @@
   pre#log {
     margin-top: 20px; padding: 16px 18px; border-radius: var(--radius);
     max-height: 300px; overflow: auto; white-space: pre-wrap; word-break: break-word;
-    font-family: 'Martian Mono', ui-monospace, Menlo, monospace; font-size: 12.5px;
+    font-family: 'Hanken Grotesk', ui-monospace, Menlo, monospace; font-size: 12.5px;
     line-height: 1.7; background: var(--surface); border: 1px solid var(--line);
     box-shadow: var(--shadow); color: var(--slate); display: none;
   }
@@ -116,7 +117,7 @@
     display: inline-flex; align-items: center; margin: 0 .5rem .5rem 0;
     padding: 10px 16px; border-radius: 999px; background: var(--sage-tint);
     color: var(--sage-strong); font-weight: 600; font-size: 14px; box-shadow: var(--shadow);
-    border: none; cursor: pointer; font-family: 'Schibsted Grotesk', system-ui, sans-serif;
+    border: none; cursor: pointer; font-family: 'Hanken Grotesk', system-ui, sans-serif;
     transition: transform .12s ease, box-shadow .12s ease;
   }
   .dl:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift); }
@@ -128,7 +129,7 @@
   .cov { margin: 4px 0 16px; padding: 14px 16px; background: var(--paper); border-radius: var(--radius-sm); }
   .cov-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
   .cov-label { font-size: 12.5px; font-weight: 600; color: var(--muted); }
-  .cov-num { font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 22px; color: var(--sage-strong); }
+  .cov-num { font-family: 'Hanken Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 22px; color: var(--sage-strong); }
   .cov-bar { height: 9px; border-radius: 999px; background: var(--line); overflow: hidden; }
   .cov-fill { height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--sage), var(--sage-strong)); transition: width 1.1s cubic-bezier(.2,.7,.3,1); }
   .cov-hint { font-size: 12.5px; color: var(--muted); margin: 9px 0 0; }
@@ -149,20 +150,19 @@
     </div>
 
     <header class="topbar">
-      <span class="brand"><span class="dot"></span> 🍀 GoodLuck Joopjip ✨🎉</span>
+      <span class="brand"><span class="dot"></span> Joopjip</span>
       <div class="topbar-actions">
         <a class="btn btn-ghost btn-sm" href="./tracker.html">Board</a>
         <a class="btn btn-ghost btn-sm" href="./tracker.html">Inbox</a>
-        <a class="btn btn-primary btn-sm" href="./tracker.html">📋 Application Tracker ↗</a>
-        <span class="btn btn-current btn-sm">✨ Résumé generator</span>
+        <a class="btn btn-link btn-sm" href="./tracker.html">Application Tracker</a>
+        <span class="btn btn-current btn-sm">Résumé generator</span>
       </div>
     </header>
 
     <div class="band">
-      <div class="band-label">Tailor a résumé</div>
-      <p class="band-text">Paste a job posting — get a one-page résumé built from your history.</p>
+      <p class="band-text">Paste a job posting and get a one-page résumé built from your history.</p>
       <p class="band-sub">Takes a few minutes; the live log shows each step. Files are saved to
-        <code>output/</code> automatically — the download buttons just copy them out.</p>
+        <code>output/</code> automatically; the download buttons just copy them out.</p>
     </div>
 
     <div class="panel">
@@ -187,7 +187,7 @@ const $ = (id) => document.getElementById(id);
 const go = $("go"), jd = $("jd"), status = $("status"), log = $("log"), result = $("result"), cover = $("cover");
 
 // A representative posting so a visitor can hit Generate immediately.
-const SAMPLE_JD = `Project Manager, Commercial Operations — Toronto, ON (Hybrid)
+const SAMPLE_JD = `Project Manager, Commercial Operations, Toronto, ON (Hybrid)
 
 About the role
 We are seeking a PMP-certified Project Manager to lead cross-functional
@@ -216,29 +216,29 @@ jd.value = SAMPLE_JD;
 // The real pipeline's own step lines (web/app.py make_narrator), replayed with
 // plausible pacing. The narrator translates the headless Claude session's
 // stream-json events — each "agent …" line is one tool call the agent made on
-// its own; 💬 lines are the agent's own commentary. `d` is the pause *before*
+// its own; lines are the agent's own commentary. `d` is the pause *before*
 // the line prints.
 function steps(withCover) {
   const s = [
     ["  web │ starting resume — this takes a few minutes; watch the log below.", 260],
-    ["  ⚙️  Claude agent starting — headless, no chat window …", 640],
-    ["  📖  agent reads the tailoring instructions", 560],
-    ["  📖  agent reads your career history", 700],
-    ["  📖  agent reads the job description", 520],
-    ["  💬  Strong match on launch management and stakeholder work — leading with those.", 900],
-    ["  📁  agent creates the output folder", 430],
-    ["  🗂️  agent saves a copy of the job description", 430],
-    ["  ✍️  agent chooses and writes your tailored content", 1500],
-    ["  📝  agent writes the omissions report (what was left out)", 780],
-    ["  🔎  agent runs the fact-check validator …", 640],
-    ["  🖨️  agent renders the PDF …", 900],
-    ["  ✂️  2 pages — agent trims to fit one page …", 820],
-    ["  🖨️  agent re-renders after trimming (attempt 2) …", 900],
-    ["  ✅  it fits on one page", 520],
+    ["  Claude agent starting — headless, no chat window …", 640],
+    ["  agent reads the tailoring instructions", 560],
+    ["  agent reads your career history", 700],
+    ["  agent reads the job description", 520],
+    ["  Strong match on launch management and stakeholder work — leading with those.", 900],
+    ["  agent creates the output folder", 430],
+    ["  agent saves a copy of the job description", 430],
+    ["  agent chooses and writes your tailored content", 1500],
+    ["  agent writes the omissions report (what was left out)", 780],
+    ["  agent runs the fact-check validator …", 640],
+    ["  agent renders the PDF …", 900],
+    ["  2 pages — agent trims to fit one page …", 820],
+    ["  agent re-renders after trimming (attempt 2) …", 900],
+    ["  it fits on one page", 520],
   ];
   if (withCover) s.push(
-    ["  ✍️  agent writes your cover letter", 1400],
-    ["  🖨️  agent renders the cover letter …", 820],
+    ["  agent writes your cover letter", 1400],
+    ["  agent renders the cover letter …", 820],
   );
   return s;
 }
@@ -283,7 +283,7 @@ function scrollToEl(el) {
 }
 
 function finish(hasCover) {
-  status.innerHTML = "✓ Done.";
+  status.innerHTML = "Done.";
   const slug = "commercial-ops-pm-2026-07-14";
   let html = "<h2>Your résumé" + (hasCover ? " &amp; cover letter are" : " is") + " ready</h2>";
 
@@ -294,14 +294,14 @@ function finish(hasCover) {
     </div>
     <div class="cov-bar"><div class="cov-fill" id="cov-fill"></div></div>
     <p class="cov-hint">Deterministic ATS-style keyword screen against the posting.
-      Gaps are closed by adding real experience to <code>master.yaml</code> — never by inventing them to score.</p>
+      Gaps are closed by adding real experience to <code>master.yaml</code>, never by inventing them to score.</p>
   </div>`;
 
-  html += `<button class="dl" data-demo="resume.pdf">Résumé — PDF</button>`;
-  html += `<button class="dl" data-demo="resume.docx">Résumé — Word (.docx)</button>`;
+  html += `<button class="dl" data-demo="resume.pdf">Résumé PDF</button>`;
+  html += `<button class="dl" data-demo="resume.docx">Résumé Word (.docx)</button>`;
   if (hasCover) {
-    html += `<button class="dl" data-demo="cover_letter.pdf">Cover letter — PDF</button>`;
-    html += `<button class="dl" data-demo="cover_letter.docx">Cover letter — Word (.docx)</button>`;
+    html += `<button class="dl" data-demo="cover_letter.pdf">Cover letter PDF</button>`;
+    html += `<button class="dl" data-demo="cover_letter.docx">Cover letter Word (.docx)</button>`;
   }
   html += `<div class="row"><button id="to-tracker" class="btn">Add to tracker</button>`
        +  `<span class="check">Send this résumé, cover letter &amp; job description to your application tracker.</span></div>`
@@ -327,15 +327,15 @@ function finish(hasCover) {
 
 result.addEventListener("click", (ev) => {
   const dl = ev.target.closest(".dl");
-  if (dl) { toast("Demo — the real app downloads " + dl.dataset.demo + " here."); return; }
+  if (dl) { toast("Demo: the real app downloads " + dl.dataset.demo + " here."); return; }
   const track = ev.target.closest("#to-tracker");
   if (track) {
     const out = $("tracker-out");
     track.disabled = true;
     out.innerHTML = '<span class="spin"></span> Adding to tracker…';
     setTimeout(() => {
-      out.innerHTML = '✓ Added to tracker — <a href="./tracker.html">open the application ↗</a>';
-      track.textContent = "Added ✓";
+      out.innerHTML = 'Added to tracker: <a href="./tracker.html">open the application</a>';
+      track.textContent = "Added";
     }, 900);
   }
 });

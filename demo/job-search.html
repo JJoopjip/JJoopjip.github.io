@@ -3,63 +3,63 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Job Search Board — interactive demo</title>
+<title>Job Search Board: interactive demo</title>
 <meta name="description" content="An interactive, in-browser demo of the job-search board built by Chantamas Chatraporn. Every company and posting is invented.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23147A4B'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%231637D6'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- ?embed=1 => rendered inside the portfolio's browser frame, which carries its own disclosure. -->
 <script>if (location.search.indexOf("embed") !== -1) document.documentElement.classList.add("embed");</script>
 <style>
   :root{
-    --paper:#F1F1EF; --surface:#fff; --ink:#101010; --muted:#55534F; --line:#DCDBD6;
-    --green:#147A4B; --green-strong:#0F5F3A; --green-tint:#EDF7F1;
-    --amber:#9A6700; --amber-tint:#F7EFE0; --red:#D0202F; --red-tint:#FCEEEF; --grey-tint:#ECECEA;
-    --mono:'Martian Mono',ui-monospace,monospace;
+    --paper:#F3F5FA; --surface:#fff; --ink:#0C1230; --muted:#3B4468; --line:#D5DBEE;
+    --blue:#1637D6; --green:#147A4B; --green-strong:#0F5F3A; --green-tint:#EDF7F1;
+    --amber:#9A6700; --amber-tint:#FFF1CC; --red:#D0202F; --red-tint:#FCEEEF; --grey-tint:#ECECEA;
+    --mono:'Hanken Grotesk',system-ui,sans-serif;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
   button{font:inherit;color:inherit}
   .wrap{max-width:900px;margin:0 auto;padding:18px 18px 60px}
-  .demo-note{display:flex;gap:10px;align-items:flex-start;background:var(--amber-tint);border:1px solid #E8CFA9;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#6B4E2A}
-  .demo-pill{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--amber);color:#fff;border-radius:999px;padding:3px 9px;white-space:nowrap;flex:none;margin-top:1px}
+  .demo-note{display:flex;gap:10px;align-items:flex-start;background:var(--amber-tint);border:1px solid #F0D98A;border-radius:12px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:#5A4300}
+  .demo-pill{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--amber);color:#fff;border-radius:999px;padding:3px 9px;white-space:nowrap;flex:none;margin-top:1px}
   .embed .demo-note{display:none}
   .embed .wrap{padding-top:14px}
   h1{font-size:22px;margin:0;letter-spacing:-.02em}
   .sub{color:var(--muted);font-size:13px;margin:2px 0 12px}
   .fgroup{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:6px 0}
-  .flabel{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);width:68px;flex:none}
-  .pill{border:1px solid var(--line);background:var(--surface);padding:4px 11px;font-size:13px;cursor:pointer;min-height:32px}
-  .pill:hover{border-color:var(--ink)}
-  .pill[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .flabel{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);width:68px;flex:none}
+  .pill{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 13px;font-size:13px;cursor:pointer;min-height:32px}
+  .pill:hover{border-color:var(--blue)}
+  .pill[aria-pressed=true]{background:var(--blue);color:#fff;border-color:var(--blue)}
   .pill .n{opacity:.6;margin-left:5px;font-size:11px}
   .listhead{display:flex;justify-content:space-between;align-items:center;margin:14px 0 4px;color:var(--muted);font-size:13px}
   .listhead select{border:1px solid var(--line);background:var(--surface);padding:5px 8px;font:inherit;font-size:13px}
-  .card{background:var(--surface);border:1px solid var(--line);padding:15px 16px;margin:10px 0}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:10px 0}
   .top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
   .title{font-weight:700;font-size:16px;margin:0;letter-spacing:-.01em}
   .co{color:var(--muted);font-size:13px;margin:2px 0 0}
-  .chip{font-family:var(--mono);font-size:10.5px;font-weight:600;padding:3px 9px;white-space:nowrap;letter-spacing:.03em}
+  .chip{font-family:var(--mono);font-size:12px;font-weight:700;border-radius:999px;padding:3px 11px;white-space:nowrap;letter-spacing:.03em}
   .chip.apply{background:var(--green-tint);color:var(--green-strong)}
   .chip.stretch{background:var(--amber-tint);color:var(--amber)}
   .chip.skip{background:var(--grey-tint);color:var(--muted)}
   .tag{font-size:10px;margin-left:6px;background:var(--amber-tint);color:var(--amber);padding:1px 6px}
   .meta{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0;font-size:12px;color:var(--muted)}
-  .meta span{border:1px solid var(--line);padding:1px 8px}
+  .meta span{border:1px solid var(--line);border-radius:999px;padding:1px 10px}
   .one{margin:6px 0;font-size:14px}
   .why{margin:6px 0;padding-left:18px;font-size:13px;color:var(--muted)}
   .why li{margin:3px 0}.why strong{color:var(--ink)}
   details.more{margin-top:8px;border-top:1px solid var(--line);padding-top:8px;font-size:13.5px}
-  details.more>summary{cursor:pointer;font-weight:600;color:var(--green-strong);min-height:28px}
+  details.more>summary{cursor:pointer;font-weight:700;color:var(--blue);min-height:28px}
   .elig{padding:8px 10px;margin-top:8px;font-size:13px;background:var(--grey-tint)}
   .elig.blocked{background:var(--red-tint);color:var(--red)}
   .mark{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-  .mark button{border:1px solid var(--line);background:var(--surface);padding:6px 12px;font-size:13px;cursor:pointer;min-height:36px}
-  .mark button.on{background:var(--green);border-color:var(--green);color:#fff}
-  .mark button.gen{border-color:var(--green);color:var(--green-strong);font-weight:600}
+  .mark button{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:6px 13px;font-size:13px;cursor:pointer;min-height:36px}
+  .mark button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+  .mark button.gen{border-color:var(--blue);color:var(--blue);font-weight:700}
   .status{font-size:13px;color:var(--muted);margin-top:8px}
-  .status a{color:var(--green-strong)}
+  .status a{color:var(--blue)}
   .empty{text-align:center;color:var(--muted);padding:30px 0}
   .legend{margin-top:22px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
   @media (max-width:560px){.flabel{width:100%}}
@@ -73,7 +73,7 @@
   <div id="filters"></div>
   <div class="listhead"><span id="count"></span><label>Sort <select id="sort"><option value="match">Best match</option><option value="new">Newest posted</option><option value="grade">Grade (A to F)</option></select></label></div>
   <div id="list"></div>
-  <p class="legend">Grade = estimated chance of an interview. B or better is worth applying; C is a stretch; D and below is a skip. Hard blockers (such as a security-clearance requirement) move a job to <b>Excluded</b>. The board only drafts — it never applies for me.</p>
+  <p class="legend">Grade = estimated chance of an interview. B or better is worth applying; C is a stretch; D and below is a skip. Hard blockers (such as a security-clearance requirement) move a job to <b>Excluded</b>. The board only drafts. It never applies for me.</p>
 </div>
 <script>
 (function(){
@@ -168,15 +168,15 @@
       if(j.excluded)c.appendChild(el("div","elig blocked","Excluded: "+j.excluded));
       var d=el("details","more");d.appendChild(el("summary",null,"Job summary"));d.appendChild(el("p",null,j.jd));c.appendChild(d);
       var mk=el("div","mark");
-      [["interested","☆ Interested"],["applied","✓ I applied"],["archived","Archive"]].forEach(function(o){
+      [["interested","Interested"],["applied","I applied"],["archived","Archive"]].forEach(function(o){
         var b=el("button",cur===o[0]?"on":"",cur===o[0]?o[1]+" (undo)":o[1]);b.type="button";
         b.onclick=function(){if(cur===o[0])delete dec[j.id];else dec[j.id]=o[0];refresh()};mk.appendChild(b)});
-      if(!j.excluded){var r=el("button","gen",made[j.id]?"Résumé sent ✓":"Make résumé →");r.type="button";r.onclick=function(){made[j.id]=true;refresh()};mk.appendChild(r)}
+      if(!j.excluded){var r=el("button","gen",made[j.id]?"Résumé sent":"Make résumé");r.type="button";r.onclick=function(){made[j.id]=true;refresh()};mk.appendChild(r)}
       c.appendChild(mk);
       if(made[j.id]&&!j.excluded){var s=el("p","status");s.appendChild(document.createTextNode("In the real app this hands the posting to the Résumé Generator. Nothing is generated in this demo. "));
-        var a=el("a",null,"See the Résumé Generator →");a.href="../#/resume-gen";a.target="_top";s.appendChild(a);c.appendChild(s)}
+        var a=el("a",null,"See the Résumé Generator");a.href="../#/resume-gen";a.target="_top";s.appendChild(a);c.appendChild(s)}
       list.appendChild(c)})}
-  function refresh(){filters();render();$("sub").textContent=JOBS.length+" invented jobs · graded A–F by chance of an interview"}
+  function refresh(){filters();render();$("sub").textContent=JOBS.length+" invented jobs · graded A to F by chance of an interview"}
   $("sort").onchange=function(){st.sort=this.value;render()};
   refresh();
 })();

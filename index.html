@@ -3,424 +3,413 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chantamas Chatraporn — Project Manager, Toronto</title>
-<meta name="description" content="Chantamas (Joopjip) Chatraporn — PMP-certified project manager and commercial professional in pharma and healthcare, Toronto. Portfolio and self-built job-search tools.">
-<meta property="og:title" content="Chantamas Chatraporn — Project Manager, Toronto">
-<meta property="og:description" content="PMP-certified project manager in pharma, medtech and consumer health — plus two job-search tools I built and you can try in the browser.">
+<title>Chantamas Chatraporn, Project Manager, Toronto</title>
+<meta name="description" content="Chantamas (Joopjip) Chatraporn is a PMP-certified project manager and commercial professional in pharma and healthcare, Toronto. Portfolio and self-built job-search tools.">
+<meta property="og:title" content="Chantamas Chatraporn, Project Manager, Toronto">
+<meta property="og:description" content="PMP-certified project manager in pharma, medtech and consumer health, plus three job-search tools I built that you can try in the browser.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://chantamas.com/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='8' y='8' width='84' height='84' fill='%23D0202F'/></svg>">
-<meta name="theme-color" content="#F1F1EF">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='6' y='6' width='88' height='88' rx='22' fill='%231637D6'/><circle cx='50' cy='50' r='16' fill='%23FFC61A'/></svg>">
+<meta name="theme-color" content="#1637D6">
 <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text profile for AI tools">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"Chantamas Chatraporn","alternateName":"Joopjip","url":"https://chantamas.com/","email":"c.chantamas@gmail.com","jobTitle":"Project Manager","description":"PMP-certified project manager and commercial professional in pharma, medtech and consumer health, Toronto.","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"ON","addressCountry":"CA"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Northeastern University"},{"@type":"CollegeOrUniversity","name":"Chulalongkorn University"}],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Project Management Professional (PMP)"},"knowsAbout":["Project management","Business development","Pharmaceuticals","Medical devices","Consumer health","Go-to-market strategy"],"sameAs":["https://linkedin.com/in/chantamaschatraporn","https://github.com/JJoopjip"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   Graphite & Signal Red — "spec sheet" identity.
-   Structure comes from 1px rules, not shadows or rounded cards:
-   hairline dividers, square corners, a metadata rail, mono figures.
-   The accent (#D0202F) is a signal, not decoration — it marks at most
-   one thing per screen. Status green is separate and never reused as
-   an accent.
+   Wayfinding. The site is a signage system: cobalt fields, white
+   sign plates, one signal yellow. Yellow is reserved for the email
+   action and the "you are here" marker. One typeface, set heavy
+   for signs and regular for reading.
    ============================================================ */
 :root{
-  --paper:#F1F1EF; --surface:#FFFFFF; --surface-2:#FAFAF9;
-  --ink:#101010; --mid:#55534F; --faint:#8A8781;
-  --rule:#DCDBD6; --rule-soft:#E7E6E2;
-  --accent:#D0202F; --tint:#FCEEEF; --accent-line:#F0C3C7;
-  --ok:#147A4B; --ok-tint:#EDF7F1; --ok-line:#BCDECB;
-  --display:'Schibsted Grotesk',system-ui,-apple-system,sans-serif;
-  --body:'Schibsted Grotesk',system-ui,-apple-system,sans-serif;
-  --mono:'Martian Mono',ui-monospace,Menlo,Consolas,monospace;
-  --r:2px;
-  --maxw:1080px;
+  --arrow:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E");
+  --ground:#F3F5FA; --surface:#FFFFFF; --surface-2:#F8F9FD;
+  --ink:#0C1230; --mid:#3B4468; --faint:#59628A;
+  --rule:#D5DBEE; --rule-soft:#E4E8F5;
+  --blue:#1637D6; --blue-deep:#0F2698; --blue-ink:#0A1A6E; --tint:#E7ECFD; --blue-line:#B9C6F5; --on-blue:#DCE3FF;
+  --sign:#FFC61A;
+  --ok:#0B7A4B; --ok-tint:#E5F5EC; --ok-line:#B5DEC6;
+  --font:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --r:16px; --r-sm:10px; --maxw:1120px;
+  --lift:0 1px 2px rgba(12,18,48,.06),0 14px 28px -14px rgba(12,18,48,.28);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-a{color:inherit}
+html{scroll-behavior:smooth;scrollbar-color:var(--blue) var(--ground)}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-variant-numeric:tabular-nums}
+::selection{background:var(--sign);color:var(--ink)}
+input,textarea{caret-color:var(--blue)}
+a{color:inherit;text-underline-offset:.2em}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-/* Mono labels are the datasheet's connective tissue: small, wide-tracked,
-   uppercase, and always recessive — never the accent colour. */
-.eyebrow{font-family:var(--mono);font-size:9.5px;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin:0;color:var(--ink)}
+h1,h2,h3{font-family:var(--font);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin:0;color:var(--ink);text-wrap:balance}
 
-/* nav */
-.nav{position:sticky;top:0;z-index:50;background:rgba(241,241,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:52px;gap:18px}
-.brand{font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
-.brand span{color:var(--mid);font-weight:400}
-.navlinks{display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.navlinks a{font-family:var(--mono);font-size:9.5px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--faint);padding:3px 0;position:relative;transition:color .12s}
-.navlinks a:hover{color:var(--ink)}
-.navlinks a.active{color:var(--ink)}
-.navlinks a.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent)}
+
+/* drawn arrows (no glyphs) */
+.go::after,.more-link::after,.callout a[data-route]::after,.window .expand::after,.stagenav a:not(.on)::after{}
+.go::after,.more-link::after,.callout a[data-route]::after{content:"";display:inline-block;width:1em;height:1em;margin-left:.4em;vertical-align:-.15em;background:currentColor;-webkit-mask:var(--arrow) center/contain no-repeat;mask:var(--arrow) center/contain no-repeat}
+.back::before{content:"";display:inline-block;width:1.05em;height:1.05em;background:currentColor;transform:rotate(180deg);-webkit-mask:var(--arrow) center/contain no-repeat;mask:var(--arrow) center/contain no-repeat}
+.detail-meta a.m::after{content:"";display:inline-block;width:.9em;height:.9em;margin-left:.4em;vertical-align:-.1em;background:currentColor;transform:rotate(-45deg);-webkit-mask:var(--arrow) center/contain no-repeat;mask:var(--arrow) center/contain no-repeat}
+.window .expand::after{content:"";display:inline-block;width:.95em;height:.95em;margin-left:.35em;vertical-align:-.12em;background:currentColor;transform:rotate(-45deg);-webkit-mask:var(--arrow) center/contain no-repeat;mask:var(--arrow) center/contain no-repeat}
+
+/* nav: the top sign bar */
+.nav{position:sticky;top:0;z-index:50;background:var(--blue);color:#fff}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:64px;gap:18px}
+.brand{font-weight:800;font-size:19px;letter-spacing:-.02em;text-decoration:none;white-space:nowrap;color:#fff}
+.brand span{font-weight:500;color:var(--on-blue)}
+.navlinks{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.navlinks a{font-size:15px;font-weight:600;text-decoration:none;color:var(--on-blue);padding:8px 14px;border-radius:999px;transition:background .15s,color .15s}
+.navlinks a:hover{background:rgba(255,255,255,.14);color:#fff}
+.navlinks a.active{background:#fff;color:var(--blue)}
+.navlinks a[href^="mailto"]{background:var(--sign);color:var(--ink);font-weight:800;margin-left:6px}
+.navlinks a[href^="mailto"]:hover{background:#fff}
 
 /* pages */
 .page{display:none;animation:fade .25s ease both}
 .page.on{display:block}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
-/* open-to-work status — status green, square, never the accent */
-.badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ok);background:var(--ok-tint);border:1px solid var(--ok-line);padding:5px 10px;border-radius:var(--r);margin-bottom:18px}
-.badge .live{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+/* status */
+.badge{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;color:var(--ink);background:#fff;padding:7px 14px;border-radius:999px;margin-bottom:22px}
+.badge .live{width:8px;height:8px;border-radius:50%;background:var(--ok)}
 
-/* hero — metadata rail left, statement right, exactly like a datasheet header */
-.hero{padding:44px 0 34px;border-bottom:1px solid var(--rule)}
-.hero-grid{display:grid;grid-template-columns:150px 1fr;gap:0 34px;align-items:start}
-.rail{margin:0;display:grid;gap:15px;align-content:start;border-right:1px solid var(--rule);padding-right:26px}
-.rail dt{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.rail dd{margin:4px 0 0;font-size:13px;color:var(--mid);line-height:1.42}
-.rail dd b{color:var(--ink);font-weight:600}
-.hero h1{font-size:clamp(32px,5.4vw,56px);font-weight:700;max-width:19ch}
-/* the one accent on this screen: the phrase that carries the positioning */
-.hero h1 em{font-style:normal;color:var(--accent);box-shadow:inset 0 -.1em 0 var(--accent-line)}
-.lead{font-size:clamp(15.5px,1.7vw,17.5px);color:var(--mid);max-width:58ch;margin:18px 0 0}
-/* Home proof strip — the above-the-fold version of the stat row below it.
-   Same published figures, no new numbers. */
-.proof{display:grid;grid-template-columns:repeat(4,1fr);margin-top:24px;border:1px solid var(--rule);background:var(--surface);max-width:640px}
-.proof div{padding:11px 14px 12px;border-right:1px solid var(--rule)}
-.proof div:last-child{border-right:0}
-.proof b{display:block;font-family:var(--mono);font-weight:600;font-size:17px;letter-spacing:-.05em;color:var(--ink);line-height:1.1}
-.proof span{display:block;font-size:11.5px;line-height:1.35;color:var(--mid);margin-top:6px}
-@media (max-width:560px){.proof{grid-template-columns:repeat(2,1fr)}.proof div:nth-child(2){border-right:0}.proof div:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
-.contact-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-decoration:none;background:var(--surface);border:1px solid var(--rule);color:var(--ink);padding:8px 13px;border-radius:var(--r);transition:border-color .12s,color .12s}
-.chip:hover{border-color:var(--ink)}
+/* hero: a cobalt field, with the facts on a white sign */
+.hero{background:var(--blue);color:#fff;padding:64px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:48px;align-items:start}
+.hero-grid>div:last-child{order:-1}
+.hero-side{display:grid;gap:18px}
+.where{display:grid;gap:10px}
+.where a{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;border:2px solid rgba(255,255,255,.38);border-radius:14px;padding:15px 20px;transition:background .15s,color .15s,border-color .15s}
+.where a::after{content:"";flex:none;width:22px;height:22px;margin-left:auto;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+.where b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.where i{display:block;font-style:normal;font-size:14.5px;color:var(--on-blue);margin-top:2px}
+.where a:hover{background:#fff;color:var(--blue);border-color:#fff}
+.where a:hover i{color:var(--mid)}
+.rail{margin:0;display:grid;gap:18px;align-content:start;background:#fff;color:var(--ink);border-radius:var(--r);padding:26px 28px;box-shadow:var(--lift)}
+.rail dt{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.rail dd{margin:3px 0 0;font-size:16px;color:var(--mid);line-height:1.45}
+.rail dd b{color:var(--ink);font-weight:700}
+.hero h1{font-size:clamp(40px,6.2vw,72px);color:#fff;max-width:17ch;letter-spacing:-.035em}
+.hero h1 em{font-style:normal;box-shadow:inset 0 -.14em 0 var(--sign)}
+.lead{font-size:clamp(17px,1.9vw,20px);color:var(--mid);max-width:56ch;margin:22px 0 0}
+.hero .lead,.detail-hero .lead{color:var(--on-blue)}
+.proof{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;max-width:none}
+.proof div{display:flex;flex-wrap:wrap;gap:2px 7px;align-items:baseline;padding:8px 14px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3)}
+.proof b{font-size:15px;font-weight:800;color:#fff}
+.proof span{font-size:14.5px;color:var(--on-blue);line-height:1.3}
+.contact-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.chip{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:700;text-decoration:none;background:#fff;color:var(--ink);padding:12px 20px;border-radius:12px;transition:transform .15s,background .15s}
+.chip:hover{transform:translateY(-2px)}
+.contact-row .chip:first-child{background:var(--sign);color:var(--ink);font-weight:800}
+.chip .ic{width:18px;height:18px}
 
-/* section shells */
-section.block{padding:48px 0;border-top:1px solid var(--rule)}
-.block .eyebrow{margin-bottom:12px}
-.block h2{font-size:clamp(23px,3.2vw,33px);margin-bottom:6px}
-.sub{color:var(--mid);max-width:62ch;margin:10px 0 0}
+/* sections */
+section.block{padding:76px 0}
+.page section.block:nth-of-type(even){background:var(--surface)}
+.block h2{font-size:clamp(30px,4.2vw,46px);margin-bottom:8px}
+.sub{color:var(--mid);max-width:62ch;margin:14px 0 0;font-size:18px}
+.pos{max-width:64ch;color:var(--mid);margin-top:14px;font-size:18px}
+.pos strong{color:var(--ink);font-weight:700}
+.impact{display:grid;margin-top:32px;background:#fff;border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
+.stat{display:grid;grid-template-columns:100px 1fr;grid-template-areas:"n l" "n src";column-gap:22px;row-gap:1px;padding:18px 24px;border-top:1px solid var(--rule-soft);align-items:baseline}
+.stat:first-child{border-top:0}
+.stat .n{grid-area:n;font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.05;color:var(--blue)}
+.stat .l{grid-area:l;font-size:17px;font-weight:600;color:var(--ink);line-height:1.4}
+.stat .src{grid-area:src;font-size:14.5px;color:var(--faint)}
+.more-link[data-route="/"]::after{display:none}
+.more-link{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:var(--blue);text-decoration:none;margin-top:26px;padding:10px 0;border-bottom:2px solid var(--blue-line)}
+.more-link:hover{border-color:var(--blue)}
 
-/* positioning + figures */
-.pos{max-width:64ch;color:var(--mid);margin-top:8px}
-.pos strong{color:var(--ink);font-weight:600}
-/* One bordered row with hairline cell dividers — the figures read as a table,
-   which is why mono (equal-width) digits are right here. Each figure carries a
-   provenance line: a datasheet cites its source. */
-.impact{display:grid;grid-template-columns:repeat(5,1fr);margin-top:30px;border:1px solid var(--rule);background:var(--surface)}
-.stat{padding:16px 16px 17px;border-right:1px solid var(--rule);text-align:left}
-.stat:last-child{border-right:0}
-.stat .u{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:11px}
-.stat .n{font-family:var(--mono);font-weight:600;font-size:clamp(19px,2.3vw,24px);line-height:1;letter-spacing:-.06em;color:var(--ink)}
-.stat .l{font-size:11.5px;color:var(--mid);margin-top:10px;line-height:1.4}
-/* Martian Mono runs 0.7em per character, so the longest provenance line
-   ("Winnergy Medical · 2022–23") only clears a 205px cell at this tracking. */
-.stat .src{font-family:var(--mono);font-size:8px;letter-spacing:.02em;color:var(--faint);margin-top:11px;padding-top:9px;border-top:1px solid var(--rule-soft);line-height:1.5}
-.more-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--accent);text-decoration:none;margin-top:24px;border-bottom:1px solid var(--accent-line);padding-bottom:3px;transition:border-color .12s}
-.more-link:hover{border-color:var(--accent)}
-
-/* projects */
+/* the route: three gates */
 .proj-intro{max-width:64ch}
-.projgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:28px;background:var(--rule);border:1px solid var(--rule)}
-.projgrid.three{grid-template-columns:repeat(3,1fr)}
-@media (max-width:860px){.projgrid.three{grid-template-columns:1fr}}
-.flow.five{grid-template-columns:repeat(5,1fr)}
-@media (max-width:860px){.flow.five{grid-template-columns:repeat(2,1fr)}.flow.five .fstep:last-child{grid-column:1/-1}}
-.stagenav{margin:4px 0 26px}
-.stagenav .sn-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
-.stagenav .sn-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.stagenav a{display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--ink);background:var(--surface);padding:15px 18px;position:relative;transition:background .12s}
-.stagenav a:not(.on):hover{background:var(--surface-2)}
-.stagenav a:not(.on)::after{content:"Open \2192";position:absolute;top:15px;right:16px;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--accent)}
-.stagenav a.on{background:var(--ink);color:#fff;cursor:default}
-.stagenav a.on::after{content:"You are here";position:absolute;top:15px;right:16px;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#fff;padding:2px 7px}
-.stagenav .sn-n{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--faint)}
-.stagenav a.on .sn-n{color:#bdbab4}
-.stagenav b{font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:-.02em;line-height:1.2;padding-right:78px}
-.stagenav .sn-d{font-size:12.5px;color:var(--mid);line-height:1.4}
-.stagenav a.on .sn-d{color:#d9d6cf}
+.projgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.projgrid.three{grid-template-columns:repeat(3,1fr);gap:36px}
+.projcard{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:2px solid var(--blue-line);border-radius:var(--r);padding:26px;position:relative;cursor:pointer;transition:border-color .15s,transform .2s,box-shadow .2s}
+.projcard:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:var(--lift)}
+.projgrid.three .projcard:not(:last-child)::after{content:"";position:absolute;right:-32px;top:50%;width:26px;height:26px;margin-top:-13px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231637D6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h16M14 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+.gate{display:flex;align-items:center;gap:11px;margin-bottom:16px}
+.gn{width:54px;height:54px;border-radius:12px;background:var(--blue);color:#fff;font-size:30px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.gl{font-size:15px;font-weight:700;color:var(--blue)}
+.projgrid.three .icb{display:none}
+.projcard h3{font-size:24px;margin:0 0 10px}
+.projcard p{margin:0;color:var(--mid);font-size:16px}
+.projcard .go{margin-top:auto;padding-top:22px;font-size:16px;font-weight:800;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+.projcard .ctags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.projcard .ctag{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--blue-ink);background:var(--tint);border-radius:999px;padding:5px 12px;line-height:1.3}
+.projcard .ctag .ic{width:12px;height:12px}
+.projcard .ctag.hot{background:var(--blue);color:#fff}
+.trylive{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:var(--ok);background:var(--ok-tint);border-radius:999px;padding:5px 12px;margin-top:18px}
+.trylive .live{width:7px;height:7px;border-radius:50%;background:var(--ok)}
+.projgrid.reveal.in .projcard{animation:gate .65s cubic-bezier(.16,1,.3,1) both}
+.projgrid.reveal.in .projcard:nth-child(2){animation-delay:.12s}
+.projgrid.reveal.in .projcard:nth-child(3){animation-delay:.24s}
+@keyframes gate{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+
+/* gate switcher on the three stage pages */
+.stagenav{margin:6px 0 40px}
+.stagenav .sn-label{font-size:15px;font-weight:700;color:var(--on-blue);display:block;margin-bottom:12px}
+.stagenav .sn-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stagenav a{display:flex;flex-direction:column;gap:3px;text-decoration:none;color:var(--ink);background:#fff;border-radius:14px;padding:16px 20px 18px;position:relative;transition:transform .15s}
+.stagenav a:not(.on):hover{transform:translateY(-2px)}
+.stagenav a:not(.on)::after{content:"Open";position:absolute;top:16px;right:18px;font-size:13.5px;font-weight:800;color:var(--blue)}
+.stagenav a.on{background:var(--sign);cursor:default}
+.stagenav a.on::after{content:"You are here";position:absolute;top:14px;right:16px;font-size:12px;font-weight:800;background:var(--ink);color:#fff;padding:3px 10px;border-radius:999px}
+.stagenav .sn-n{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--faint)}
+.stagenav a.on .sn-n{color:var(--ink)}
+.stagenav b{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.2;padding-right:92px}
+.stagenav .sn-d{font-size:14.5px;color:var(--mid);line-height:1.4}
+.stagenav a.on .sn-d{color:var(--ink)}
 @media (max-width:720px){.stagenav .sn-row{grid-template-columns:1fr}}
-.gradetbl{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:14px;background:var(--rule);border:1px solid var(--rule)}
-.gradetbl div{background:var(--surface);padding:14px 16px}
-.gradetbl b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.06em;margin-bottom:6px}
-.gradetbl span{font-size:13px;color:var(--mid)}
+.sn-hint{margin:30px 0 0;font-size:16px;font-weight:700;color:var(--blue)}
+.gradetbl{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+.gradetbl div{background:var(--tint);border-radius:12px;padding:16px 18px}
+.gradetbl b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;color:var(--blue);margin-bottom:4px}
+.gradetbl span{font-size:15px;color:var(--mid)}
 @media (max-width:720px){.gradetbl{grid-template-columns:1fr 1fr}}
-.projcard{display:block;text-decoration:none;color:inherit;background:var(--surface);padding:24px;position:relative;cursor:pointer;transition:background .12s}
-.projcard:hover{background:var(--surface-2)}
-.projcard .pk{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.projcard h3{font-size:20px;font-weight:700;margin:11px 0 9px}
-.projcard p{margin:0;color:var(--mid);font-size:14px}
-.projcard .go{margin-top:18px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
-/* Differentiator chips. The "hot" ones — the agentic-AI claims — are the only
-   place the accent appears on a card, so they read as the point. */
-.projcard .ctags{display:flex;flex-wrap:wrap;gap:5px;margin-top:15px}
-.projcard .ctag{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;color:var(--mid);background:transparent;border:1px solid var(--rule);border-radius:var(--r);padding:4px 8px;line-height:1.3}
-.projcard .ctag .ic{width:10px;height:10px}
-.projcard .ctag.hot{color:var(--accent);background:var(--tint);border-color:var(--accent-line);font-weight:600}
-.trylive{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);background:var(--ok-tint);border:1px solid var(--ok-line);padding:4px 9px;border-radius:var(--r);margin-top:15px}
-.trylive .live{width:5px;height:5px;border-radius:50%;background:var(--ok)}
 
-/* background — experience timeline */
-.tl{margin-top:28px;position:relative}
-.tl::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--rule)}
-.job{position:relative;padding:0 0 32px 34px}
+/* background: experience timeline */
+.tl{margin-top:34px;position:relative}
+.tl::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:3px;border-radius:2px;background:var(--blue-line)}
+.job{position:relative;padding:0 0 38px 44px}
 .job:last-child{padding-bottom:0}
-/* square markers; the current role is accent AND carries the "Current" label,
-   so the emphasis never rests on colour alone */
-.job::before{content:"";position:absolute;left:0;top:8px;width:11px;height:11px;background:var(--paper);border:2px solid var(--mid)}
-.job:first-child::before{border-color:var(--accent);background:var(--accent)}
-.job .when{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--faint);font-variant-numeric:tabular-nums}
-.job h3{font-size:18px;font-weight:700;margin:5px 0 2px}
-.job .org{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--mid);font-weight:400;margin-bottom:9px}
-.job p{margin:0;color:var(--mid);font-size:14.5px}
+.job::before{content:"";position:absolute;left:0;top:7px;width:19px;height:19px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
+.job:first-child::before{background:var(--sign);border-color:var(--ink)}
+.job .when{font-size:15px;font-weight:600;color:var(--faint)}
+.job h3{font-size:22px;margin:5px 0 3px}
+.job .org{font-size:16px;color:var(--mid);font-weight:600;margin-bottom:10px}
+.job p{margin:0;color:var(--mid);font-size:16.5px}
 .job p + p{margin-top:10px}
-.job .venues,.job .did{margin:9px 0 0;padding:0;list-style:none}
-.job .venues li{font-size:13.5px;color:var(--mid);padding:3px 0 3px 15px;position:relative}
-.job .did li{font-size:14px;color:var(--mid);padding:4px 0 4px 15px;position:relative}
-.job .did li b{color:var(--ink);font-weight:600}
-.job .venues li::before,.job .did li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:1px;background:var(--faint)}
-.job .did li::before{top:13px}
-.tag-extra{display:inline-block;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);border:1px solid var(--rule);padding:3px 8px;border-radius:var(--r);margin-bottom:9px}
+.job .venues,.job .did{margin:10px 0 0;padding:0;list-style:none}
+.job .venues li{font-size:16px;color:var(--mid);padding:4px 0 4px 22px;position:relative}
+.job .did li{font-size:16.5px;color:var(--mid);padding:5px 0 5px 22px;position:relative}
+.job .did li b{color:var(--ink);font-weight:700}
+.job .venues li::before,.job .did li::before{content:"";position:absolute;left:3px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.tag-extra{display:inline-block;font-size:13px;font-weight:700;color:var(--blue-ink);background:var(--tint);padding:4px 12px;border-radius:999px;margin-bottom:10px}
 
-/* ---- roles timeline: a duration summary above the written entries ----
-   Domain is a flat 2017–2027, so one year is exactly 10% and the year
-   gridlines can be drawn as a repeating gradient rather than 10 elements.
-   If the domain ever changes, every inline left/width has to be recomputed:
-   pct = (year − 2017) × 10, with end dates as the first of the next month.
-   No dates are printed and there is no tooltip — the bars and the axis carry
-   the period, the written entries below carry it exactly, and each bar has an
-   aria-label so the range and the full/part-time status are still announced. */
-.gt-wrap{margin-top:26px;border:1px solid var(--rule);background:var(--surface);padding:19px 21px 15px}
+/* roles timeline: duration summary. Domain is a flat 2017-2027, so one year is
+   exactly 10% and the year gridlines are a repeating gradient. If the domain
+   changes, every inline left/width must be recomputed: pct = (year - 2017) x 10,
+   end dates as the first of the next month. Bars carry aria-labels. */
+.gt-wrap{margin-top:30px;border:1px solid var(--rule);background:#fff;border-radius:var(--r);padding:22px 24px 18px}
 .gt-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.gt-head h3{font-size:14px;font-weight:700}
-.gt-key{display:flex;gap:15px;flex-wrap:wrap;font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.gt-key span{display:inline-flex;align-items:center;gap:6px}
-.gt-key i{width:16px;height:7px;display:block;background:var(--mid)}
-.gt-key i.k-cur{background:var(--accent)}
-.gt-key i.k-pt{height:5px;border-left:1px solid var(--mid);border-right:1px solid var(--mid);background:repeating-linear-gradient(90deg,var(--mid) 0 6px,transparent 6px 10px)}
-.gt-key i.k-study{height:9px;background:var(--rule);border-right:2px solid var(--mid)}
-.gt-scroll{overflow-x:auto;margin-top:15px}
+.gt-head h3{font-size:18px}
+.gt-key{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;font-weight:600;color:var(--faint)}
+.gt-key span{display:inline-flex;align-items:center;gap:7px}
+.gt-key i{width:18px;height:8px;display:block;background:var(--blue);border-radius:2px}
+.gt-key i.k-cur{background:var(--sign);box-shadow:0 0 0 1.5px var(--ink)}
+.gt-key i.k-pt{height:6px;background:repeating-linear-gradient(90deg,var(--blue) 0 6px,transparent 6px 10px)}
+.gt-key i.k-study{height:10px;background:var(--tint);border-right:3px solid var(--blue)}
+.gt-scroll{overflow-x:auto;margin-top:16px}
 .gt{min-width:652px}
-/* 190px holds the longest spelled-out title — "Business Development Executive",
-   measured at 177.5px in Schibsted Grotesk 11.5/600. Every label is a job title
-   rather than a department, and nothing is abbreviated. */
-.gt-row{display:grid;grid-template-columns:190px 1fr;gap:0 14px;align-items:center;height:26px}
-.gt-row-axis{height:20px}
+.gt-row{display:grid;grid-template-columns:200px 1fr;gap:0 14px;align-items:center;height:30px}
+.gt-row-axis{height:22px}
 .gt-lab{text-align:right;min-width:0}
-.gt-lab b{display:block;font-size:11.5px;font-weight:600;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gt-lab b{display:block;font-size:13px;font-weight:700;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .gt-lane{position:relative;height:100%;background:repeating-linear-gradient(90deg,var(--rule-soft) 0 1px,transparent 1px 10%)}
-.gt-axis{position:relative;height:15px;border-bottom:1px solid var(--rule)}
-.gt-axis span{position:absolute;bottom:3px;transform:translateX(-50%);font-family:var(--mono);font-size:8px;letter-spacing:.02em;color:var(--faint)}
-.gt-axis span.gt-now{color:var(--mid)}
-.gt-bar{position:absolute;top:50%;transform:translateY(-50%);height:9px;background:var(--mid);display:block}
-/* the two live roles are accent AND labelled, so the emphasis never rests on
-   colour alone — signal red and graphite are near-identical under protanopia
-   (OKLab ΔE 4.5 against a 6.0 floor) */
-.gt-bar.is-cur{background:var(--accent)}
-/* part-time: thinner and dashed — intermittent hours, drawn intermittently.
-   Solid 1px caps keep the start and end dates crisp where a dash would clip. */
-.gt-bar.is-pt{height:5px;border-left:1px solid var(--mid);border-right:1px solid var(--mid);background:repeating-linear-gradient(90deg,var(--mid) 0 6px,transparent 6px 10px)}
-.gt-bar.is-study{height:11px;background:var(--rule);border-right:2px solid var(--mid)}
+.gt-axis{position:relative;height:16px;border-bottom:2px solid var(--rule)}
+.gt-axis span{position:absolute;bottom:3px;transform:translateX(-50%);font-size:12px;font-weight:600;color:var(--faint)}
+.gt-axis span.gt-now{color:var(--ink)}
+.gt-bar{position:absolute;top:50%;transform:translateY(-50%);height:12px;background:var(--blue);display:block;border-radius:3px}
+.gt-bar.is-cur{background:var(--sign);box-shadow:0 0 0 1.5px var(--ink)}
+.gt-bar.is-pt{height:7px;border-radius:0;border-left:2px solid var(--blue);border-right:2px solid var(--blue);background:repeating-linear-gradient(90deg,var(--blue) 0 6px,transparent 6px 10px)}
+.gt-bar.is-study{height:14px;background:var(--tint);border-right:3px solid var(--blue);border-radius:3px 0 0 3px}
 .gt-mark{position:absolute;top:0;bottom:0;width:1px;background:var(--faint)}
-/* "Current" sits to the LEFT of its bar: these bars end at the right edge of
-   the domain, so a trailing label would overflow the lane and force a scroll. */
-.gt-tag{position:absolute;top:50%;right:7.8%;transform:translateY(-50%);font-family:var(--mono);font-size:8px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.gt-foot{font-family:var(--mono);font-size:8.5px;letter-spacing:.02em;color:var(--faint);line-height:1.7;margin-top:13px;padding-top:12px;border-top:1px solid var(--rule-soft)}
+.gt-tag{position:absolute;top:50%;right:7.8%;transform:translateY(-50%);font-size:12px;font-weight:800;color:var(--ink);white-space:nowrap}
+.gt-foot{font-size:13.5px;color:var(--faint);line-height:1.6;margin-top:14px;padding-top:12px;border-top:1px solid var(--rule-soft)}
 @media (max-width:700px){
-  /* the longest title wraps to two lines at 132px, so rows grow to hold them */
-  .gt-row{grid-template-columns:132px 1fr;gap:0 10px;height:36px}
-  .gt-lab b{font-size:10px;line-height:1.15;white-space:normal}
+  .gt-row{grid-template-columns:132px 1fr;gap:0 10px;height:38px}
+  .gt-lab b{font-size:12px;line-height:1.15;white-space:normal}
 }
 
 /* education, publication */
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:26px;background:var(--rule);border:1px solid var(--rule)}
-.card{background:var(--surface);padding:22px 24px}
-.card h3{font-size:17px;font-weight:700;margin-bottom:5px}
-.card .meta{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--faint)}
-.card p{margin:13px 0 0;color:var(--mid);font-size:14px}
-.paper{grid-column:1/-1;background:var(--surface-2)}
-.paper .kicker{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
-.paper .title{font-size:17px;font-weight:600;line-height:1.35;color:var(--ink);letter-spacing:-.02em}
-.paper .cite{font-size:13.5px;color:var(--mid);margin-top:7px}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.card{background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:24px 26px}
+.card h3{font-size:20px;margin-bottom:6px}
+.card .meta{font-size:15px;font-weight:600;color:var(--faint)}
+.card p{margin:14px 0 0;color:var(--mid);font-size:16px}
+.paper{grid-column:1/-1;background:var(--tint);border-color:var(--blue-line)}
+.paper .title{font-size:20px;font-weight:700;line-height:1.35;color:var(--ink);letter-spacing:-.02em}
+.paper .cite{font-size:16px;color:var(--mid);margin-top:8px}
 
 /* skills */
-.skillcols{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:26px}
-.skillcol h3{font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px;padding-bottom:11px;border-bottom:1px solid var(--rule)}
+.skillcols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:30px}
+.skillcol h3{font-size:19px;margin-bottom:14px;padding-bottom:12px;border-bottom:3px solid var(--blue)}
 .skillcol ul{list-style:none;margin:0;padding:0}
-.skillcol li{font-size:13.5px;color:var(--mid);padding:5px 0 5px 15px;position:relative}
-.skillcol li::before{content:"";position:absolute;left:0;top:12px;width:5px;height:1px;background:var(--faint)}
-/* Mono is a label face — a full sentence of it reads as a code dump, so the
-   languages line stays in the body face and only its label is mono. */
-.langs{margin-top:24px;font-size:14px;color:var(--mid)}
-.langs b{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:400;margin-right:8px}
+.skillcol li{font-size:16.5px;color:var(--mid);padding:6px 0 6px 22px;position:relative}
+.skillcol li::before{content:"";position:absolute;left:2px;top:16px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.langs{margin-top:28px;font-size:16.5px;color:var(--mid)}
+.langs b{font-weight:800;color:var(--ink);margin-right:8px}
 
-/* project detail */
-.detail-hero{padding:38px 0 6px}
-.back{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);text-decoration:none;display:inline-flex;gap:7px;align-items:center;margin-bottom:20px;transition:color .12s;cursor:pointer}
-.back:hover{color:var(--ink)}
-.detail-hero h1{font-size:clamp(27px,4.4vw,44px);font-weight:700;margin-top:6px}
-.detail-hero .lead{margin-top:15px}
-.detail-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
-.detail-meta .m{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;background:var(--surface);border:1px solid var(--rule);padding:7px 11px;border-radius:var(--r);color:var(--mid)}
-.detail-meta .m b{color:var(--ink);font-weight:600}
-.detail-meta a.m{text-decoration:none;transition:border-color .12s,color .12s}
-.detail-meta a.m:hover{color:var(--ink);border-color:var(--ink)}
-.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:8px;background:var(--rule);border:1px solid var(--rule)}
-.feat .f{background:var(--surface);padding:19px 21px}
-.feat .f h4{margin:0 0 7px;font-family:var(--display);font-size:15px;font-weight:700;letter-spacing:-.02em}
-.feat .f p{margin:0;font-size:13.5px;color:var(--mid)}
-.feat .f .fi{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:9px}
+/* stage and project pages: a cobalt header */
+.detail-hero{background:var(--blue);color:#fff;padding:36px 0 52px}
+.back{font-size:15px;font-weight:700;color:var(--on-blue);text-decoration:none;display:inline-flex;gap:7px;align-items:center;margin-bottom:22px;cursor:pointer}
+.back:hover{color:#fff;text-decoration:underline}
+.detail-hero h1{font-size:clamp(36px,5.6vw,64px);color:#fff;margin-top:4px}
+.detail-hero .lead{margin-top:18px}
+.detail-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+.detail-meta .m{font-size:14.5px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.3);padding:7px 14px;border-radius:999px;color:var(--on-blue)}
+.detail-meta .m b{color:#fff;font-weight:800}
+.detail-meta a.m{text-decoration:none;transition:background .15s}
+.detail-meta a.m:hover{background:rgba(255,255,255,.26)}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 44px;margin-top:38px}
+.feat .f{border-top:3px solid var(--blue);padding-top:16px}
+.feat .f h2{margin:0 0 8px;font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.feat .f p{margin:0;font-size:16.5px;color:var(--mid)}
 
-/* demo frame — a plain instrument window, no chrome gloss */
-.shot{margin:20px 0 0}
-.shot figcaption{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--faint);margin-top:11px}
-.window{border:1px solid var(--rule);background:var(--surface)}
-.window .bar{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--surface-2);border-bottom:1px solid var(--rule)}
-.window .dots{display:flex;gap:5px}
-.window .dots i{width:7px;height:7px;display:block;background:var(--rule)}
-.window .url{flex:1;font-family:var(--mono);font-size:9.5px;letter-spacing:.02em;color:var(--faint);background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:5px 11px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.window .expand{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--mid);text-decoration:none;border:1px solid var(--rule);background:var(--surface);border-radius:var(--r);padding:5px 10px;white-space:nowrap;transition:border-color .12s,color .12s}
-.window .expand:hover{color:var(--ink);border-color:var(--ink)}
-.window .aichip{display:inline-flex;align-items:center;gap:5px;font-family:var(--mono);font-size:9px;letter-spacing:.04em;color:var(--mid);background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:5px 9px;white-space:nowrap}
-.window .aichip .ic{width:11px;height:11px}
+/* demo frame */
+.shot{margin:24px 0 0}
+.shot figcaption{font-size:14.5px;color:var(--faint);margin-top:12px}
+.window{border:1px solid var(--rule);background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--lift)}
+.window .bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--surface-2);border-bottom:1px solid var(--rule)}
+.window .dots{display:flex;gap:6px}
+.window .dots i{width:10px;height:10px;display:block;border-radius:50%;background:var(--rule)}
+.window .url{flex:1;font-size:13.5px;color:var(--faint);background:#fff;border:1px solid var(--rule);border-radius:999px;padding:5px 14px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.window .expand{font-size:13.5px;font-weight:700;color:var(--blue);text-decoration:none;border:1px solid var(--blue-line);background:#fff;border-radius:999px;padding:5px 13px;white-space:nowrap}
+.window .expand:hover{background:var(--tint)}
+.window .aichip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--blue-ink);background:var(--tint);border-radius:999px;padding:5px 11px;white-space:nowrap}
+.window .aichip .ic{width:12px;height:12px}
 @media (max-width:560px){.window .aichip{display:none}}
 .window img{width:100%;display:block}
-/* Tall enough that the working part of each demo — the board, the run log —
-   clears the fold without the visitor having to scroll inside the frame. */
-.window iframe.live{width:100%;height:800px;border:0;display:block;background:var(--paper)}
+.window iframe.live{width:100%;height:800px;border:0;display:block;background:var(--ground)}
 @media (max-width:860px){.window iframe.live{height:620px}}
+.livebar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--tint);border-radius:var(--r);padding:16px 20px;margin-top:28px}
+.livebar .lb-pill{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:var(--ok);background:#fff;border-radius:999px;padding:5px 12px;white-space:nowrap}
+.livebar .lb-pill i{width:7px;height:7px;border-radius:50%;background:var(--ok);display:block}
+.livebar p{margin:0;font-size:16px;color:var(--mid);flex:1;min-width:220px}
+.livebar p strong{color:var(--ink);font-weight:700}
 
-/* live-demo banner above each embed */
-.livebar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--ok-tint);border:1px solid var(--ok-line);border-radius:var(--r);padding:12px 15px;margin-top:24px}
-.livebar .lb-pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ok);border:1px solid var(--ok-line);background:var(--surface);border-radius:var(--r);padding:4px 9px;white-space:nowrap}
-.livebar .lb-pill i{width:5px;height:5px;border-radius:50%;background:var(--ok);display:block}
-.livebar p{margin:0;font-size:13.5px;color:var(--mid);flex:1;min-width:220px}
-.livebar p strong{color:var(--ink);font-weight:600}
-
-/* Hero highlight — the one-line hook on a detail page. This is the accent's
-   single appearance on the project screens. */
-.hilite{margin-top:24px;display:flex;gap:15px;align-items:flex-start;background:var(--surface);border:1px solid var(--rule);border-left:2px solid var(--accent);border-radius:0;padding:19px 21px}
-.hilite .hi-ic{flex:none;width:30px;height:30px;border:1px solid var(--accent-line);background:var(--tint);display:flex;align-items:center;justify-content:center}
-.hilite .hi-ic .ic{width:15px;height:15px;color:var(--accent)}
-.hilite .hi-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:7px}
-.hilite p{margin:0;font-size:15.5px;line-height:1.55;color:var(--mid)}
-.hilite p b{color:var(--ink);font-weight:600}
-.hilite .kw{color:var(--accent);font-weight:600}
+/* hook on a stage page */
+.hilite{margin-top:26px;display:flex;gap:16px;align-items:flex-start;background:#fff;color:var(--ink);border-radius:var(--r);padding:22px 24px}
+.hilite .hi-ic{flex:none;width:36px;height:36px;border-radius:10px;background:var(--tint);display:flex;align-items:center;justify-content:center}
+.hilite .hi-ic .ic{width:18px;height:18px;color:var(--ink)}
+.hilite p{margin:0;font-size:17.5px;line-height:1.55;color:var(--mid)}
+.hilite p b{color:var(--ink);font-weight:700}
+.hilite .kw{color:var(--blue);font-weight:800}
+.page > section .hilite{border:1px solid var(--rule)}
 @media (max-width:560px){.hilite{flex-direction:column;gap:12px}}
 
-/* sticker showcase */
-.stk{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:20px;background:var(--rule);border:1px solid var(--rule)}
-.stk figure{margin:0;background:var(--surface);padding:16px 16px 14px}
-.stk .pad{background:var(--surface-2);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+/* stickers */
+.stk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.stk figure{margin:0;background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:16px 16px 14px}
+.stk .pad{background:var(--surface-2);border-radius:12px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
 .stk img{width:100%;height:100%;object-fit:contain;display:block}
-.stk figcaption{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;color:var(--faint);margin-top:11px}
-.plat{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:8px;background:var(--rule);border:1px solid var(--rule)}
-.plat .p{background:var(--surface);padding:17px 20px}
-.plat .p b{display:block;font-family:var(--display);font-size:15px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin-bottom:6px}
-.plat .p span{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.stk figcaption{font-size:14.5px;color:var(--faint);margin-top:12px}
+.plat{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.plat .p{background:#fff;border:1px solid var(--rule);border-radius:14px;padding:18px 22px}
+.plat .p b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+.plat .p span{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--faint)}
 .plat .p.is-live span{color:var(--ok)}
 @media (max-width:720px){.stk,.plat{grid-template-columns:1fr}}
 
-/* under-the-hood comparison */
-.uth{margin-top:32px;border:1px solid var(--rule);background:var(--surface);padding:22px 24px}
-.uth .fi{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:9px}
-.uth h4{font-family:var(--display);font-size:19px;font-weight:700;letter-spacing:-.03em;margin:0 0 16px;color:var(--ink)}
-.uth-cols{display:grid;grid-template-columns:1fr 1.4fr;gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.uth-col{background:var(--surface-2);padding:16px 18px}
-.uth-col b{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;color:var(--faint);margin-bottom:9px}
-.uth-col p{margin:0;font-size:13.5px;color:var(--mid)}
-.uth-col.is-this{background:var(--surface)}
-.uth-col.is-this b{color:var(--accent)}
+/* comparison */
+.uth{margin-top:36px;border:1px solid var(--rule);background:#fff;border-radius:var(--r);padding:26px 28px}
+.uth h2{font-size:24px;font-weight:800;letter-spacing:-.03em;margin:0 0 18px;color:var(--ink)}
+.uth-cols{display:grid;grid-template-columns:1fr 1.4fr;gap:12px}
+.uth-col{background:var(--surface-2);border-radius:12px;padding:18px 20px}
+.uth-col b{display:block;font-size:14px;font-weight:800;color:var(--faint);margin-bottom:8px}
+.uth-col p{margin:0;font-size:16px;color:var(--mid)}
+.uth-col.is-this{background:var(--tint)}
+.uth-col.is-this b{color:var(--blue)}
 .uth-col.is-this p{color:var(--ink)}
 @media (max-width:720px){.uth-cols{grid-template-columns:1fr}}
-.callout{margin-top:24px;border:1px solid var(--rule);background:var(--surface-2);padding:19px 22px}
-.callout .fi{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:block;margin-bottom:9px}
-.callout p{margin:0;color:var(--mid);font-size:14px}
-.callout a{color:var(--ink);font-weight:600;cursor:pointer;border-bottom:1px solid var(--rule)}
-.callout a:hover{border-color:var(--ink)}
+.callout{margin-top:28px;background:var(--tint);border-radius:var(--r);padding:22px 26px}
+.callout .fi{font-size:17px;font-weight:800;color:var(--blue-ink);display:block;margin-bottom:6px}
+.callout p{margin:0;color:var(--mid);font-size:16.5px}
+.callout a{color:var(--blue);font-weight:700;cursor:pointer}
 
-/* footer */
-.foot{border-top:1px solid var(--rule);padding:48px 0 56px;background:var(--surface)}
-.foot h2{font-size:clamp(22px,3.2vw,30px);margin-bottom:10px;max-width:26ch}
-.foot .sub{margin:0 0 22px}
-.foot .fine{font-family:var(--mono);font-size:9.5px;color:var(--faint);margin-top:32px;padding-top:18px;border-top:1px solid var(--rule);letter-spacing:.06em}
+/* footer: the closing sign */
+.foot{background:var(--blue);color:#fff;padding:76px 0 64px}
+.foot h2{font-size:clamp(32px,4.6vw,52px);margin-bottom:14px;max-width:20ch;color:#fff}
+.foot .sub{margin:0 0 26px;color:var(--on-blue)}
+.foot .fine{font-size:14.5px;color:var(--on-blue);margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,.28)}
 
-/* ---- icons ---- */
+/* icons */
 .ic{width:1em;height:1em;flex:none;display:block}
-/* headings that lead with an icon badge */
-.jt{display:flex;align-items:center;gap:10px}
-/* only the text span grows — .icb is also a span, and a bare `.jt>span` rule
-   outranks `.icb{flex:none}`, which stretches the badge into a bar. */
+.jt{display:flex;align-items:center;gap:12px}
 .jt>span:not(.icb){flex:1;min-width:0}
 .khead{display:flex;align-items:center;gap:9px}
-.fhead{display:flex;align-items:center;gap:9px;margin-bottom:11px}
-.fhead .fi{margin-bottom:0}
-/* Square hairline icon badges. The .sage variant is kept as an alias so the
-   existing markup keeps working — in this palette it resolves to the same
-   neutral, because green is reserved for status. */
-.icb{width:26px;height:26px;border-radius:var(--r);display:inline-flex;align-items:center;justify-content:center;flex:none;background:var(--surface);color:var(--mid);border:1px solid var(--rule)}
-.icb .ic{width:13px;height:13px}
-.icb.sage{background:var(--surface);color:var(--mid);border-color:var(--rule)}
-.feat .f .icb,.skillcol .icb,.card .icb,.job .icb{width:24px;height:24px}
-.feat .f .icb .ic,.skillcol .icb .ic,.card .icb .ic,.job .icb .ic{width:12px;height:12px}
-.chip .ic{width:13px;height:13px}
+.icb{width:32px;height:32px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;flex:none;background:var(--tint);color:var(--blue)}
+.icb .ic{width:16px;height:16px}
+.icb.sage{background:var(--tint);color:var(--blue)}
+.job .icb,.card .icb,.skillcol .icb{width:26px;height:26px}
+.job .icb .ic,.card .icb .ic,.skillcol .icb .ic{width:13px;height:13px}
 
-/* ---- system map: two apps, one shared source ---- */
-.sysmap{margin-top:28px;background:var(--surface);border:1px solid var(--rule);padding:22px 22px}
+/* system map */
+.sysmap{margin-top:32px;background:#fff;border:1px solid var(--rule);border-radius:var(--r);padding:26px}
 .sm-row{display:flex;align-items:stretch;gap:10px;justify-content:center;flex-wrap:nowrap}
-.sm-node{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:7px;padding:16px 15px;border:1px solid var(--rule);background:var(--surface-2)}
-.sm-node.is-app{background:var(--surface);border-color:var(--rule)}
-.sm-node.is-app.sage{background:var(--surface);border-color:var(--rule)}
-.sm-name{font-family:var(--display);font-weight:700;font-size:14.5px;line-height:1.25;letter-spacing:-.02em}
-.sm-what{font-size:12px;color:var(--mid);line-height:1.45}
-.sm-io{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
-.sm-link{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;flex:none;width:88px;color:var(--faint)}
-.sm-link .bar{width:100%;height:1px;background:var(--rule);position:relative}
-.sm-link .bar::after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-left-color:var(--faint)}
-.sm-link span{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;color:var(--faint);white-space:nowrap}
-.sm-foot{display:flex;align-items:center;gap:9px;margin-top:16px;padding-top:15px;border-top:1px solid var(--rule);font-size:13px;color:var(--mid);flex-wrap:wrap}
-.sm-foot .ic{width:14px;height:14px;color:var(--faint)}
-.sm-foot b{color:var(--ink);font-weight:600}
+.sm-node{flex:1;min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:18px 16px;border-radius:12px;background:var(--surface-2);border:1px solid var(--rule)}
+.sm-node.is-app{background:var(--tint);border-color:var(--blue-line)}
+.sm-name{font-weight:800;font-size:17px;line-height:1.25;letter-spacing:-.02em}
+.sm-what{font-size:14px;color:var(--mid);line-height:1.45}
+.sm-io{font-size:12.5px;font-weight:800;color:var(--blue)}
+.sm-link{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;flex:none;width:88px;color:var(--blue)}
+.sm-link .bar{width:100%;height:3px;border-radius:2px;background:var(--blue);position:relative}
+.sm-link .bar::after{content:"";position:absolute;right:-2px;top:-5px;border:6.5px solid transparent;border-left:9px solid var(--blue);border-right:0}
+.sm-link span{font-size:13px;font-weight:700;color:var(--blue);white-space:nowrap}
+.sm-foot{display:flex;align-items:center;gap:10px;margin-top:20px;padding-top:18px;border-top:1px solid var(--rule);font-size:16px;color:var(--mid);flex-wrap:wrap}
+.sm-foot .ic{width:18px;height:18px;color:var(--blue)}
+.sm-foot b{color:var(--ink);font-weight:700}
 
-/* ---- pipeline flow ---- */
-.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;margin-top:24px;background:var(--rule);border:1px solid var(--rule)}
-.fstep{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:7px;position:relative;padding:16px 13px;background:var(--surface)}
-.fstep b{font-size:12.5px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
-.fstep span{font-size:11px;color:var(--mid);line-height:1.4}
-/* the step number is real sequence information, so it stays */
-.fstep .n{font-family:var(--mono);font-size:8px;letter-spacing:.12em;color:var(--faint)}
+/* pipeline flow (inside a cobalt header) */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:30px}
+.fstep{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px;border-radius:12px;background:#fff;color:var(--ink)}
+.fstep b{font-size:16px;font-weight:800;line-height:1.25;letter-spacing:-.01em}
+.fstep span{font-size:14px;color:var(--mid);line-height:1.4}
+.fstep .icb{width:30px;height:30px}
+.fstep .n{font-size:13px;font-weight:800;color:#fff;background:var(--blue);border-radius:6px;padding:1px 8px}
+.flow.five{grid-template-columns:repeat(5,1fr)}
+@media (max-width:860px){.flow.five{grid-template-columns:repeat(2,1fr)}.flow.five .fstep:last-child{grid-column:1/-1}}
 
 .reveal{opacity:0;transition:opacity .35s ease}
 .reveal.in{opacity:1}
 
 @media (max-width:860px){
-  body{font-size:16px}
-  .hero-grid{grid-template-columns:1fr;gap:24px}
-  .rail{border-right:0;border-bottom:1px solid var(--rule);padding:0 0 20px;grid-template-columns:repeat(2,1fr)}
-  .impact{grid-template-columns:repeat(3,1fr)}
-  .stat{border-bottom:1px solid var(--rule)}
-  /* diagrams re-flow to vertical rather than shrinking to illegibility */
+  body{font-size:16.5px}
+  .hero{padding:44px 0 52px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  section.block{padding:56px 0}
+  .stat{grid-template-columns:84px 1fr}
+  .stat .n{font-size:28px}
   .sm-row{flex-direction:column}
   .sm-link{width:100%;flex-direction:row;gap:10px;padding:2px 0}
-  .sm-link .bar{width:1px;height:22px;background:var(--rule)}
-  .sm-link .bar::after{right:-3px;top:auto;bottom:-1px;border-left-color:transparent;border-top-color:var(--faint)}
+  .sm-link .bar{width:3px;height:24px}
+  .sm-link .bar::after{right:-5px;top:auto;bottom:-3px;border:6.5px solid transparent;border-top:9px solid var(--blue);border-bottom:0}
   .flow{grid-template-columns:repeat(2,1fr)}
   .skillcols{grid-template-columns:1fr}
-  .projgrid{grid-template-columns:1fr}
+  .projgrid,.projgrid.three{grid-template-columns:1fr;gap:20px}
+  .projgrid.three .projcard:not(:last-child)::after{display:none}
   .edu-grid{grid-template-columns:1fr}
   .feat{grid-template-columns:1fr}
-  .nav .wrap{height:auto;padding-top:11px;padding-bottom:11px;flex-direction:column;align-items:flex-start;gap:9px}
-  .navlinks{justify-content:flex-start}
+  .nav .wrap{padding-top:10px;padding-bottom:10px;flex-direction:column;align-items:flex-start;gap:8px}
+  .navlinks{justify-content:flex-start;gap:4px}
+  .navlinks a{padding:7px 12px;font-size:14.5px}
+}
+@media (max-width:860px){
+  .proof{display:none}
+  .nav .wrap{position:relative;padding-right:96px}
+  .navlinks a[href^="mailto"]{position:absolute;top:12px;right:20px;margin:0;padding:8px 14px}
+}
+@media (max-width:700px){
+  .gt{min-width:0}
+  .gt-row{grid-template-columns:104px 1fr;gap:0 8px}
+  .gt-lab b{font-size:11.5px}
+  .gt-axis span:not(:nth-child(3n+1)){display:none}
+  .gt-axis span.gt-now{display:none}
+  .gt-tag{display:none}
 }
 @media (max-width:420px){
   .wrap{padding:0 20px}
-  .navlinks{gap:14px}
-  .impact{grid-template-columns:repeat(2,1fr)}
-  .rail{grid-template-columns:1fr}
+  .gradetbl{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1}
 }
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:0}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.nav :focus-visible,.hero :focus-visible,.detail-hero :focus-visible,.foot :focus-visible{outline-color:var(--sign)}
 </style>
 </head>
 <body>
@@ -480,16 +469,23 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
       <div class="hero-grid">
         <!-- Metadata rail: the facts a reader checks first, pulled out of the
              prose so they're answerable at a glance. -->
+        <div class="hero-side">
         <dl class="rail">
+          <div><dt>Status</dt><dd><b>Open to work</b> · PM, BD &amp; strategy</dd></div>
           <div><dt>Location</dt><dd><b>Toronto, ON</b></dd></div>
           <div><dt>Focus</dt><dd>Project management · Business development · Strategy</dd></div>
           <div><dt>Sectors</dt><dd>Pharma · Medtech · Consumer health</dd></div>
           <div><dt>Credentials</dt><dd><b>PMP</b> · M.S. Project Mgmt · Doctor of Pharmacy</dd></div>
         </dl>
+        <nav class="where" aria-label="Pages on this site">
+          <a href="#/background" data-route="/background"><span><b>Background</b><i>Roles, education and skills</i></span></a>
+          <a href="#/job-search" data-route="/job-search"><span><b>Job Search System</b><i>Three tools you can try, in three gates</i></span></a>
+          <a href="#/stickers" data-route="/stickers"><span><b>Stickers</b><i>Animated packs, live on WhatsApp and WeChat</i></span></a>
+        </nav>
+        </div>
         <div>
-          <div class="badge"><span class="live"></span>Open to work · PM, BD &amp; strategy · Toronto</div>
-          <h1>I manage the launch — <em>and build the tools</em> that make it run.</h1>
-          <p class="lead">Project manager and commercial professional with seven years in pharma, medtech, and consumer health. PMP-certified and business-analysis trained — hands-on enough to design the systems a project needs, including the two I built to run my own job search. Take a look below.</p>
+          <h1>I manage the launch <em>and build the tools</em> that make it run.</h1>
+          <p class="lead">Project manager and commercial professional with seven years in pharma, medtech, and consumer health. PMP-certified and business-analysis trained, and hands-on enough to design the systems a project needs, including the three tools I built to run my own job search.</p>
           <div class="proof" aria-label="At a glance">
             <div><b>PMP · PharmD</b><span>certified project manager, Doctor of Pharmacy</span></div>
             <div><b>30+</b><span>SKUs launched in a new B2C channel</span></div>
@@ -508,129 +504,92 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 
   <section class="block">
     <div class="wrap">
-      <div class="eyebrow">In short</div>
       <h2>What I'm good at.</h2>
-      <p class="pos reveal">I sit where <strong>strategy, delivery, and the customer meet</strong> — reading a market, shaping the offer, and running the cross-functional launch that gets it live and keeps it growing. A pharmacist by training who moved into business development and project management, I like owning the whole arc, and I build my own tooling when the off-the-shelf version doesn't fit.</p>
+      <p class="pos reveal">I work where <strong>strategy, delivery, and the customer meet</strong>: reading a market, shaping the offer, and running the cross-functional launch that gets it live and keeps it growing. I trained as a pharmacist, moved into business development and project management, and like owning the whole arc. When the off-the-shelf tool doesn't fit, I build my own.</p>
       <!-- Figures carry a provenance line rather than a decorative chart: three
            of the five come from the same role, and saying so is what makes them
            credible. Nothing here has an underlying series to plot. -->
       <div class="impact reveal">
-        <div class="stat"><span class="u">Experience</span><div class="n">7+</div><div class="l">years in pharma, medtech &amp; consumer health</div><div class="src">2017 — present</div></div>
-        <div class="stat"><span class="u">Launch</span><div class="n">30+</div><div class="l">SKUs launched in a new B2C channel</div><div class="src">Winnergy Medical · 2022–23</div></div>
-        <div class="stat"><span class="u">Growth</span><div class="n">&times;2</div><div class="l">online engagement, two quarters</div><div class="src">Winnergy Medical · 2022–23</div></div>
-        <div class="stat"><span class="u">Retention</span><div class="n">90%</div><div class="l">customer / repeat-order retention</div><div class="src">Winnergy Medical · 2022–23</div></div>
-        <div class="stat"><span class="u">Academic</span><div class="n">3.9</div><div class="l">GPA · M.S. Project Management</div><div class="src">of 4.0 · PMP certified</div></div>
+        <div class="stat"><div class="n">7+</div><div class="l">years in pharma, medtech &amp; consumer health</div><div class="src">2017 to present</div></div>
+        <div class="stat"><div class="n">30+</div><div class="l">SKUs launched in a new B2C channel</div><div class="src">Winnergy Medical · 2022 to 2023</div></div>
+        <div class="stat"><div class="n">&times;2</div><div class="l">online engagement, two quarters</div><div class="src">Winnergy Medical · 2022 to 2023</div></div>
+        <div class="stat"><div class="n">90%</div><div class="l">customer / repeat-order retention</div><div class="src">Winnergy Medical · 2022 to 2023</div></div>
+        <div class="stat"><div class="n">3.9</div><div class="l">GPA · M.S. Project Management</div><div class="src">of 4.0 · PMP certified</div></div>
       </div>
-      <a class="more-link" href="#/background" data-route="/background">See full background, experience &amp; research →</a>
+      <a class="more-link" href="#/background" data-route="/background">See full background, experience &amp; research</a>
     </div>
   </section>
 
   <section class="block">
     <div class="wrap">
-      <div class="eyebrow">Built by me</div>
       <h2>One system I built to run my own job search.</h2>
-      <p class="sub proj-intro">Three small apps that work as one pipeline: one finds and grades postings, one tailors a résumé to each, one tracks every application. They share data, so nothing gets typed twice. All three run privately on my machine — so I rebuilt their interfaces here with invented data, and you can click through each one.</p>
+      <p class="sub proj-intro">Three small apps work as one pipeline. One finds and grades postings, one tailors a résumé to each, and one tracks every application. They share data, so nothing gets typed twice. All three run privately on my machine, so I rebuilt their interfaces here with invented data. You can click through each one.</p>
       <div class="hilite reveal">
         <span class="hi-ic"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>
         <div>
-          <span class="hi-tag">What sets me apart</span>
-          <p><b>A PMP and PharmD with seven years running launches — and <span class="kw">I build the tools myself.</span></b> An autonomous Claude agent that tailors a résumé to any job posting, and original animated sticker packs live on WhatsApp and WeChat.</p>
+          <p><b>A PMP and PharmD with seven years running launches, and <span class="kw">I build the tools myself.</span></b> An autonomous Claude agent tailors a résumé to any job posting, and my original animated sticker packs are live on WhatsApp and WeChat.</p>
         </div>
       </div>
-      <p class="sn-hint" style="margin:26px 0 0;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)">3 stages, 3 pages — click a card to explore each</p>
+      <p class="sn-hint">Three gates, one route. Click any gate to open it.</p>
       <div class="projgrid three reveal" style="margin-top:10px">
         <a class="projcard" href="#/job-search" data-route="/job-search">
-          <div class="pk">Project 01 · Stage 1 of 3 · Find &amp; grade</div>
+          <div class="gate"><span class="gn">1</span><span class="gl">Gate 1 · Find &amp; grade</span></div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span><span>Job Board</span></h3>
-          <p>Collects postings from job-alert emails and public job boards, then grades each A–F by its chance of an interview — with a three-line “why”.</p>
+          <p>Collects postings from job-alert emails and public job boards, then grades each A to F by its chance of an interview, with a three-line “why”.</p>
           <div class="ctags">
-            <span class="ctag hot">Graded A–F</span>
+            <span class="ctag hot">Graded A to F</span>
             <span class="ctag">Phone-friendly</span>
             <span class="ctag">Never applies for me</span>
           </div>
           <span class="trylive"><span class="live"></span>Try it live</span>
-          <span class="go" style="display:block">View stage →</span>
+          <span class="go" style="display:block">View stage</span>
         </a>
         <a class="projcard" href="#/resume-gen" data-route="/resume-gen">
-          <div class="pk">Project 01 · Stage 2 of 3 · Tailor</div>
+          <div class="gate"><span class="gn">2</span><span class="gl">Gate 2 · Tailor</span></div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-zap"/></svg></span><span>AI Résumé Generator</span></h3>
-          <p>Paste a job posting and get a one-page résumé (and optional cover letter) built from my career history — with a coverage score showing how well it matches.</p>
+          <p>Paste a job posting and get a one-page résumé, plus an optional cover letter, built from my career history. A coverage score shows how well it matches.</p>
           <div class="ctags">
             <span class="ctag hot"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg>Autonomous Claude agent</span>
-            <span class="ctag hot">Headless — no chatbot</span>
+            <span class="ctag hot">Headless, no chatbot</span>
             <span class="ctag">Coverage score</span>
           </div>
           <span class="trylive"><span class="live"></span>Try it live</span>
-          <span class="go" style="display:block">View stage →</span>
+          <span class="go" style="display:block">View stage</span>
         </a>
         <a class="projcard" href="#/tracker" data-route="/tracker">
-          <div class="pk">Project 01 · Stage 3 of 3 · Track</div>
+          <div class="gate"><span class="gn">3</span><span class="gl">Gate 3 · Track</span></div>
           <h3 class="jt"><span class="icb sage"><svg class="ic"><use href="#i-board"/></svg></span><span>Job Application Tracker</span></h3>
-          <p>A kanban board and daily dashboard for every application — status, response rate, and what needs attention today — fed automatically from the résumé generator.</p>
+          <p>A kanban board and daily dashboard for every application. It shows status, response rate, and what needs attention today, and the résumé generator feeds it automatically.</p>
           <div class="ctags">
             <span class="ctag">Kanban + dashboard</span>
             <span class="ctag">Auto-fed, zero re-typing</span>
             <span class="ctag">Response-rate tracking</span>
           </div>
           <span class="trylive"><span class="live"></span>Try it live</span>
-          <span class="go" style="display:block">View stage →</span>
+          <span class="go" style="display:block">View stage</span>
         </a>
       </div>
-      <div class="sysmap reveal">
-        <div class="sm-row">
-          <div class="sm-node">
-            <span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span>
-            <span class="sm-name">Job alerts &amp; boards</span>
-            <span class="sm-what">Emails I subscribe to, plus public job-board feeds</span>
-            <span class="sm-io">Input</span>
-          </div>
-          <div class="sm-link" style="width:64px"><span class="bar"></span><span>grades</span></div>
-          <div class="sm-node is-app">
-            <span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span>
-            <span class="sm-name">Job Board</span>
-            <span class="sm-what">Grades each job A–F; I pick what's worth it</span>
-            <span class="sm-io">Stage 1</span>
-          </div>
-          <div class="sm-link" style="width:64px"><span class="bar"></span><span>one click</span></div>
-          <div class="sm-node is-app">
-            <span class="icb"><svg class="ic"><use href="#i-zap"/></svg></span>
-            <span class="sm-name">Résumé Generator</span>
-            <span class="sm-what">Tailors a résumé &amp; cover letter, scores the match</span>
-            <span class="sm-io">Stage 2</span>
-          </div>
-          <div class="sm-link" style="width:64px"><span class="bar"></span><span>one click</span></div>
-          <div class="sm-node is-app sage">
-            <span class="icb sage"><svg class="ic"><use href="#i-board"/></svg></span>
-            <span class="sm-name">Application Tracker</span>
-            <span class="sm-what">Tracks every application through to offer</span>
-            <span class="sm-io">Stage 3</span>
-          </div>
-        </div>
-        <p class="sm-foot"><svg class="ic"><use href="#i-database"/></svg>
-          <span>One <b>shared source of truth</b> — each stage reads from the one before, so nothing is ever typed twice. I review and submit every application myself.</span></p>
-      </div>
+      <p class="sub reveal" style="margin-top:26px">Each gate reads from the one before, so nothing is typed twice. I review and submit every application myself.</p>
       <div class="callout reveal">
         <span class="fi">In progress · not built yet</span>
-        <p><strong>Next:</strong> adding a LiteLLM gateway to the résumé generator, so it isn't tied to one AI provider — then comparing models on match quality and cost per résumé. Results will go here once I've run it.</p>
+        <p><strong>Next:</strong> adding a LiteLLM gateway to the résumé generator, so it isn't tied to one AI provider, then comparing models on match quality and cost per résumé. Results will go here once I've run it.</p>
       </div>
     </div>
   </section>
 
   <section class="block">
     <div class="wrap">
-      <div class="eyebrow">Also shipped</div>
       <h2>Original characters, shipped as animated stickers.</h2>
       <div class="projgrid reveal" style="grid-template-columns:1fr">
         <a class="projcard" href="#/stickers" data-route="/stickers">
-          <div class="pk">Project 02 · Generative AI · Product launch</div>
-          <h3 class="jt"><span>Mianmian &amp; Rourou — animated sticker packs</span></h3>
+          <h3 class="jt"><span>Mianmian &amp; Rourou: animated sticker packs</span></h3>
           <p>Two original characters and a repeatable AI pipeline that turns them into animated stickers packed to each chat platform's format and size limits. Live on WhatsApp and WeChat; LINE is in review.</p>
           <div class="ctags">
             <span class="ctag hot">Live on WhatsApp &amp; WeChat</span>
             <span class="ctag">LINE in review</span>
             <span class="ctag">Original characters</span>
           </div>
-          <span class="go" style="display:block">View project →</span>
+          <span class="go" style="display:block">View project</span>
         </a>
       </div>
     </div>
@@ -638,7 +597,6 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 
   <footer class="foot">
     <div class="wrap">
-      <div class="eyebrow" style="text-align:center">Let's talk</div>
       <h2>Open to project management, BD &amp; strategy roles in Toronto.</h2>
       <p class="sub">Pharma, healthcare, medtech, and consumer health especially. The fastest way to reach me is email.</p>
       <div class="contact-row">
@@ -655,16 +613,14 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 <main id="background" class="page">
   <header class="detail-hero">
     <div class="wrap">
-      <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Background</div>
+      <a class="back" href="#/" data-route="/">Back to home</a>
       <h1>Experience, education &amp; research.</h1>
-      <p class="lead">The full picture behind the front page — where I've delivered, what I studied, and the research I've published.</p>
+      <p class="lead">The full picture behind the front page: where I've delivered, what I studied, and the research I've published.</p>
     </div>
   </header>
 
   <section class="block" style="border-top:none;padding-top:24px">
     <div class="wrap">
-      <div class="eyebrow">Experience</div>
       <h2>Where I've delivered.</h2>
 
       <!-- Duration summary. Bar positions are computed on a flat 2017–2027
@@ -694,79 +650,79 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
           <div class="gt-row"><div class="gt-lab"><b>Senior Project Specialist</b></div><div class="gt-lane"><span class="gt-mark" style="left:97.5%"></span><i class="gt-bar" role="img" aria-label="Full-time, Jul 2017 to Mar 2019" style="left:5.0%;width:17.5%"></i></div></div>
         </div></div>
         <p class="gt-foot">Bangkok through 2023, Toronto since. The thin bars ran alongside
-          something full-time — pharmacy under the commercial roles for three years, and
+          something full-time: pharmacy under the commercial roles for three years, and
           restaurant service through the master's, full-time now.</p>
       </div>
 
       <div class="tl reveal">
         <div class="job">
-          <div class="when">May 2026 — Present</div>
+          <div class="when">May 2026 to Present</div>
           <span class="tag-extra">Current · Internship</span>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-bell"/></svg></span><span>Public Relations Intern</span></h3>
           <div class="org">Thai Festival Toronto Foundation · Toronto</div>
-          <p>Leading media and influencer outreach for Thai Festival Toronto 2026 — a two-day cultural event at Sankofa Square marking 65 years of Thailand–Canada diplomatic relations, targeting 20,000+ attendees and 150,000+ impressions. Built a tiered outreach engine spanning 12 advertiser categories and 5 media/influencer tiers — standardized templates, prospect databases, and personalized campaigns — and coordinated partnerships with the Royal Thai Embassy, the Tourism Authority of Thailand, Air Canada, and Minor International to secure sponsorships and cultural collaborations. Draft press materials and partnership proposals in English and Thai, aligned to official festival messaging and brand standards.</p>
+          <p>Leading media and influencer outreach for Thai Festival Toronto 2026, a two-day cultural event at Sankofa Square marking 65 years of Thailand-Canada diplomatic relations, targeting 20,000+ attendees and 150,000+ impressions. Built a tiered outreach engine spanning 12 advertiser categories and 5 media/influencer tiers, with standardized templates, prospect databases, and personalized campaigns, and coordinated partnerships with the Royal Thai Embassy, the Tourism Authority of Thailand, Air Canada, and Minor International to secure sponsorships and cultural collaborations. Draft press materials and partnership proposals in English and Thai, aligned to official festival messaging and brand standards.</p>
         </div>
         <div class="job">
-          <div class="when">May 2026 — Jul 2026</div>
-          <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-book"/></svg></span><span>Teaching Assistant — Fintech (Undergraduate)</span></h3>
+          <div class="when">May 2026 to Jul 2026</div>
+          <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-book"/></svg></span><span>Teaching Assistant, Fintech (Undergraduate)</span></h3>
           <div class="org">York University · Toronto</div>
           <p>Graded papers and quizzes for a 41-student undergraduate FinTech course, applying the marking scheme consistently and returning results on deadline.</p>
         </div>
         <div class="job">
-          <div class="when">Sep 2021 — Aug 2024</div>
+          <div class="when">Sep 2021 to Aug 2024</div>
           <span class="tag-extra">Part-time · kept for market exposure</span>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-pulse"/></svg></span><span>Part-Time Pharmacist</span></h3>
           <div class="org">Boots Retail (Thailand) Ltd. · Bangkok</div>
           <p>Delivered front-line retail healthcare across pharmacy operations and patient consultations, with direct exposure to category traffic, promotional cycles, and sales conversion. Worked high-volume stores in tourist districts and office towers, and helped maintain the inventory ordering list.</p>
-          <p>Part-time throughout — more hours between permanent roles, fewer while holding one — and kept deliberately. Boots carries personal care, cosmetics, and wellness alongside the dispensary, so time on the floor was a live read on the consumer-health market: what actually moves, and what a promotion does to volume, seen from the side of the counter.</p>
+          <p>Part-time throughout: more hours between permanent roles, fewer while holding one, and kept on purpose. Boots carries personal care, cosmetics, and wellness alongside the dispensary, so time on the floor was a live read on the consumer-health market: what actually moves, and what a promotion does to volume, seen from the side of the counter.</p>
         </div>
         <div class="job">
-          <div class="when">Aug 2022 — Oct 2023</div>
+          <div class="when">Aug 2022 to Oct 2023</div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-trending"/></svg></span><span>Business Development &amp; Online Marketing Manager</span></h3>
           <div class="org">Winnergy Medical PCL · Bangkok</div>
-          <p>Opened the company's first B2C channel from scratch — 30+ SKUs across modern-trade retail, e-commerce, and social commerce, repositioning self-test kits for direct consumer sale. Owned the budget across four pipelines: 20+ medical devices plus a new electronic-device line.</p>
+          <p>Opened the company's first B2C channel from scratch: 30+ SKUs across modern-trade retail, e-commerce, and social commerce, repositioning self-test kits for direct consumer sale. Owned the budget across four pipelines: 20+ medical devices plus a new electronic-device line.</p>
           <ul class="did">
             <li><b>Secured four modern-trade chains</b> and launched a licensed 10+ SKU feminine-care line.</li>
-            <li><b>Grew online engagement 100%</b> in two quarters — 10K+ organic Instagram followers in the first three months.</li>
+            <li><b>Grew online engagement 100%</b> in two quarters, with 10K+ organic Instagram followers in the first three months.</li>
             <li><b>Held 90% repeat-order retention</b> across hospital and clinic accounts, growing the B2B institutional business in parallel.</li>
             <li><b>Led an 8-person team</b> across digital marketing, online administration, content creation, and graphic design.</li>
             <li><b>Briefed the CEO directly</b> on market intelligence and channel strategy, shaping partnership decisions.</li>
           </ul>
         </div>
         <div class="job">
-          <div class="when">Apr 2019 — Oct 2021</div>
+          <div class="when">Apr 2019 to Oct 2021</div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-briefcase"/></svg></span><span>Business Development Executive</span></h3>
           <div class="org">LG Chem Life Science (Thailand) · Bangkok</div>
           <p>Business development for the life-sciences arm of the Korean multinational, across a multi-category portfolio spanning pharmaceuticals, vaccines, and aesthetics.</p>
           <ul class="did">
             <li><b>Sourced international manufacturing and supply partners</b> from scratch.</li>
             <li><b>Negotiated contracts and pricing</b> with those partners, aligned to brand objectives across all three categories.</li>
-            <li><b>Delivered competitive intelligence</b> — market analyses, fact sheets, and product comparisons that fed the annual brand-planning cycle.</li>
+            <li><b>Delivered competitive intelligence</b>: market analyses, fact sheets, and product comparisons that fed the annual brand-planning cycle.</li>
             <li><b>Developed positioning and value propositions</b> by synthesizing market data, customer feedback, and competitive landscapes.</li>
             <li><b>Tracked sales and market-share KPIs</b> through monthly and quarterly business reviews, translating performance into recommendations for stakeholder decisions.</li>
           </ul>
         </div>
         <div class="job">
-          <div class="when">Jul 2017 — Mar 2019</div>
+          <div class="when">Jul 2017 to Mar 2019</div>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-flask"/></svg></span><span>Senior Project Specialist, New Product Development</span></h3>
           <div class="org">Thai Otsuka Pharmaceutical · Bangkok</div>
-          <p>Led disease-specific medical-food products end to end at the Thai arm of the Japanese multinational — first-in-market medical nutrition, taken from prototype to launch on time and in full Thai FDA compliance.</p>
+          <p>Led disease-specific medical-food products end to end at the Thai arm of the Japanese multinational: first-in-market medical nutrition, taken from prototype to launch on time and in full Thai FDA compliance.</p>
           <ul class="did">
             <li><b>Managed scope, schedule, and budget</b> across R&amp;D, regulatory, manufacturing, and marketing for the full development program.</li>
-            <li><b>Turned clinical evidence into adoption</b> — showed KOLs, physicians, and nutritionists how first-in-market medical nutrition closed a specific unmet patient need, shifting what clinicians recommended.</li>
+            <li><b>Turned clinical evidence into adoption</b>: showed KOLs, physicians, and nutritionists how first-in-market medical nutrition closed a specific unmet patient need, shifting what clinicians recommended.</li>
             <li><b>Secured hospital and retail distribution</b> using domestic manufacturing economics and locally relevant clinical data, briefing executives on scope and sequencing.</li>
-            <li><b>Held full Thai FDA compliance</b> with regulatory affairs through development and launch — pharmacovigilance, labeling, and safety standards at every stage.</li>
+            <li><b>Held full Thai FDA compliance</b> with regulatory affairs through development and launch: pharmacovigilance, labeling, and safety standards at every stage.</li>
             <li><b>Ran Agile rituals</b> across the program team, coordinating four functions to accelerate time to market.</li>
           </ul>
         </div>
         <div class="job">
-          <div class="when">Jan 2025 — Present</div>
+          <div class="when">Jan 2025 to Present</div>
           <span class="tag-extra">Current · Part-time to Jun 2026, full-time since Aug 2026</span>
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-cup"/></svg></span><span>Server &amp; Acting Restaurant Manager · Toronto</span></h3>
           <div class="org">Front of house · alongside my master's and job search</div>
           <p>Part-time front-of-house work through my master's, now full-time while I search for my next commercial position. Smart Serve certified.</p>
           <ul class="did">
-            <li><b>Act as restaurant manager and sole server</b> — run the floor solo each day, from hosting guests to setting the table, resolve issues as they arise, and manage front-of-house inventory.</li>
+            <li><b>Act as restaurant manager and sole server</b>: run the floor solo each day, from hosting guests to setting the table, resolve issues as they arise, and manage front-of-house inventory.</li>
           </ul>
         </div>
       </div>
@@ -775,23 +731,21 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 
   <section class="block">
     <div class="wrap">
-      <div class="eyebrow">Education &amp; Research</div>
       <h2>Foundations.</h2>
       <div class="edu-grid reveal">
         <div class="card">
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-cap"/></svg></span><span>M.S. Project Management</span></h3>
-          <div class="meta">Northeastern University, Toronto · Sep 2024 – Apr 2026</div>
+          <div class="meta">Northeastern University, Toronto · Sep 2024 to Apr 2026</div>
           <p>Concentration in Project Business Analysis · GPA 3.9 / 4.0 · PMP Certified · Capstone in innovation projects.</p>
         </div>
         <div class="card">
           <h3 class="jt"><span class="icb"><svg class="ic"><use href="#i-flask"/></svg></span><span>Doctor of Pharmacy</span></h3>
-          <div class="meta">Chulalongkorn University, Bangkok · 2011–2017</div>
-          <p>Faculty of Pharmaceutical Sciences — the clinical and regulatory grounding behind my work in health products.</p>
+          <div class="meta">Chulalongkorn University, Bangkok · 2011 to 2017</div>
+          <p>Faculty of Pharmaceutical Sciences, the clinical and regulatory grounding behind my work in health products.</p>
         </div>
         <div class="card paper">
-          <div class="kicker khead"><span class="icb"><svg class="ic"><use href="#i-book"/></svg></span><span>Peer-reviewed publication</span></div>
           <div class="title">"Increasing retention of vitamin D3 in vitamin D3-fortified ice cream with milk protein emulsifier."</div>
-          <div class="cite">Co-author · <em>International Dairy Journal</em> — research completed during my Doctor of Pharmacy.</div>
+          <div class="cite">Peer-reviewed publication · Co-author · <em>International Dairy Journal</em>. Research completed during my Doctor of Pharmacy.</div>
         </div>
       </div>
     </div>
@@ -799,7 +753,6 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 
   <section class="block">
     <div class="wrap">
-      <div class="eyebrow">Skills</div>
       <h2>What I bring to a team.</h2>
       <div class="skillcols reveal">
         <div class="skillcol">
@@ -834,7 +787,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
         </div>
       </div>
       <p class="langs reveal"><b>Languages:</b> Thai (native) · English (fluent) · German (basic) · French (basic)</p>
-      <a class="more-link" href="#/" data-route="/" style="margin-top:32px">← Back to home &amp; projects</a>
+      <a class="more-link" href="#/" data-route="/" style="margin-top:32px">Back to home &amp; projects</a>
     </div>
   </section>
 </main>
@@ -843,11 +796,10 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 <main id="job-search" class="page">
   <header class="detail-hero">
     <div class="wrap">
-      <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 01 · Job Search System</div>
-      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">3 stages — click any to explore</span><div class="sn-row"><a href="#/job-search" data-route="/job-search" class="on" aria-current="page"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
+      <a class="back" href="#/" data-route="/">Back to home</a>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Three stages, one route. Click any to explore.</span><div class="sn-row"><a href="#/job-search" data-route="/job-search" class="on" aria-current="page"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A to F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>Job Board</h1>
-      <p class="lead">Job hunting starts with too many postings and too little time. This board gathers the ones that reach me, grades each against my own experience, and shows a short “why” — so I spend my effort on the roles worth applying to.</p>
+      <p class="lead">Job hunting starts with too many postings and too little time. This board gathers the ones that reach me, grades each against my own experience, and shows a short “why”, so I spend my effort on the roles worth applying to.</p>
       <div class="detail-meta">
         <span class="m"><b>Built with</b> Python · Claude grading</span>
         <span class="m"><b>Runs</b> privately on my machine</span>
@@ -856,7 +808,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
       <div class="flow five reveal">
         <div class="fstep"><span class="n">01</span><span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span><b>Collect</b><span>Alert emails + public job boards</span></div>
         <div class="fstep"><span class="n">02</span><span class="icb"><svg class="ic"><use href="#i-database"/></svg></span><b>Pre-filter</b><span>Age, seniority, duplicates</span></div>
-        <div class="fstep"><span class="n">03</span><span class="icb"><svg class="ic"><use href="#i-pulse"/></svg></span><b>Grade A–F</b><span>Against a written rubric</span></div>
+        <div class="fstep"><span class="n">03</span><span class="icb"><svg class="ic"><use href="#i-pulse"/></svg></span><b>Grade A to F</b><span>Against a written rubric</span></div>
         <div class="fstep"><span class="n">04</span><span class="icb"><svg class="ic"><use href="#i-board"/></svg></span><b>I review</b><span>On my phone, with filters</span></div>
         <div class="fstep"><span class="n">05</span><span class="icb sage"><svg class="ic"><use href="#i-zap"/></svg></span><b>Hand off</b><span>To the résumé generator</span></div>
       </div>
@@ -866,39 +818,38 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
     <div class="wrap">
       <div class="livebar">
         <span class="lb-pill"><i></i>Live demo</span>
-        <p>The real board runs privately on my machine, so I rebuilt its interface here. <strong>Every company and posting is a made-up mock-up</strong> — none are real employers or real listings, and none come from my own search. Try the filters, open an analysis, and mark a job as interested.</p>
+        <p>The real board runs privately on my machine, so I rebuilt its interface here. <strong>Every company and posting is a made-up mock-up.</strong> None are real employers or real listings, and none come from my own search. Try the filters, open an analysis, and mark a job as interested.</p>
       </div>
       <figure class="shot">
         <div class="window">
           <div class="bar">
             <div class="dots"><i></i><i></i><i></i></div>
             <div class="url">localhost · Job Board · mock-up data</div>
-            <a class="expand" href="./demo/job-search.html" target="_blank" rel="noopener">Open ↗</a>
+            <a class="expand" href="./demo/job-search.html" target="_blank" rel="noopener">Open</a>
           </div>
           <iframe class="live" src="./demo/job-search.html?embed=1" title="Interactive demo of the Job Board, using invented companies and postings" loading="lazy"></iframe>
         </div>
-        <figcaption>Interactive — filter by grade, market and verdict. Eight invented jobs; nothing here is a real listing.</figcaption>
+        <figcaption>Interactive: filter by grade, market and verdict. Eight invented jobs; nothing here is a real listing.</figcaption>
       </figure>
       <div class="uth reveal">
-        <span class="fi">How a job gets graded</span>
-        <h4>One question: how likely is this to lead to an interview?</h4>
+        <h2>One question: how likely is this to lead to an interview?</h2>
         <div class="gradetbl">
-          <div><b>A</b><span>Strong match — apply</span></div>
-          <div><b>B</b><span>Good match — apply (B- or better)</span></div>
+          <div><b>A</b><span>Strong match: apply</span></div>
+          <div><b>B</b><span>Good match: apply (B- or better)</span></div>
           <div><b>C</b><span>Partial or stretch</span></div>
-          <div><b>D / F</b><span>Weak or off-target — skip</span></div>
+          <div><b>D / F</b><span>Weak or off-target: skip</span></div>
         </div>
-        <p style="margin:14px 0 0;font-size:13.5px;color:var(--mid)">Claude grades each posting against a written rubric and my real experience — never an invented one. <b>Skills match</b> is the main driver. <b>Seniority</b> counts in both directions: a role far above or far below my level loses points. <b>Health, pharma and medtech</b> employers earn a bonus. Postings that only show a title are graded too, but tagged so the weaker evidence is visible. A hard blocker, such as a required security clearance, moves a job to an <b>Excluded</b> tab with the reason.</p>
+        <p style="margin:14px 0 0;font-size:13.5px;color:var(--mid)">Claude grades each posting against a written rubric and my real experience, never an invented one. <b>Skills match</b> is the main driver. <b>Seniority</b> counts in both directions: a role far above or far below my level loses points. <b>Health, pharma and medtech</b> employers earn a bonus. Postings that only show a title are graded too, but tagged so the weaker evidence is visible. A hard blocker, such as a required security clearance, moves a job to an <b>Excluded</b> tab with the reason.</p>
       </div>
       <div class="feat" style="margin-top:34px">
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-pulse"/></svg></span><span class="fi">Traceable grades</span></span><h4>Every grade shows its why</h4><p>Level, skills and domain each get one short line, so a B+ is never a black box — and I can disagree with it.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-bell"/></svg></span><span class="fi">Fresh first</span></span><h4>Newest and best on top</h4><p>Sort by best match, newest or grade; filter by market, verdict and status. Old postings drop off on their own.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-archive"/></svg></span><span class="fi">Draft only</span></span><h4>It never applies for me</h4><p>The board sends nothing and submits nothing. I read each analysis, decide, and submit every application myself.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-swap"/></svg></span><span class="fi">One-click hand-off</span></span><h4>Straight to a tailored résumé</h4><p>A promising job goes to the Résumé Generator in one click, and the finished application lands in the tracker.</p></div>
+        <div class="f"><h2>Every grade shows its why</h2><p>Level, skills and domain each get one short line, so a B+ is never a black box, and I can disagree with it.</p></div>
+        <div class="f"><h2>Newest and best on top</h2><p>Sort by best match, newest or grade; filter by market, verdict and status. Old postings drop off on their own.</p></div>
+        <div class="f"><h2>It never applies for me</h2><p>The board sends nothing and submits nothing. I read each analysis, decide, and submit every application myself.</p></div>
+        <div class="f"><h2>Straight to a tailored résumé</h2><p>A promising job goes to the Résumé Generator in one click, and the finished application lands in the tracker.</p></div>
       </div>
       <div class="callout">
         <span class="fi">How it connects</span>
-        <p>This is where the system starts: the Job Board decides what's worth my time, the Résumé Generator tailors the application, and the Tracker follows it through. <a href="#/resume-gen" data-route="/resume-gen">Next: Stage 2, the Résumé Generator →</a></p>
+        <p>This is where the system starts: the Job Board decides what's worth my time, the Résumé Generator tailors the application, and the Tracker follows it through. <a href="#/resume-gen" data-route="/resume-gen">Next: Stage 2, the Résumé Generator</a></p>
       </div>
     </div>
   </section>
@@ -908,16 +859,15 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 <main id="tracker" class="page">
   <header class="detail-hero">
     <div class="wrap">
-      <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 01 · Job Search System</div>
-      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">3 stages — click any to explore</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker" class="on" aria-current="page"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
+      <a class="back" href="#/" data-route="/">Back to home</a>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Three stages, one route. Click any to explore.</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A to F</span></a><a href="#/resume-gen" data-route="/resume-gen"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker" class="on" aria-current="page"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>Job Application Tracker</h1>
-      <p class="lead">A personal command centre for a serious job hunt. Every application lives on one board — with a daily dashboard that tells me what actually needs attention, so nothing slips.</p>
+      <p class="lead">A personal command centre for a serious job hunt. Every application lives on one board, and a daily dashboard tells me what needs attention so nothing slips.</p>
       <div class="detail-meta">
         <span class="m"><b>Built with</b> Python · Flask</span>
         <span class="m"><b>Runs</b> locally on my machine</span>
         <span class="m"><b>Feeds from</b> the Résumé Generator</span>
-        <a class="m" href="https://github.com/JJoopjip/application-tracker" target="_blank" rel="noopener"><b>Source</b> on GitHub ↗</a>
+        <a class="m" href="https://github.com/JJoopjip/application-tracker" target="_blank" rel="noopener"><b>Source</b> on GitHub</a>
       </div>
     </div>
   </header>
@@ -925,28 +875,28 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
     <div class="wrap">
       <div class="livebar">
         <span class="lb-pill"><i></i>Live demo</span>
-        <p>The real tracker runs on my own machine, so I rebuilt its interface here — it works right in this page. <strong>Drag a card between columns</strong> — or tap one on a phone — to see a status change save. Every application shown is an anonymous placeholder; my real ones stay private.</p>
+        <p>The real tracker runs on my own machine, so I rebuilt its interface here, and it works right in this page. <strong>Drag a card between columns</strong>, or tap one on a phone, to see a status change save. Every application shown is an anonymous placeholder; my real ones stay private.</p>
       </div>
       <figure class="shot">
         <div class="window">
           <div class="bar">
             <div class="dots"><i></i><i></i><i></i></div>
             <div class="url">127.0.0.1:5000 · Board &amp; dashboard</div>
-            <a class="expand" href="./demo/tracker.html" target="_blank" rel="noopener">Open ↗</a>
+            <a class="expand" href="./demo/tracker.html" target="_blank" rel="noopener">Open</a>
           </div>
           <iframe class="live" src="./demo/tracker.html?embed=1" title="Interactive demo of the Job Application Tracker" loading="lazy"></iframe>
         </div>
-        <figcaption>Interactive — the daily view, the needs-attention feed, and the board. Try moving a card.</figcaption>
+        <figcaption>Interactive: the daily view, the needs-attention feed, and the board. Try moving a card.</figcaption>
       </figure>
       <div class="feat" style="margin-top:34px">
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-board"/></svg></span><span class="fi">Kanban board</span></span><h4>Every stage, one glance</h4><p>Cards move through Wishlist → Applied → Screening → Interview → Final. Drag to change status on desktop, tap to update on a phone — it saves on drop.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-bell"/></svg></span><span class="fi">Daily dashboard</span></span><h4>Only what needs me</h4><p>A “needs attention” feed surfaces anything overdue or gone quiet, so a busy week never means a dropped follow-up.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-archive"/></svg></span><span class="fi">Inbox &amp; backup</span></span><h4>Everything in one place</h4><p>Application details, links, and notes stay together, with a backup option so the record is never lost.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-swap"/></svg></span><span class="fi">One-click intake</span></span><h4>No re-typing</h4><p>New applications arrive straight from the Résumé Generator — company, role, and documents already attached.</p></div>
+        <div class="f"><h2>Every stage, one glance</h2><p>Cards move from Wishlist through Applied, Screening and Interview to Final. Drag to change status on desktop, tap to update on a phone; it saves on drop.</p></div>
+        <div class="f"><h2>Only what needs me</h2><p>A “needs attention” feed surfaces anything overdue or gone quiet, so a busy week never means a dropped follow-up.</p></div>
+        <div class="f"><h2>Everything in one place</h2><p>Application details, links, and notes stay together, with a backup option so the record is never lost.</p></div>
+        <div class="f"><h2>No re-typing</h2><p>New applications arrive straight from the Résumé Generator, with company, role, and documents already attached.</p></div>
       </div>
       <div class="callout">
         <span class="fi">How it connects</span>
-        <p>The tracker doesn't store its own copy of a résumé or posting — it reads from the Résumé Generator, so a single source of truth drives both apps and nothing is duplicated. <a href="#/resume-gen" data-route="/resume-gen">See the Résumé Generator →</a></p>
+        <p>The tracker doesn't store its own copy of a résumé or posting. It reads from the Résumé Generator, so a single source of truth drives both apps and nothing is duplicated. <a href="#/resume-gen" data-route="/resume-gen">See the Résumé Generator</a></p>
       </div>
     </div>
   </section>
@@ -956,23 +906,21 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 <main id="resume-gen" class="page">
   <header class="detail-hero">
     <div class="wrap">
-      <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 01 · Job Search System</div>
-      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">3 stages — click any to explore</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A–F</span></a><a href="#/resume-gen" data-route="/resume-gen" class="on" aria-current="page"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
+      <a class="back" href="#/" data-route="/">Back to home</a>
+      <div class="stagenav" aria-label="Job Search System: 3 stages"><span class="sn-label">Three stages, one route. Click any to explore.</span><div class="sn-row"><a href="#/job-search" data-route="/job-search"><span class="sn-n">STAGE 01 / 03</span><b>Find &amp; grade</b><span class="sn-d">Collects postings and grades each A to F</span></a><a href="#/resume-gen" data-route="/resume-gen" class="on" aria-current="page"><span class="sn-n">STAGE 02 / 03</span><b>Tailor résumé</b><span class="sn-d">One-page résumé and cover letter per job</span></a><a href="#/tracker" data-route="/tracker"><span class="sn-n">STAGE 03 / 03</span><b>Track</b><span class="sn-d">Kanban board and daily dashboard</span></a></div></div>
       <h1>AI Résumé Generator</h1>
-      <p class="lead">Paste a job posting and get a one-page résumé built from my real career history — plus, if I want, a matching cover letter and a coverage score that shows exactly how well I fit the role.</p>
+      <p class="lead">Paste a job posting and get a one-page résumé built from my real career history. If I want, I also get a matching cover letter and a coverage score that shows how well I fit the role.</p>
       <div class="hilite reveal">
         <span class="hi-ic"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>
         <div>
-          <span class="hi-tag">What makes it different</span>
-          <p><b>An <span class="kw">autonomous Claude agent</span> — not a chatbot wrapper.</b> It runs <span class="kw">headless</span> with no chat window: reads my career file, writes the draft, renders the PDF, and re-runs itself until it fits one page — <span class="kw">zero human touch</span> from posting to finished document.</p>
+          <p><b>An <span class="kw">autonomous Claude agent</span> does the work.</b> It runs <span class="kw">headless</span>, with no chat window: it reads my career file, writes the draft, renders the PDF, and re-runs itself until it fits one page. <span class="kw">No human touches it</span> between posting and finished document.</p>
         </div>
       </div>
       <div class="detail-meta">
         <span class="m"><b>Built with</b> Python · Claude (Anthropic) running headless</span>
         <span class="m"><b>Runs</b> locally on my machine</span>
         <span class="m"><b>Outputs</b> PDF + Word</span>
-        <a class="m" href="https://github.com/JJoopjip/ai-resume-generator" target="_blank" rel="noopener"><b>Source</b> on GitHub ↗</a>
+        <a class="m" href="https://github.com/JJoopjip/ai-resume-generator" target="_blank" rel="noopener"><b>Source</b> on GitHub</a>
       </div>
       <div class="flow reveal">
         <div class="fstep"><span class="n">01</span><span class="icb"><svg class="ic"><use href="#i-clipboard"/></svg></span><b>Paste</b><span>Any job posting</span></div>
@@ -988,7 +936,7 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
     <div class="wrap">
       <div class="livebar">
         <span class="lb-pill"><i></i>Live demo</span>
-        <p>The real generator runs locally and drives a headless Claude agent that writes from my private career history, so I rebuilt its interface here. <strong>Press Generate</strong> to watch a real run replay — the log lines are the ones the actual pipeline prints. Nothing you type is sent anywhere.</p>
+        <p>The real generator runs locally and drives a headless Claude agent that writes from my private career history, so I rebuilt its interface here. <strong>Press Generate</strong> to watch a real run replay. The log lines are the ones the actual pipeline prints. Nothing you type is sent anywhere.</p>
       </div>
       <figure class="shot">
         <div class="window">
@@ -996,21 +944,20 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
             <div class="dots"><i></i><i></i><i></i></div>
             <div class="url">127.0.0.1:8000 · Tailor a résumé</div>
             <span class="aichip"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg>Claude · headless</span>
-            <a class="expand" href="./demo/resume-generator.html" target="_blank" rel="noopener">Open ↗</a>
+            <a class="expand" href="./demo/resume-generator.html" target="_blank" rel="noopener">Open</a>
           </div>
           <iframe class="live" src="./demo/resume-generator.html?embed=1" title="Interactive demo of the AI Résumé Generator" loading="lazy"></iframe>
         </div>
-        <figcaption>Interactive — paste a posting, press Generate, and watch each step of the run.</figcaption>
+        <figcaption>Interactive: paste a posting, press Generate, and watch each step of the run.</figcaption>
       </figure>
       <div class="feat" style="margin-top:34px">
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-file"/></svg></span><span class="fi">Flexible output</span></span><h4>Résumé, cover letter, or both</h4><p>Choose résumé only, résumé and cover letter in one run, or add the cover letter afterward once the résumé looks right.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-pulse"/></svg></span><span class="fi">Coverage score</span></span><h4>Know your fit before you apply</h4><p>Each run analyses how well the résumé matches the posting, so I can see where the gaps are and decide whether — and how — to close them. Gaps get closed by adding real experience, never by inventing it.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-terminal"/></svg></span><span class="fi">Live step log</span></span><h4>Nothing hidden</h4><p>A running log shows each step as it reads the spec, my history, and the posting, then writes and renders the documents.</p></div>
-        <div class="f"><span class="fhead"><span class="icb"><svg class="ic"><use href="#i-swap"/></svg></span><span class="fi">One-click hand-off</span></span><h4>Straight to the tracker</h4><p>Send the finished résumé, cover letter, and posting to the Application Tracker in a single click — no copy-paste.</p></div>
+        <div class="f"><h2>Résumé, cover letter, or both</h2><p>Choose résumé only, résumé and cover letter in one run, or add the cover letter afterward once the résumé looks right.</p></div>
+        <div class="f"><h2>Know your fit before you apply</h2><p>Each run analyses how well the résumé matches the posting, so I can see where the gaps are and decide whether to close them, and how. Gaps get closed by adding real experience, never by inventing it.</p></div>
+        <div class="f"><h2>Nothing hidden</h2><p>A running log shows each step as it reads the spec, my history, and the posting, then writes and renders the documents.</p></div>
+        <div class="f"><h2>Straight to the tracker</h2><p>Send the finished résumé, cover letter, and posting to the Application Tracker in one click, with no copy-paste.</p></div>
       </div>
       <div class="uth reveal">
-        <span class="fi">Under the hood</span>
-        <h4>Not a chatbot wrapper.</h4>
+        <h2>Not a chatbot wrapper.</h2>
         <div class="uth-cols">
           <div class="uth-col">
             <b>Most AI résumé tools</b>
@@ -1018,13 +965,13 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
           </div>
           <div class="uth-col is-this">
             <b>This one</b>
-            <p>Claude (Anthropic) runs headless as an autonomous agent — no chat window. It reads my career file, writes the draft, renders the PDF, measures the page, and re-runs itself until everything fits on one page. Between &ldquo;paste posting&rdquo; and &ldquo;finished PDF&rdquo;, no human touches it.</p>
+            <p>Claude (Anthropic) runs headless as an autonomous agent, with no chat window. It reads my career file, writes the draft, renders the PDF, measures the page, and re-runs itself until everything fits on one page. Between &ldquo;paste posting&rdquo; and &ldquo;finished PDF&rdquo;, no human touches it.</p>
           </div>
         </div>
       </div>
       <div class="callout">
         <span class="fi">How it connects</span>
-        <p>This is the source of truth for the tools that follow it. When I add an application to the tracker, it pulls from here — so the résumé, cover letter, and posting live in one place and never get duplicated. <a href="#/tracker" data-route="/tracker">See the Application Tracker →</a> · <a href="#/job-search" data-route="/job-search">← Stage 1: the Job Board</a></p>
+        <p>This is the source of truth for the tools that follow it. When I add an application to the tracker, it pulls from here, so the résumé, cover letter, and posting live in one place and never get duplicated. <a href="#/tracker" data-route="/tracker">See the Application Tracker</a> · <a href="#/job-search" data-route="/job-search">Stage 1: the Job Board</a></p>
       </div>
     </div>
   </section>
@@ -1034,14 +981,12 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
 <main id="stickers" class="page">
   <header class="detail-hero">
     <div class="wrap">
-      <a class="back" href="#/" data-route="/">← Back to home</a>
-      <div class="eyebrow">Project 02</div>
+      <a class="back" href="#/" data-route="/">Back to home</a>
       <h1>Mianmian &amp; Rourou</h1>
-      <p class="lead">Two original characters — Mianmian, a pink chibi bearcat, and Rourou, her raccoon partner — designed and shipped as animated sticker packs for chat apps. I run the whole thing: character design, AI production, packing to each platform's limits, and store submission.</p>
+      <p class="lead">Two original characters, Mianmian (a pink chibi bearcat) and Rourou (her raccoon partner), designed and shipped as animated sticker packs for chat apps. I run the whole thing: character design, AI production, packing to each platform's limits, and store submission.</p>
       <div class="hilite reveal">
         <span class="hi-ic"><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg></span>
         <div>
-          <span class="hi-tag">What makes it different</span>
           <p><b>One character bible, <span class="kw">one generation</span>, every platform.</b> Characters are locked to a written spec and palette, each animation is generated <span class="kw">once</span> and packed for every store, and every clip is checked for frozen motion and extra limbs before it ships.</p>
         </div>
       </div>
@@ -1064,10 +1009,10 @@ section.block{padding:48px 0;border-top:1px solid var(--rule)}
         <div class="p"><b>LINE</b><span>In review</span></div>
       </div>
       <div class="feat" style="margin-top:34px">
-        <div class="f"><span class="fi">Character lock</span><h4>The same character, every pose</h4><p>Each character has a written spec and a fixed colour palette. New poses are edited from approved reference art rather than generated from scratch, so Mianmian and Rourou stay recognisable across a whole pack.</p></div>
-        <div class="f"><span class="fi">Cost control</span><h4>Generate once, pack for every store</h4><p>Animation calls cost money, so each sticker is generated once and the same frames are packed for every platform. The frame count is chosen up front so it clears every platform's file-size cap.</p></div>
-        <div class="f"><span class="fi">Quality gate</span><h4>Checked before it ships</h4><p>The model can return a near-static clip or add an extra limb. Every animation is composited onto a solid background and inspected before packing — frame counts alone don't catch it.</p></div>
-        <div class="f"><span class="fi">Vendor diligence</span><h4>Found a silent failure</h4><p>One API route quietly dropped reference images while still billing for the call. I documented it, moved every call to the route that honours references, and wrote down how to verify it with and without references.</p></div>
+        <div class="f"><h2>The same character, every pose</h2><p>Each character has a written spec and a fixed colour palette. New poses are edited from approved reference art rather than generated from scratch, so Mianmian and Rourou stay recognisable across a whole pack.</p></div>
+        <div class="f"><h2>Generate once, pack for every store</h2><p>Animation calls cost money, so each sticker is generated once and the same frames are packed for every platform. The frame count is chosen up front so it clears every platform's file-size cap.</p></div>
+        <div class="f"><h2>Checked before it ships</h2><p>The model can return a near-static clip or add an extra limb. Every animation is composited onto a solid background and inspected before packing. Frame counts alone don't catch it.</p></div>
+        <div class="f"><h2>Found a silent failure</h2><p>One API route quietly dropped reference images while still billing for the call. I documented it, moved every call to the route that honours references, and wrote down how to verify it with and without references.</p></div>
       </div>
       <div class="callout">
         <span class="fi">How it's made</span>

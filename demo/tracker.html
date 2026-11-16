@@ -3,55 +3,55 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Job Application Tracker — interactive demo</title>
+<title>Job Application Tracker: interactive demo</title>
 <meta name="description" content="An interactive, in-browser demo of the Job Application Tracker built by Chantamas Chatraporn. Sample data only.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%2377A088'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <!-- ?embed=1 => rendered inside the portfolio's browser frame, which carries its
      own "Live demo" disclosure. Drop the duplicate banner and tighten the header
      so the board — the part worth touching — sits above the iframe's fold. -->
 <script>if (location.search.indexOf("embed") !== -1) document.documentElement.classList.add("embed");</script>
 <style>
   :root {
-    --paper:        #F1F1EF;
+    --paper:        #F3F5FA;
     --surface:      #FFFFFF;
-    --sage:         #147A4B;
-    --sage-strong:  #0F5F3A;
+    --sage:         #1637D6;
+    --sage-strong:  #0F2698;
     --apricot:      #9A6700;
     --rose:         #D0202F;
-    --slate:        #101010;
-    --muted:        #55534F;
-    --sage-tint:    #EDF7F1;
-    --apricot-tint: #F7EFE0;
+    --slate:        #0C1230;
+    --muted:        #3B4468;
+    --sage-tint:    #E7ECFD;
+    --apricot-tint: #FFF1CC;
     --rose-tint:    #FCEEEF;
-    --line:         #DCDBD6;
-    --radius:       2px;
-    --radius-sm:    2px;
+    --line:         #D5DBEE;
+    --radius:       12px;
+    --radius-sm:    8px;
     --shadow:       none;
     --shadow-lift:  none;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0; background: var(--paper); color: var(--slate);
-    font-family: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
+    font-family: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
     font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, .band-text, .stat-num { font-family: 'Schibsted Grotesk', system-ui, sans-serif; color: var(--slate); letter-spacing: -.01em; }
+  h1, h2, h3, .band-text, .stat-num { font-family: 'Hanken Grotesk', system-ui, sans-serif; color: var(--slate); letter-spacing: -.01em; }
   a { color: var(--sage-strong); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .wrap { max-width: 1080px; margin: 0 auto; padding: 18px 18px 60px; }
 
   .demo-note {
     display: flex; gap: 10px; align-items: flex-start;
-    background: var(--apricot-tint); border: 1px solid #E8CFA9;
+    background: var(--apricot-tint); border: 1px solid #F0D98A;
     border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 16px;
-    font-size: 13px; color: #6B4E2A;
+    font-size: 13px; color: #5A4300;
   }
-  .demo-note b { color: #573D1E; }
+  .demo-note b { color: #3F2E00; }
   .demo-pill {
-    font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
     background: var(--apricot); color: #fff; border-radius: 999px;
     padding: 3px 9px; white-space: nowrap; flex-shrink: 0; margin-top: 1px;
   }
@@ -66,12 +66,12 @@
   .embed .att-list li { padding: 7px 10px; }
 
   .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
-  .brand { font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 19px; display: flex; align-items: center; gap: 9px; color: var(--slate); }
+  .brand { font-family: 'Hanken Grotesk', system-ui, sans-serif; font-weight: 700; font-size: 19px; display: flex; align-items: center; gap: 9px; color: var(--slate); }
   .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--sage); box-shadow: 0 0 0 4px var(--sage-tint); }
   .topbar-actions { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
 
   .btn {
-    font-family: 'Schibsted Grotesk', system-ui, sans-serif; font-size: 14px; font-weight: 600;
+    font-family: 'Hanken Grotesk', system-ui, sans-serif; font-size: 14px; font-weight: 600;
     border: none; border-radius: 999px; padding: 10px 18px; min-height: 42px;
     cursor: pointer; background: var(--surface); color: var(--slate); box-shadow: var(--shadow);
     transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
@@ -82,7 +82,8 @@
   .btn-ghost { background: transparent; box-shadow: none; color: var(--muted); }
   .btn-ghost:hover { background: var(--surface); box-shadow: var(--shadow); }
   .btn-sm { font-size: 13px; padding: 8px 14px; min-height: 38px; }
-  .btn-current { background: var(--sage-tint); color: var(--sage-strong); box-shadow: none; }
+  .btn-current { background: var(--sage); color: #fff; box-shadow: none; }
+  .btn-link { background: #fff; color: var(--sage-strong); border: 1px solid var(--line); }
   :focus-visible { outline: 3px solid var(--sage); outline-offset: 2px; border-radius: 8px; }
 
   .band { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-strong) 100%); color: #fff; border-radius: 22px; padding: 24px 26px; margin-bottom: 18px; box-shadow: var(--shadow-lift); }
@@ -95,7 +96,7 @@
   .stat-num { font-weight: 700; font-size: clamp(20px, 2.6vw, 27px); line-height: 1; }
   .stat-label { font-size: 12px; color: var(--muted); margin-top: 6px; }
   .stat.is-good .stat-num { color: var(--sage-strong); }
-  .stat.is-signal .stat-num { color: #B37430; }
+  .stat.is-signal .stat-num { color: #8A5418; }
 
   /* Needs-attention feed */
   .attention { background: var(--surface); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); margin-bottom: 18px; }
@@ -121,7 +122,7 @@
 
   .card {
     background: var(--surface); border-radius: var(--radius-sm); padding: 11px 12px;
-    box-shadow: var(--shadow); cursor: grab; border-left: 3px solid var(--sage);
+    box-shadow: var(--shadow); cursor: grab; border: 1px solid var(--line);
     transition: transform .12s ease, box-shadow .12s ease, opacity .15s;
   }
   .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
@@ -134,8 +135,8 @@
   .card-meta { display: flex; align-items: center; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
   .chip { font-size: 10.5px; font-weight: 600; padding: 2px 7px; border-radius: 999px; background: var(--paper); color: var(--muted); }
   .chip-cov { background: var(--sage-tint); color: var(--sage-strong); }
-  .card.c-apricot { border-left-color: var(--apricot); }
-  .card.c-rose { border-left-color: var(--rose); }
+  .card.c-apricot { border-color: var(--apricot); }
+  .card.c-rose { border-color: var(--rose); }
 
   .toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(8px); background: var(--slate); color: #fff; font-size: 13px; padding: 10px 16px; border-radius: 999px; box-shadow: var(--shadow-lift); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 50; }
   .toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
@@ -153,22 +154,21 @@
   <div class="wrap">
     <div class="demo-note">
       <span class="demo-pill">Demo</span>
-      <div><b>Interactive demo.</b> This is a faithful rebuild of the real tracker's interface, running entirely in your browser. Every application shown is an anonymous placeholder — no company is named, and real applications stay private on a local machine. Drag a card between columns — or tap one — to try it.</div>
+      <div><b>Interactive demo.</b> This is a faithful rebuild of the real tracker's interface, running entirely in your browser. Every application shown is an anonymous placeholder: no company is named, and real applications stay private on a local machine. Drag a card between columns, or tap one, to try it.</div>
     </div>
 
     <header class="topbar">
-      <span class="brand"><span class="dot"></span> 🍀 GoodLuck Joopjip ✨🎉</span>
+      <span class="brand"><span class="dot"></span> Joopjip</span>
       <div class="topbar-actions">
-        <span class="btn btn-current btn-sm">📋 Board</span>
+        <span class="btn btn-current btn-sm">Board</span>
         <a class="btn btn-ghost btn-sm" href="#" onclick="return false">Inbox</a>
         <a class="btn btn-ghost btn-sm" href="#" onclick="return false">Settings</a>
-        <a class="btn btn-primary btn-sm" href="./resume-generator.html">✨ Résumé generator ↗</a>
+        <a class="btn btn-link btn-sm" href="./resume-generator.html">Résumé generator</a>
       </div>
     </header>
 
     <div class="band">
-      <div class="band-label">Tuesday, 14 July</div>
-      <p class="band-text" id="band-text">3 applications need you today — two follow-ups are overdue, and one interview is tomorrow.</p>
+      <p class="band-text" id="band-text">3 applications need you today: two follow-ups are overdue, and one interview is tomorrow.</p>
     </div>
 
     <div class="stats">
@@ -182,7 +182,7 @@
     <div class="attention">
       <h2>Needs attention today</h2>
       <ul class="att-list">
-        <li><span class="tag tag-warn">Overdue</span> Follow up — Project Manager, Commercial Ops · applied 12 days ago, no reply</li>
+        <li><span class="tag tag-warn">Overdue</span> Follow up: Project Manager, Commercial Ops · applied 12 days ago, no reply</li>
         <li><span class="tag tag-quiet">Gone quiet</span> Program Manager, NPD · screening call was 9 days ago</li>
         <li><span class="tag tag-due">Tomorrow</span> Senior PM, Product Launch · final interview, 10:00am</li>
       </ul>
@@ -190,7 +190,7 @@
 
     <div class="board-head">
       <h2>Board</h2>
-      <span class="hint">Drag a card between columns — or tap one to advance it. Saves on drop.</span>
+      <span class="hint">Drag a card between columns, or tap one to advance it. Saves on drop.</span>
     </div>
     <div class="board" id="board"></div>
   </div>
@@ -280,7 +280,7 @@ function advance(id) {
   render();
   const moved = board.querySelector(`.card[data-id="${id}"]`);
   if (moved) moved.classList.add("pulse");
-  toast(`Saved — ${card.role} moved to ${next.name}.`);
+  toast(`Saved: ${card.role} moved to ${next.name}.`);
   recount();
 }
 
@@ -301,7 +301,7 @@ function wireDrop() {
       const moved = board.querySelector(`.card[data-id="${id}"]`);
       if (moved) moved.classList.add("pulse");
       const name = COLUMNS.find(c => c.id === to).name;
-      toast(`Saved — ${card.role} moved to ${name}.`);
+      toast(`Saved: ${card.role} moved to ${name}.`);
       recount();
     });
   });
