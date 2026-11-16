@@ -3,7 +3,7 @@
 Personal portfolio for **Chantamas “Joopjip” Chatraporn** — project manager and
 commercial professional in pharma, medtech and consumer health, Toronto.
 
-**Live:** https://jjoopjip.github.io/
+**Live:** https://chantamas.com/
 
 ## What's here
 
@@ -13,7 +13,7 @@ commercial professional in pharma, medtech and consumer health, Toronto.
 | `demo/job-search.html` | Interactive demo of the Job Board (stage 1). Eight invented jobs. |
 | `demo/resume-generator.html` | Interactive demo of the AI Résumé Generator. |
 | `demo/tracker.html` | Interactive demo of the Job Application Tracker. |
-| `.nojekyll` | Tells GitHub Pages to serve the files as-is (no Jekyll build). |
+| `.nojekyll` | Tells GitHub Pages to serve the files as-is (no Jekyll build). Harmless now that the site is served from its own host; kept in case Pages is used again. |
 
 The two project pages embed their demo via an `<iframe>` inside the browser-chrome
 frame, so a visitor can use the interfaces without installing anything.
@@ -38,8 +38,8 @@ Source for the real generator: https://github.com/JJoopjip/ai-resume-generator
 
 ## Editing
 
-No build step — plain HTML/CSS/JS. Edit, commit, push to `main`; GitHub Pages
-redeploys in about a minute.
+No build step — plain HTML/CSS/JS. Edit, commit, push to `main`, then deploy (see
+`CLAUDE.md` → Deploying). The live site is only updated by the deploy step.
 
 ```bash
 # preview locally
@@ -49,12 +49,12 @@ python3 -m http.server 4000
 
 ## QR codes
 
-`assets/` holds QR codes pointing at https://jjoopjip.github.io/
+`assets/` holds QR codes pointing at https://chantamas.com/
 
 | File | Use | Notes |
 |---|---|---|
 | `qr.svg` / `qr.png` | print — résumé, business card | Black on white, 29×29, error level Q (25%). Verified to scan down to ~10mm printed. |
-| `qr-brand.svg` / `qr-brand.png` | slides, web | Portfolio palette + peach dot, 33×33, error level H (30%) to absorb the dot. Needs ~15mm; use the plain one when small. |
+| `qr-brand.svg` / `qr-brand.png` | slides, web | Graphite on paper (#101010 / #F1F1EF) with a signal-red centre dot (#D0202F), 29×29, error level H (30%) to absorb the dot. Larger than the plain one needs to be to scan; use the plain one when small. |
 
 SVG is preferred wherever it's supported — it stays crisp at any size.
 Regenerate with `segno`; every file above was decode-verified back to the URL.
