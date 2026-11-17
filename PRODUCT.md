@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Plain static HTML, CSS and JavaScript. No build step, no framework. Everything is inline in `index.html` (styles, scripts, SVG icon sprite) except three standalone demo pages in `demo/`. The only external request is the Google Fonts stylesheet for Hanken Grotesk. The server pulls `main` and serves files as they are.
+Plain static HTML, CSS and JavaScript. No build step, no framework. Everything is inline in `index.html` (styles, scripts, SVG icon sprite) except three standalone demo pages in `demo/`. The only external request is the Google Fonts stylesheet (Figtree, Nunito, Baloo 2). The site has three visitor-selectable themes (Light default, Dark, Cute). The server pulls `main` and serves files as they are.
 
 ## Users
 
@@ -37,7 +37,7 @@ The site is a single hash-routed page: Home, Background, Job Search System (thre
 ## Brand Commitments
 
 - Name: Chantamas Chatraporn, nickname Joopjip.
-- The look must not read as AI-generated: no cream and terracotta grounds, and none of the faces Fraunces, Inter or Space Grotesk. The owner chose to replace the previous Spec Sheet world (graphite, signal red, Schibsted Grotesk, Martian Mono).
+- The look must not read as AI-generated: no cream and terracotta grounds, and none of the faces Fraunces, Inter or Space Grotesk. The owner rejected the Wayfinding signage look (cobalt, yellow, Hanken Grotesk) and chose a pink "sticker" world: a pink bear "CC" mark used as logo and favicon, the owner's own characters, and three themes (Light, Dark, Cute).
 - Copy should sound like a person wrote it.
 
 ## Evidence on Hand
