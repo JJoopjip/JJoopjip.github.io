@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://chantamas.com/</loc></url>
-  <url><loc>https://chantamas.com/about.md</loc></url>
-  <url><loc>https://chantamas.com/llms.txt</loc></url>
-  <url><loc>https://chantamas.com/demo/job-search.html</loc></url>
-  <url><loc>https://chantamas.com/demo/resume-generator.html</loc></url>
-  <url><loc>https://chantamas.com/demo/tracker.html</loc></url>
+  <url><loc>https://chantamas.com/</loc><lastmod>2026-11-16</lastmod></url>
 </urlset>
