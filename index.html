@@ -22,7 +22,7 @@
 <script>try{var t=localStorage.getItem("cc-theme");if(t==="dark"||t==="cute")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain-text profile for AI tools">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://chantamas.com/#website","url":"https://chantamas.com/","name":"Chantamas Chatraporn","inLanguage":"en","publisher":{"@id":"https://chantamas.com/#person"}},{"@type":"ProfilePage","@id":"https://chantamas.com/#profile","url":"https://chantamas.com/","name":"Chantamas Chatraporn (Joopjip) | Project Manager, Toronto","isPartOf":{"@id":"https://chantamas.com/#website"},"mainEntity":{"@id":"https://chantamas.com/#person"}},{"@type":"Person","name":"Chantamas Chatraporn","alternateName":"Joopjip","url":"https://chantamas.com/","email":"c.chantamas@gmail.com","jobTitle":"Project Manager","description":"PMP-certified project manager and commercial professional in pharma, medtech and consumer health, Toronto.","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"ON","addressCountry":"CA"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Northeastern University"},{"@type":"CollegeOrUniversity","name":"Chulalongkorn University"}],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Project Management Professional (PMP)"},"knowsAbout":["Project management","Business development","Pharmaceuticals","Medical devices","Consumer health","Go-to-market strategy"],"sameAs":["https://linkedin.com/in/chantamaschatraporn","https://github.com/JJoopjip"],"@id":"https://chantamas.com/#person","givenName":"Chantamas","familyName":"Chatraporn"}]}
+{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://chantamas.com/#website","url":"https://chantamas.com/","name":"Chantamas Chatraporn","inLanguage":"en","publisher":{"@id":"https://chantamas.com/#person"}},{"@type":"ProfilePage","@id":"https://chantamas.com/#profile","url":"https://chantamas.com/","name":"Chantamas Chatraporn (Joopjip) | Project Manager, Toronto","isPartOf":{"@id":"https://chantamas.com/#website"},"mainEntity":{"@id":"https://chantamas.com/#person"}},{"@type":"Person","name":"Chantamas Chatraporn","alternateName":["Joopjip","จันทมาศ ฉัตราภรณ์"],"url":"https://chantamas.com/","email":"c.chantamas@gmail.com","jobTitle":"Project Manager","description":"PMP-certified project manager and commercial professional in pharma, medtech and consumer health, Toronto.","address":{"@type":"PostalAddress","addressLocality":"Toronto","addressRegion":"ON","addressCountry":"CA"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Northeastern University"},{"@type":"CollegeOrUniversity","name":"Chulalongkorn University"}],"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Project Management Professional (PMP)"},"knowsAbout":["Project management","Business development","Pharmaceuticals","Medical devices","Consumer health","Go-to-market strategy"],"sameAs":["https://linkedin.com/in/chantamaschatraporn","https://github.com/JJoopjip"],"@id":"https://chantamas.com/#person","givenName":"Chantamas","familyName":"Chatraporn","knowsLanguage":["en","th"]}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,15 +47,18 @@
   --c1:#FDF0F6; --c2:#EEF3FF; --c3:#ECF7F1;
   --ok:#0B7A4B; --ok-tint:#E5F5EC;
   --mark:#E64A8D; --mark-ink:#FFFFFF;
+  --t1:#FFE0EC; --t2:#DCE9FF; --t3:#D6F3E4; --t4:#FFF0B3; --hl:#FFB3D2; --dot:#CBCFDB; --navbg:rgba(255,255,255,.96);
   color-scheme:light;
 }
 html[data-theme="dark"]{
   --pg:#17131C; --ink:#F5EFF7; --sub:#C4BACD; --faint:#A89DB3; --surface:#1E1825;
-  --pl:#241B2D; --ln:#3A2D46; --ln-soft:#2E2438; --out:#3A2D46;
+  --pl:#4A2438; --ln:#3A2D46; --ln-soft:#2E2438; --out:#3A2D46;
   --ac:#FF8FBF; --acw:#2A1220; --ac-text:#FF9DC7;
-  --c1:#2A1F33; --c2:#1C2030; --c3:#1B2723;
+  --c1:#4A2438; --c2:#223454; --c3:#1F4033;
   --ok:#5FD39A; --ok-tint:#16281F;
   --mark:#FF8FBF; --mark-ink:#2A1220;
+  --t1:#4A2438; --t2:#223454; --t3:#1F4033; --t4:#4D4120; --hl:#7A2A55; --dot:#2E2638; --navbg:rgba(23,19,28,.96);
+  --sh:0 1px 0 rgba(0,0,0,.3),0 10px 18px -14px rgba(0,0,0,.7);
   color-scheme:dark;
 }
 html[data-theme="cute"]{
@@ -89,9 +92,9 @@ html[data-theme="cute"] h1,html[data-theme="cute"] h2,html[data-theme="cute"] h3
 /* nav */
 .nav{position:sticky;top:0;z-index:50;background:var(--pg);border-bottom:var(--bw) solid var(--ln-soft)}
 html[data-theme="cute"] .nav{border-bottom-color:var(--ink)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-disp);font-weight:800;font-size:20px;letter-spacing:-.01em;text-decoration:none;white-space:nowrap;color:var(--ink)}
-.brand svg{width:40px;height:40px;flex:none}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-disp);font-weight:800;font-size:26px;letter-spacing:-.015em;text-decoration:none;white-space:nowrap;color:var(--ink)}
+.brand svg{width:54px;height:54px;flex:none}
 .brand .mk-bg{fill:var(--mark)}.brand .mk-c,.brand .mk-s{stroke:var(--mark-ink)}.brand .mk-f{fill:var(--mark-ink)}
 .navlinks{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .navlinks a{font-size:15px;font-weight:700;text-decoration:none;color:var(--sub);padding:7px 14px;border-radius:999px;border:var(--bw) solid transparent;transition:background .15s,color .15s}
@@ -102,11 +105,6 @@ html[data-theme="cute"] .navlinks a:hover{background:var(--pl)}
 html[data-theme="cute"] .navlinks a.active{background:var(--ink);color:#fff}
 .navlinks a[href^="mailto"]{background:var(--ac);color:var(--acw);border-color:var(--ac);font-weight:800;margin-left:4px}
 .navlinks a[href^="mailto"]:hover{filter:brightness(1.12);background:var(--ac)}
-.themes{display:inline-flex;gap:2px;padding:3px;border:var(--bw) solid var(--ln);border-radius:999px;background:var(--surface);margin-left:6px}
-.themes button{font:inherit;font-size:13.5px;font-weight:800;line-height:1;color:var(--sub);background:transparent;border:0;border-radius:999px;padding:7px 11px;cursor:pointer}
-.themes button:hover{color:var(--ink)}
-.themes button[aria-pressed="true"]{background:var(--pl);color:var(--ink);box-shadow:inset 0 0 0 var(--bw) var(--out)}
-html[data-theme="cute"] .themes button[aria-pressed="true"]{background:var(--pl)}
 
 /* pages */
 .page{display:none;animation:fade .25s ease both}
@@ -459,15 +457,9 @@ html[data-theme="cute"] .foot-card{background:#2B2330;color:#fff}
   .projgrid,.projgrid.three{grid-template-columns:1fr}
   .edu-grid{grid-template-columns:1fr}
   .feat{grid-template-columns:1fr}
-  .nav .wrap{padding-top:10px;padding-bottom:10px;flex-direction:column;align-items:flex-start;gap:8px}
-  .navlinks{justify-content:flex-start;gap:4px}
-  .navlinks a{padding:6px 11px;font-size:14.5px}
-  .brand{font-size:18px}.brand svg{width:34px;height:34px}
 }
 @media (max-width:860px){
   .proof{display:none}
-  .nav .wrap{position:relative;padding-right:96px}
-  .navlinks a[href^="mailto"]{position:absolute;top:12px;right:20px;margin:0;padding:8px 14px}
 }
 @media (max-width:700px){
   .gt{min-width:0}
@@ -490,49 +482,117 @@ html[data-theme="cute"] .foot-card{background:#2B2330;color:#fff}
 html[data-theme="cute"] :focus-visible{outline-color:#E64A8D}
 .foot :focus-visible{outline-color:var(--pg)}
 /* Light theme: planner page. Dot grid, index tabs, washi tape, highlighter. */
-html:not([data-theme="dark"]):not([data-theme="cute"]){--f-disp:'Gabarito','Figtree',system-ui,sans-serif;--pg:#FFFFFF;--surface:#FFFFFF;--ink:#23222B;--sub:#4A4956;--faint:#63626F;--pl:#FFE0EC;--ln:#DADCE6;--ln-soft:#ECEEF3;--out:#D5D8E3;--ac:#C2307A;--c1:#FFE0EC;--c2:#DCE9FF;--c3:#D6F3E4;--rad:6px;--rad-sm:4px;--sh:0 1px 0 rgba(35,34,43,.05),0 10px 18px -14px rgba(35,34,43,.35)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) body{background-image:radial-gradient(circle,#CBCFDB 1.1px,transparent 1.3px);background-size:24px 24px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .nav{background:rgba(255,255,255,.96);border-bottom:2px solid var(--ink)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .nav .wrap{align-items:flex-end;padding-top:12px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a{border-radius:10px 10px 0 0;border:2px solid var(--ink);border-bottom:0;margin-bottom:-2px;padding:9px 16px;color:var(--ink);font-weight:800}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a:nth-child(1){background:#FFE0EC}html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a:nth-child(2){background:#DCE9FF}html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a:nth-child(3){background:#D6F3E4}html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a:nth-child(4){background:#FFF0B3}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a:hover{filter:brightness(.97)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a.active{background:var(--ink);color:#fff;padding-bottom:14px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a[href^="mailto"]{background:var(--ac);color:#fff;border-color:var(--ink)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .themes{margin-bottom:6px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) h1,html:not([data-theme="dark"]):not([data-theme="cute"]) h2,html:not([data-theme="dark"]):not([data-theme="cute"]) h3{font-weight:800;letter-spacing:-.035em}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .hero-card{background:transparent;border:0;box-shadow:none;padding:clamp(18px,4vw,48px) 0 8px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .hero h1{font-size:clamp(40px,6.4vw,76px)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .hero h1 em{color:var(--ink);background:linear-gradient(transparent 55%,#FFB3D2 55% 92%,transparent 92%);padding:0 .1em}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .rail div{background:#fff;border:2px solid var(--ink);border-radius:8px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .where a{background:#fff;border:2px solid var(--ink);border-radius:6px;position:relative;box-shadow:var(--sh)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .where a::before{content:"";position:absolute;top:-9px;left:18px;width:64px;height:18px;background:repeating-linear-gradient(45deg,#FFB3D2 0 6px,#FFD3E4 6px 12px);transform:rotate(-2deg);opacity:.95}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .where a:nth-child(2)::before{background:repeating-linear-gradient(45deg,#B7D2FF 0 6px,#DCE9FF 6px 12px)}html:not([data-theme="dark"]):not([data-theme="cute"]) .where a:nth-child(3)::before{background:repeating-linear-gradient(45deg,#A9E5C7 0 6px,#D6F3E4 6px 12px)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .chip{border:2px solid var(--ink);border-radius:8px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .contact-row .chip:first-child{border-color:var(--ink);border-radius:8px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .impact,html:not([data-theme="dark"]):not([data-theme="cute"]) .window,html:not([data-theme="dark"]):not([data-theme="cute"]) .uth,html:not([data-theme="dark"]):not([data-theme="cute"]) .gt-wrap,html:not([data-theme="dark"]):not([data-theme="cute"]) .card,html:not([data-theme="dark"]):not([data-theme="cute"]) .sysmap,html:not([data-theme="dark"]):not([data-theme="cute"]) .plat .p,html:not([data-theme="dark"]):not([data-theme="cute"]) .feat .f,html:not([data-theme="dark"]):not([data-theme="cute"]) .stk figure,html:not([data-theme="dark"]):not([data-theme="cute"]) .callout,html:not([data-theme="dark"]):not([data-theme="cute"]) .hilite,html:not([data-theme="dark"]):not([data-theme="cute"]) .livebar{background:#fff;border:2px solid var(--ink);border-radius:6px;box-shadow:var(--sh);position:relative}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .stat{border-top:1.5px dashed var(--ln)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .stat .n{color:var(--ac)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .projcard{background:#fff;border:2px solid var(--ink);border-radius:6px;box-shadow:var(--sh)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .projcard::before,html:not([data-theme="dark"]):not([data-theme="cute"]) .feat .f::before{content:"";position:absolute;top:-10px;left:50%;width:76px;height:20px;margin-left:-38px;transform:rotate(-2deg);background:repeating-linear-gradient(45deg,#FFB3D2 0 6px,#FFD3E4 6px 12px)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .projgrid.three .projcard:nth-child(2)::before,html:not([data-theme="dark"]):not([data-theme="cute"]) .feat .f:nth-child(2)::before{background:repeating-linear-gradient(45deg,#B7D2FF 0 6px,#DCE9FF 6px 12px)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .projgrid.three .projcard:nth-child(3)::before,html:not([data-theme="dark"]):not([data-theme="cute"]) .feat .f:nth-child(3)::before{background:repeating-linear-gradient(45deg,#A9E5C7 0 6px,#D6F3E4 6px 12px)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .feat .f:nth-child(4)::before{background:repeating-linear-gradient(45deg,#FFE27A 0 6px,#FFF0B3 6px 12px)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .projcard:hover{transform:translateY(-3px) rotate(-.4deg)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .gn{border:2px solid var(--ink);background:#FFE0EC;font-weight:800}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .projgrid.three .projcard:nth-child(2) .gn{background:#DCE9FF}html:not([data-theme="dark"]):not([data-theme="cute"]) .projgrid.three .projcard:nth-child(3) .gn{background:#D6F3E4}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .projcard .ctag{border:1.5px solid var(--ink);background:#fff}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .projcard .ctag.hot{background:var(--ink);color:#fff}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .stagenav a{background:#fff;border:2px solid var(--ink);border-radius:8px 8px 0 0;box-shadow:none}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .stagenav a:nth-child(1){background:#FFE0EC}html:not([data-theme="dark"]):not([data-theme="cute"]) .stagenav a:nth-child(2){background:#DCE9FF}html:not([data-theme="dark"]):not([data-theme="cute"]) .stagenav a:nth-child(3){background:#D6F3E4}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .stagenav a.on{background:var(--ink)!important;color:#fff}html:not([data-theme="dark"]):not([data-theme="cute"]) .stagenav a.on .sn-n,html:not([data-theme="dark"]):not([data-theme="cute"]) .stagenav a.on .sn-d{color:#fff}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .stagenav a.on::after{background:#fff;color:var(--ink)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .callout{background:#FFF0B3}html:not([data-theme="dark"]):not([data-theme="cute"]) .hilite{background:#DCE9FF}html:not([data-theme="dark"]):not([data-theme="cute"]) .livebar{background:#D6F3E4}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .foot-card{background:var(--ink);color:#fff;border:2px solid var(--ink);border-radius:6px}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .foot .chip,html:not([data-theme="dark"]):not([data-theme="cute"]) .foot .contact-row .chip:first-child{background:#fff;color:var(--ink)}
-html:not([data-theme="dark"]):not([data-theme="cute"]) .more-link{border-bottom:4px solid #FFB3D2}
+html:not([data-theme="cute"]):not(.x){--f-disp:'Gabarito','Figtree',system-ui,sans-serif;--rad:6px;--rad-sm:4px}
+html:not([data-theme="dark"]):not([data-theme="cute"]){--pg:#FFFFFF;--surface:#FFFFFF;--ink:#23222B;--sub:#4A4956;--faint:#63626F;--pl:var(--t1);--ln:#DADCE6;--ln-soft:#ECEEF3;--out:#D5D8E3;--ac:#C2307A;--c1:var(--t1);--c2:var(--t2);--c3:var(--t3);--sh:0 1px 0 rgba(35,34,43,.05),0 10px 18px -14px rgba(35,34,43,.35)}
+html:not([data-theme="cute"]):not(.x) body{background-image:radial-gradient(circle,var(--dot) 1.1px,transparent 1.3px);background-size:24px 24px}
+html:not([data-theme="cute"]):not(.x) .nav{background:var(--navbg);border-bottom:2px solid var(--ink)}
+html:not([data-theme="cute"]):not(.x) .nav .wrap{align-items:flex-end;padding-top:12px}
+html:not([data-theme="cute"]):not(.x) .navlinks a{border-radius:10px 10px 0 0;border:2px solid var(--ink);border-bottom:0;margin-bottom:-2px;padding:9px 16px;color:var(--ink);font-weight:800}
+html:not([data-theme="cute"]):not(.x) .navlinks a:nth-child(1){background:var(--t1)}html:not([data-theme="cute"]):not(.x) .navlinks a:nth-child(2){background:var(--t2)}html:not([data-theme="cute"]):not(.x) .navlinks a:nth-child(3){background:var(--t3)}html:not([data-theme="cute"]):not(.x) .navlinks a:nth-child(4){background:var(--t4)}
+html:not([data-theme="cute"]):not(.x) .navlinks a:hover{filter:brightness(.97)}
+html:not([data-theme="cute"]):not(.x) .navlinks a.active{background:var(--ink);color:var(--pg);padding-bottom:14px}
+html:not([data-theme="cute"]):not(.x) .navlinks a[href^="mailto"]{background:var(--ac);color:var(--acw);border-color:var(--ink)}
+html:not([data-theme="cute"]):not(.x) h1,html:not([data-theme="cute"]):not(.x) h2,html:not([data-theme="cute"]):not(.x) h3{font-weight:800;letter-spacing:-.035em}
+html:not([data-theme="cute"]):not(.x) .hero-card{background:transparent;border:0;box-shadow:none;padding:clamp(18px,4vw,48px) 0 8px}
+html:not([data-theme="cute"]):not(.x) .hero h1{font-size:clamp(40px,6.4vw,76px)}
+html:not([data-theme="cute"]):not(.x) .hero h1 em{color:var(--ink);background:linear-gradient(transparent 55%,var(--hl) 55% 92%,transparent 92%);padding:0 .1em}
+html:not([data-theme="cute"]):not(.x) .rail div{background:var(--surface);border:2px solid var(--ink);border-radius:8px}
+html:not([data-theme="cute"]):not(.x) .where a{background:var(--surface);border:2px solid var(--ink);border-radius:6px;position:relative;box-shadow:var(--sh)}
+html:not([data-theme="cute"]):not(.x) .where a::before{content:"";position:absolute;top:-9px;left:18px;width:64px;height:18px;background:repeating-linear-gradient(45deg,#FFB3D2 0 6px,#FFD3E4 6px 12px);transform:rotate(-2deg);opacity:.95}
+html:not([data-theme="cute"]):not(.x) .where a:nth-child(2)::before{background:repeating-linear-gradient(45deg,#B7D2FF 0 6px,var(--t2) 6px 12px)}html:not([data-theme="cute"]):not(.x) .where a:nth-child(3)::before{background:repeating-linear-gradient(45deg,#A9E5C7 0 6px,var(--t3) 6px 12px)}
+html:not([data-theme="cute"]):not(.x) .chip{border:2px solid var(--ink);border-radius:8px}
+html:not([data-theme="cute"]):not(.x) .contact-row .chip:first-child{border-color:var(--ink);border-radius:8px}
+html:not([data-theme="cute"]):not(.x) .impact,html:not([data-theme="cute"]):not(.x) .window,html:not([data-theme="cute"]):not(.x) .uth,html:not([data-theme="cute"]):not(.x) .gt-wrap,html:not([data-theme="cute"]):not(.x) .card,html:not([data-theme="cute"]):not(.x) .sysmap,html:not([data-theme="cute"]):not(.x) .plat .p,html:not([data-theme="cute"]):not(.x) .feat .f,html:not([data-theme="cute"]):not(.x) .stk figure,html:not([data-theme="cute"]):not(.x) .callout,html:not([data-theme="cute"]):not(.x) .hilite,html:not([data-theme="cute"]):not(.x) .livebar{background:var(--surface);border:2px solid var(--ink);border-radius:6px;box-shadow:var(--sh);position:relative}
+html:not([data-theme="cute"]):not(.x) .stat{border-top:1.5px dashed var(--ln)}
+html:not([data-theme="cute"]):not(.x) .stat .n{color:var(--ac)}
+html:not([data-theme="cute"]):not(.x) .projcard{background:var(--surface);border:2px solid var(--ink);border-radius:6px;box-shadow:var(--sh)}
+html:not([data-theme="cute"]):not(.x) .projcard::before,html:not([data-theme="cute"]):not(.x) .feat .f::before{content:"";position:absolute;top:-10px;left:50%;width:76px;height:20px;margin-left:-38px;transform:rotate(-2deg);background:repeating-linear-gradient(45deg,#FFB3D2 0 6px,#FFD3E4 6px 12px)}
+html:not([data-theme="cute"]):not(.x) .projgrid.three .projcard:nth-child(2)::before,html:not([data-theme="cute"]):not(.x) .feat .f:nth-child(2)::before{background:repeating-linear-gradient(45deg,#B7D2FF 0 6px,var(--t2) 6px 12px)}
+html:not([data-theme="cute"]):not(.x) .projgrid.three .projcard:nth-child(3)::before,html:not([data-theme="cute"]):not(.x) .feat .f:nth-child(3)::before{background:repeating-linear-gradient(45deg,#A9E5C7 0 6px,var(--t3) 6px 12px)}
+html:not([data-theme="cute"]):not(.x) .feat .f:nth-child(4)::before{background:repeating-linear-gradient(45deg,#FFE27A 0 6px,var(--t4) 6px 12px)}
+html:not([data-theme="cute"]):not(.x) .projcard:hover{transform:translateY(-3px) rotate(-.4deg)}
+html:not([data-theme="cute"]):not(.x) .gn{border:2px solid var(--ink);background:var(--t1);font-weight:800}
+html:not([data-theme="cute"]):not(.x) .projgrid.three .projcard:nth-child(2) .gn{background:var(--t2)}html:not([data-theme="cute"]):not(.x) .projgrid.three .projcard:nth-child(3) .gn{background:var(--t3)}
+html:not([data-theme="cute"]):not(.x) .projcard .ctag{border:1.5px solid var(--ink);background:var(--surface)}
+html:not([data-theme="cute"]):not(.x) .projcard .ctag.hot{background:var(--ink);color:var(--pg)}
+html:not([data-theme="cute"]):not(.x) .stagenav a{background:var(--surface);border:2px solid var(--ink);border-radius:8px 8px 0 0;box-shadow:none}
+html:not([data-theme="cute"]):not(.x) .stagenav a:nth-child(1){background:var(--t1)}html:not([data-theme="cute"]):not(.x) .stagenav a:nth-child(2){background:var(--t2)}html:not([data-theme="cute"]):not(.x) .stagenav a:nth-child(3){background:var(--t3)}
+html:not([data-theme="cute"]):not(.x) .stagenav a.on{background:var(--ink)!important;color:var(--pg)}html:not([data-theme="cute"]):not(.x) .stagenav a.on .sn-n,html:not([data-theme="cute"]):not(.x) .stagenav a.on .sn-d{color:var(--pg)}
+html:not([data-theme="cute"]):not(.x) .stagenav a.on::after{background:var(--pg);color:var(--ink)}
+html:not([data-theme="cute"]):not(.x) .callout{background:var(--t4)}html:not([data-theme="cute"]):not(.x) .hilite{background:var(--t2)}html:not([data-theme="cute"]):not(.x) .livebar{background:var(--t3)}
+html:not([data-theme="cute"]):not(.x) .foot-card{background:var(--ink);color:var(--pg);border:2px solid var(--ink);border-radius:6px}
+html:not([data-theme="cute"]):not(.x) .foot .chip,html:not([data-theme="cute"]):not(.x) .foot .contact-row .chip:first-child{background:var(--pg);color:var(--ink)}
+html:not([data-theme="cute"]):not(.x) .more-link{border-bottom:4px solid var(--hl)}
 @B .brand{font-family:Figtree,system-ui,sans-serif;font-weight:800}
-@media (max-width:860px){html:not([data-theme="dark"]):not([data-theme="cute"]) .brand{font-size:16px}html:not([data-theme="dark"]):not([data-theme="cute"]) .navlinks a{padding:7px 11px}}
+@media (max-width:860px){html:not([data-theme="cute"]):not(.x) .brand{font-size:21px}html:not([data-theme="cute"]):not(.x) .navlinks a{padding:7px 11px}}
+
+/* Dark: footer slab stays a solid dark block like Light (not inverted to white) */
+html[data-theme="dark"]:not(.x) .foot-card{background:var(--t1);color:var(--ink);border:2px solid var(--ink)}
+html[data-theme="dark"]:not(.x) .foot .chip,html[data-theme="dark"]:not(.x) .foot .contact-row .chip:first-child{background:var(--pg);color:var(--ink);border:2px solid var(--ink)}
+html[data-theme="dark"]:not(.x) .foot-card :is(h2,p,.sub){color:var(--ink)}
+
+/* nav v3: menu on narrow screens, hides while scrolling down; floating Mode dropdown */
+.nav{transition:transform .25s ease}
+.iconbtn{width:40px;height:40px;flex:none;display:inline-grid;place-items:center;padding:0;margin-left:6px;border-radius:999px;border:var(--bw) solid var(--ln);background:var(--surface);color:var(--ink);cursor:pointer}
+html[data-theme="cute"] .iconbtn{border-color:var(--ink)}
+.iconbtn:hover{background:var(--pl)}
+.iconbtn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.iconbtn:focus-visible,.navpanel a:focus-visible,.modebtn:focus-visible,.modemenu button:focus-visible{outline:2.5px solid var(--ac);outline-offset:2px}
+html[data-theme="cute"] :is(.iconbtn,.navpanel a,.modebtn,.modemenu button):focus-visible{outline-color:var(--ink)}
+html:not([data-theme="cute"]):not(.x) .iconbtn{border:2px solid var(--ink);margin-bottom:6px}
+.menubtn{display:none}
+.navpanel{display:none}
+.navpanel a{font-size:16px;font-weight:700;text-decoration:none;color:var(--sub);padding:12px 16px;border-radius:999px;border:var(--bw) solid transparent}
+.navpanel a:hover{background:var(--pl);color:var(--ink)}
+.navpanel a.active{background:var(--ink);color:var(--pg);border-color:var(--ink)}
+html[data-theme="cute"] .navpanel a{background:var(--surface);border-color:var(--ink);color:var(--ink);font-weight:800}
+html[data-theme="cute"] .navpanel a.active{background:var(--ink);color:var(--pg)}
+html:not([data-theme="cute"]):not(.x) .navpanel a{border:2px solid var(--ink);border-radius:10px;color:var(--ink);font-weight:800}
+html:not([data-theme="cute"]):not(.x) .navpanel a:nth-child(1){background:var(--t1)}html:not([data-theme="cute"]):not(.x) .navpanel a:nth-child(2){background:var(--t2)}html:not([data-theme="cute"]):not(.x) .navpanel a:nth-child(3){background:var(--t3)}html:not([data-theme="cute"]):not(.x) .navpanel a:nth-child(4){background:var(--t4)}
+html:not([data-theme="cute"]):not(.x) .navpanel a.active{background:var(--ink);color:var(--pg)}
+@media (max-width:860px){
+  .nav .wrap,html:not([data-theme="cute"]):not(.x) .nav .wrap{flex-direction:row;align-items:center;min-height:60px;padding-top:8px;padding-bottom:8px;gap:10px}
+  .navlinks{flex-wrap:nowrap;gap:0}
+  .navlinks a:not([href^="mailto"]){display:none}
+  .navlinks a[href^="mailto"]{margin:0;padding:8px 14px;font-size:14.5px}
+  html:not([data-theme="cute"]):not(.x) .navlinks a[href^="mailto"]{border-radius:999px;border-bottom:2px solid var(--ink);margin-bottom:0}
+  .brand{font-size:20px;gap:9px}.brand svg{width:44px;height:44px}
+  .menubtn{display:inline-grid}
+  html:not([data-theme="cute"]):not(.x) .iconbtn{margin-bottom:0}
+  .nav.open .navpanel{display:flex;flex-direction:column;gap:8px;padding:6px 20px 16px}
+}
+@media (max-width:640px){
+  .contact-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .contact-row .chip{justify-content:center;padding:12px 10px;font-size:15.5px}
+  .contact-row .chip:first-child,.contact-row .chip:last-child{grid-column:1/-1}
+  .hero-name{text-wrap:balance;font-size:16px}
+  .hero-card .rail{gap:6px}
+}
+@media (max-width:640px){.brand>span{display:flex;flex-direction:column;line-height:1.05}.brand .ln{font-size:.62em;font-weight:700;color:var(--sub);letter-spacing:0}}
+
+.topstrip{position:relative;z-index:60;background:var(--pg)}
+.topstrip .wrap{padding-top:8px;padding-bottom:8px}
+.mode{position:relative;display:inline-block}
+.modebtn{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px;border-radius:999px;border:var(--bw) solid var(--ln);background:var(--surface);color:var(--ink);font:inherit;font-size:14.5px;font-weight:800;cursor:pointer}
+.modebtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.modebtn .ml{font-weight:600;color:var(--sub)}
+.modebtn .chev{width:14px;height:14px;transition:transform .15s}
+.modebtn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.modemenu{position:absolute;left:0;top:calc(100% + 8px);min-width:172px;padding:6px;border-radius:16px;border:var(--bw) solid var(--ln);background:var(--surface);box-shadow:0 8px 24px rgba(20,10,30,.18);display:flex;flex-direction:column;gap:2px}
+.modemenu[hidden]{display:none}
+.modemenu button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;font:inherit;font-size:15px;font-weight:700;color:var(--ink);background:transparent;border:0;border-radius:10px;padding:10px 12px;cursor:pointer}
+.modemenu button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.modemenu button .ck{margin-left:auto;visibility:hidden}
+.modemenu button[aria-checked="true"]{background:var(--pl)}
+.modemenu button[aria-checked="true"] .ck{visibility:visible}
+.modemenu button:hover{background:var(--pl)}
+.t-ico{display:none}
+html[data-theme="light"] .t-sun,html[data-theme="dark"] .t-moon,html[data-theme="cute"] .t-heart{display:block}
+html:not([data-theme="cute"]):not(.x) .modebtn,html:not([data-theme="cute"]):not(.x) .modemenu{border:2px solid var(--ink)}
+html[data-theme="cute"] .modebtn,html[data-theme="cute"] .modemenu{border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink)}
+.langline{margin:30px 0 0;font-size:16px;color:var(--sub)}
+.langline b{color:var(--ink);font-weight:800;margin-right:6px}
+@media (prefers-reduced-motion:reduce){.nav,.modebtn .chev{transition:none}}
 </style>
 </head>
 <body>
@@ -572,17 +632,37 @@ html:not([data-theme="dark"]):not([data-theme="cute"]) .more-link{border-bottom:
   <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="8.5 12.5 11 15 15.5 9.5"/></g></symbol>
 </svg>
 
-<nav class="nav">
+<div class="topstrip"><div class="wrap">
+<div class="mode" id="mode">
+  <button class="modebtn" id="modebtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="modemenu">
+    <svg class="t-ico t-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="t-ico t-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="t-ico t-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-8-4.9-8-11A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5c0 6.1-8 11-8 11z"/></svg><span>Mode</span><span class="ml" id="modelabel">Light</span>
+    <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="modemenu" id="modemenu" role="menu" aria-label="Mode" hidden>
+    <button type="button" role="menuitemradio" aria-checked="true" data-theme="light"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Light<svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+    <button type="button" role="menuitemradio" aria-checked="false" data-theme="dark"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Dark<svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+    <button type="button" role="menuitemradio" aria-checked="false" data-theme="cute"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-8-4.9-8-11A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5c0 6.1-8 11-8 11z"/></svg>Cute<svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></button>
+  </div>
+</div></div></div>
+<nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <a class="brand" href="#/" aria-label="Chantamas Chatraporn, home"><svg viewBox="0 0 100 100" aria-hidden="true"><g class="mk-bg"><circle cx="22" cy="28" r="15"/><circle cx="78" cy="28" r="15"/><circle cx="50" cy="58" r="36"/></g><path class="mk-c" d="M38.8 47.3 A7.5 7.5 0 1 0 38.8 58.7" fill="none" stroke-width="6.5" stroke-linecap="round"/><path class="mk-c" d="M70.8 47.3 A7.5 7.5 0 1 0 70.8 58.7" fill="none" stroke-width="6.5" stroke-linecap="round"/><ellipse cx="50" cy="67" rx="5.5" ry="4" class="mk-f"/><path d="M50 71v4M43.5 76.5q3.2 4.5 6.5-1.5q3.3 6 6.5 1.5" fill="none" class="mk-s" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Chantamas Chatraporn</span></a>
+    <a class="brand" href="#/" aria-label="Chantamas Chatraporn, home"><svg viewBox="0 0 100 100" aria-hidden="true"><g class="mk-bg"><circle cx="22" cy="28" r="15"/><circle cx="78" cy="28" r="15"/><circle cx="50" cy="58" r="36"/></g><path class="mk-c" d="M38.8 47.3 A7.5 7.5 0 1 0 38.8 58.7" fill="none" stroke-width="6.5" stroke-linecap="round"/><path class="mk-c" d="M70.8 47.3 A7.5 7.5 0 1 0 70.8 58.7" fill="none" stroke-width="6.5" stroke-linecap="round"/><ellipse cx="50" cy="67" rx="5.5" ry="4" class="mk-f"/><path d="M50 71v4M43.5 76.5q3.2 4.5 6.5-1.5q3.3 6 6.5 1.5" fill="none" class="mk-s" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Chantamas<span class="ln"> Chatraporn</span></span></a>
     <div class="navlinks">
       <a href="#/" data-route="/">Home</a>
       <a href="#/background" data-route="/background">Background</a>
       <a href="#/job-search" data-route="/job-search" data-group="/job-search /resume-gen /tracker">Job Search System</a>
       <a href="#/stickers" data-route="/stickers">Stickers</a>
       <a href="mailto:c.chantamas@gmail.com">Email</a>
-      <div class="themes" role="group" aria-label="Theme"><button type="button" data-theme="light" aria-pressed="true">Light</button><button type="button" data-theme="dark" aria-pressed="false">Dark</button><button type="button" data-theme="cute" aria-pressed="false">Cute</button></div>
+      <button class="iconbtn menubtn" id="menubtn" type="button" aria-expanded="false" aria-controls="navpanel" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path id="menuicon" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
+  </div>
+  <div class="navpanel" id="navpanel">
+    <a href="#/" data-route="/">Home</a>
+    <a href="#/background" data-route="/background">Background</a>
+    <a href="#/job-search" data-route="/job-search" data-group="/job-search /resume-gen /tracker">Job Search System</a>
+    <a href="#/stickers" data-route="/stickers">Stickers</a>
   </div>
 </nav>
 
@@ -594,7 +674,7 @@ html:not([data-theme="dark"]):not([data-theme="cute"]) .more-link{border-bottom:
         <div class="hero-grid">
           <div>
             <h1>I manage the launch <em>and build the tools</em> that make it run.</h1>
-            <p class="hero-name">Chantamas “Joopjip” Chatraporn · Project Manager · Toronto</p>
+            <p class="hero-name">Chantamas “Joopjip” Chatraporn <span style="white-space:nowrap">· Project Manager · Toronto</span></p>
             <p class="lead">Project manager and commercial professional with seven years in pharma, medtech, and consumer health. PMP-certified and business-analysis trained, and hands-on enough to design the systems a project needs, including the three tools I built to run my own job search.</p>
             <div class="contact-row">
             <a class="chip" href="mailto:c.chantamas@gmail.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>c.chantamas@gmail.com</a>
@@ -719,7 +799,7 @@ html:not([data-theme="dark"]):not([data-theme="cute"]) .more-link{border-bottom:
       <div class="foot-card">
         <div>
           <h2>Open to project management, BD &amp; strategy roles in Toronto.</h2>
-          <p class="sub">Pharma, healthcare, medtech, and consumer health especially. The fastest way to reach me is email.</p>
+          <p class="sub">Pharma, healthcare, medtech, and consumer health especially. Based in Toronto, and open to roles in Bangkok, where I started my career. The fastest way to reach me is email.</p>
           <div class="contact-row">
         <a class="chip" href="mailto:c.chantamas@gmail.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>c.chantamas@gmail.com</a>
         <a class="chip" href="https://linkedin.com/in/chantamaschatraporn" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a>
@@ -732,7 +812,7 @@ html:not([data-theme="dark"]):not([data-theme="cute"]) .more-link{border-bottom:
           <img src="assets/stickers/mianmian-thinking.webp" width="286" height="272" alt="" loading="lazy">
         </div>
       </div>
-      <div class="fine">Chantamas “Joopjip” Chatraporn · Toronto, ON · Portfolio</div>
+      <div class="fine">Chantamas “Joopjip” Chatraporn (<span lang="th">จันทมาศ ฉัตราภรณ์</span>) · Toronto, ON · Portfolio</div>
     </div>
   </footer>
 </main>
@@ -913,6 +993,7 @@ html:not([data-theme="dark"]):not([data-theme="cute"]) .more-link{border-bottom:
           </ul>
         </div>
       </div>
+      <p class="langline reveal"><b>Languages</b>English (fluent) · Thai (native)</p>
       <p class="langs reveal"><b>Languages:</b> Thai (native) · English (fluent) · German (basic) · French (basic)</p>
       <a class="more-link" href="#/" data-route="/" style="margin-top:32px">Back to home &amp; projects</a>
     </div>
@@ -1155,7 +1236,7 @@ html:not([data-theme="dark"]):not([data-theme="cute"]) .more-link{border-bottom:
 (function(){
   var routes = {'/':'home','/background':'background','/job-search':'job-search','/tracker':'tracker','/resume-gen':'resume-gen','/stickers':'stickers'};
   var pages = document.querySelectorAll('.page');
-  var links = document.querySelectorAll('.navlinks a[data-route]');
+  var links = document.querySelectorAll('.navlinks a[data-route], .navpanel a[data-route]');
 
   function pathFromHash(){
     var p = (location.hash || '#/').replace('#','') || '/';
@@ -1198,12 +1279,46 @@ html:not([data-theme="dark"]):not([data-theme="cute"]) .more-link{border-bottom:
   function applyTheme(t, save){
     if(!THEME_COLORS[t]) t = 'light';
     document.documentElement.setAttribute('data-theme', t);
-    document.querySelectorAll('.themes button').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-theme') === t ? 'true' : 'false'); });
+    var ml = document.getElementById('modelabel'); if(ml) ml.textContent = {light:'Light',dark:'Dark',cute:'Cute'}[t];
+    document.querySelectorAll('#modemenu [data-theme]').forEach(function(b){ b.setAttribute('aria-checked', b.getAttribute('data-theme') === t ? 'true' : 'false'); });
     var m = document.querySelector('meta[name="theme-color"]'); if(m) m.setAttribute('content', THEME_COLORS[t]);
     if(save){ try{ localStorage.setItem('cc-theme', t); }catch(e){} }
     document.querySelectorAll('iframe.live').forEach(function(f){ try{ f.contentWindow.postMessage({ccTheme:t}, '*'); }catch(e){} });
   }
-  document.querySelectorAll('.themes button').forEach(function(b){ b.addEventListener('click', function(){ applyTheme(b.getAttribute('data-theme'), true); }); });
+  // Mode dropdown (floating, bottom left)
+  var mb = document.getElementById('modebtn'), mm = document.getElementById('modemenu');
+  function setMode(o){ mm.hidden = !o; mb.setAttribute('aria-expanded', o ? 'true' : 'false'); }
+  mb.addEventListener('click', function(){
+    var o = mm.hidden; setMode(o);
+    if(o){ var c = mm.querySelector('[aria-checked="true"]'); if(c) c.focus(); }
+  });
+  mm.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-theme]'); if(!b) return;
+    applyTheme(b.getAttribute('data-theme'), true); setMode(false); mb.focus();
+  });
+  document.addEventListener('click', function(e){ if(!mm.hidden && !e.target.closest('#mode')) setMode(false); });
+  document.addEventListener('keydown', function(e){
+    if(mm.hidden) return;
+    if(e.key === 'Escape'){ setMode(false); mb.focus(); }
+    else if(e.key === 'ArrowDown' || e.key === 'ArrowUp'){
+      e.preventDefault();
+      var items = Array.prototype.slice.call(mm.querySelectorAll('button')), i = items.indexOf(document.activeElement);
+      items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length].focus();
+    }
+  });
+
+  // Menu (narrow screens) and hide-on-scroll for the nav
+  var nav = document.getElementById('nav'), mbtn = document.getElementById('menubtn'), micon = document.getElementById('menuicon');
+  function setMenu(o){
+    nav.classList.toggle('open', o);
+    mbtn.setAttribute('aria-expanded', o ? 'true' : 'false');
+    mbtn.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
+    micon.setAttribute('d', o ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16');
+  }
+  mbtn.addEventListener('click', function(){ setMenu(!nav.classList.contains('open')); });
+  document.getElementById('navpanel').addEventListener('click', function(e){ if(e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && nav.classList.contains('open')){ setMenu(false); mbtn.focus(); } });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 860) setMenu(false); });
   document.querySelectorAll('iframe.live').forEach(function(f){ f.addEventListener('load', function(){ try{ f.contentWindow.postMessage({ccTheme:document.documentElement.getAttribute('data-theme')}, '*'); }catch(e){} }); });
   applyTheme(document.documentElement.getAttribute('data-theme'), false);
 

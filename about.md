@@ -1,8 +1,9 @@
-# Chantamas "Joopjip" Chatraporn
+# Chantamas "Joopjip" Chatraporn (จันทมาศ ฉัตราภรณ์)
 
 Project manager and commercial professional (business development, strategy) in
-pharma, medtech and consumer health. Based in Toronto, ON. Open to project
-management, business development and strategy roles. PMP certified.
+pharma, medtech and consumer health. Based in Toronto, ON, and open to roles in
+Bangkok, where the career started. Open to project management, business
+development and strategy roles. PMP certified.
 
 This file mirrors the portfolio at https://chantamas.com/ in plain text.
 The website is the source of record; if they differ, the website is correct.
@@ -17,6 +18,10 @@ The website is the source of record; if they differ, the website is correct.
 - M.S. Project Management, Northeastern University, Toronto (Sep 2024 to Apr 2026); concentration in Project Business Analysis; GPA 3.9/4.0
 - Doctor of Pharmacy, Chulalongkorn University, Bangkok (2011 to 2017)
 - Smart Serve certified
+
+## Languages
+- English (fluent)
+- Thai (native)
 
 ## Experience (most recent first)
 - **Server & Acting Restaurant Manager**, Toronto, Jan 2025 to present (part-time through Jun 2026 while completing the master's; full-time since Aug 2026, alongside job search). Acting restaurant manager: resolves day-to-day issues and manages front-of-house inventory; sole server each day. Smart Serve certified.
